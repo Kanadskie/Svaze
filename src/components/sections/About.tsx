@@ -94,7 +94,7 @@ export default function About() {
             >
               <div className="sticky top-0 space-y-6 md:space-y-8">
                 {/* Заголовок */}
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">
                   <span className="text-neutral-dark block">ОБО</span>
                   <span className="text-accent block mt-2 lg:mt-3">МНЕ</span>
                 </h2>

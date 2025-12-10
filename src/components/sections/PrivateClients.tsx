@@ -37,12 +37,12 @@ export default function PrivateClients() {
           viewport={{ once: true, margin: "-50px" }}
           className="max-w-7xl mx-auto w-full"
         >
-          <div className="text-center mb-8 md:mb-12 lg:mb-16">
+          <div className="text-center mb-10 md:mb-16">
             <h2 className="text-3xl xs:text-3xl sm:text-4xl md:text-5xl font-bold mb-3 md:mb-4 lg:mb-6">
               <span className="text-neutral-dark uppercase">Частным</span>
               <span className="text-accent uppercase"> клиентам</span>
             </h2>
-            <p className="text-base sm:text-lg md:text-xl text-neutral-dark/60 max-w-3xl mx-auto px-2 sm:px-4">
+            <p className="text-base sm:text-lg md:text-xl text-neutral-dark max-w-3xl mx-auto px-2 sm:px-4">
               Каждый из нас сталкивается с трудностями в общении — недосказанными чувствами, конфликтами, непониманием. Моя задача — помочь увидеть закономерности в этих ситуациях и найти путь к взаимопониманию.
             </p>
           </div>
