@@ -4,6 +4,41 @@ import { motion } from 'framer-motion';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import portrait from '../../assets/images/p3.jpg';
 
+// ТОЛЬКО ДЛЯ H1 - анимация букв
+const titleContainerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.5
+    }
+  }
+}
+
+const letterVariants = {
+  hidden: { 
+    opacity: 0, 
+    y: 30,
+    scale: 0.8
+  },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    scale: 1,
+    transition: {
+      type: "spring",
+      stiffness: 150,
+      damping: 20
+    }
+  }
+}
+
+const nameLetters = {
+  "СЮЗАННА": "СЮЗАННА".split(''),
+  "КИМ": "КИМ".split('')
+};
+
 export default function Hero() {
   return (
     <section 
@@ -11,22 +46,52 @@ export default function Hero() {
       className="bg-primary pt-12 pb-12 md:pt-14 md:pb-14 lg:pt-16 lg:pb-20"
     >
       <div className="container-custom relative z-10">
-        {/* Изменяем items-center на items-end для выравнивания по низу */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-12 lg:gap-16 items-end">
           
           {/* Левая колонка - текст */}
           <div className="text-center lg:text-left order-2 lg:order-1">
+            {/* Обертка для h1 с letterVariants */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+              variants={titleContainerVariants}
+              initial="hidden"
+              animate="visible"
             >
               <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-5 md:mb-6 lg:mb-7 leading-tight">
-                <span className="block text-white tracking-tight">СЮЗАННА</span>
-                <span className="block text-accent tracking-tight">КИМ</span>
+                {/* Первая строка - СЮЗАННА */}
+                <span className="block text-white tracking-tight">
+                  {nameLetters["СЮЗАННА"].map((letter, index) => (
+                    <motion.span
+                      key={index}
+                      variants={letterVariants}
+                      className="inline-block"
+                    >
+                      {letter}
+                    </motion.span>
+                  ))}
+                </span>
+                
+                {/* Вторая строка - КИМ с задержкой */}
+                <motion.span 
+                  className="block text-accent tracking-tight"
+                  variants={titleContainerVariants}
+                  initial="hidden"
+                  animate="visible"
+                  custom={1}
+                >
+                  {nameLetters["КИМ"].map((letter, index) => (
+                    <motion.span
+                      key={index}
+                      variants={letterVariants}
+                      className="inline-block"
+                    >
+                      {letter}
+                    </motion.span>
+                  ))}
+                </motion.span>
               </h1>
             </motion.div>
 
+            {/* Остальная оригинальная анимация */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -36,7 +101,6 @@ export default function Hero() {
               Осознанная коммуникация для бизнеса и жизни через <span className="text-accent font-medium">Process Communication Model</span>
             </motion.p>
 
-            {/* Кнопки действий */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -92,7 +156,7 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Правая колонка - фото */}
+          {/* Фото с оригинальной анимацией */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -101,14 +165,11 @@ export default function Hero() {
           >
             <div className="relative w-full max-w-[280px] sm:max-w-xs md:max-w-sm lg:max-w-md">
               
-              {/* МОБИЛЬНАЯ ВЕРСИЯ */}
               <div className="lg:hidden relative">
                 <div className="relative h-[300px] sm:h-[340px] md:h-[380px]">
-                  {/* Уголки */}
                   <div className="absolute -left-2 -top-2 w-10 h-10 border-t-2 border-l-2 border-accent opacity-60 sm:w-12 sm:h-12 md:w-14 md:h-14"></div>
                   <div className="absolute -right-2 -bottom-2 w-10 h-10 border-b-2 border-r-2 border-accent opacity-60 sm:w-12 sm:h-12 md:w-14 md:h-14"></div>
                   
-                  {/* Фото */}
                   <div 
                     className="absolute inset-0 overflow-hidden"
                     style={{
@@ -128,14 +189,11 @@ export default function Hero() {
                 </div>
               </div>
 
-              {/* ДЕСКТОПНАЯ ВЕРСИЯ */}
               <div className="hidden lg:block relative">
                 <div className="relative h-[380px] lg:h-[400px] xl:h-[440px] 2xl:h-[480px]">
-                  {/* Уголки */}
                   <div className="absolute -left-2 -top-2 w-10 h-10 border-t-2 border-l-2 border-accent opacity-60 z-10 sm:w-12 sm:h-12"></div>
                   <div className="absolute -right-2 -bottom-2 w-10 h-10 border-b-2 border-r-2 border-accent opacity-60 z-10 sm:w-12 sm:h-12"></div>
                   
-                  {/* Фото */}
                   <div 
                     className="absolute inset-0 overflow-hidden"
                     style={{

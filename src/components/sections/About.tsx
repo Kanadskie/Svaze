@@ -170,7 +170,7 @@ export default function About() {
                 transition={{ delay: 0.4 }}
                 className="pt-3 sm:pt-4 border-t border-[#e5e5e5]"
               >
-                <p className="text-[#2f2f2f]/90 leading-relaxed text-sm sm:text-base md:text-lg">
+                <p className="text-neutral-dark leading-relaxed text-sm sm:text-base md:text-lg">
                   Мой подход сочетает научную глубину, мягкость и игровую динамику. На тренингах и индивидуальных встречах мы не просто обсуждаем теорию — мы проживаем реальные ситуации, учимся говорить так, чтобы быть услышанными, и слушать так, чтобы понимать.
                 </p>
               </motion.div>
@@ -207,18 +207,18 @@ export default function About() {
                     transition={{ duration: 1, delay: 0.1 + index * 0.1 }}
                     whileHover={{ y: -3, scale: 1.03 }}
                     whileTap={{ scale: 0.98 }}
-                    className="card-minimal group p-3 sm:p-4 md:p-5 bg-gradient-to-br from-white to-[#f8f8f8] border border-[#e5e5e5] hover:border-[#b8b42d]/40 transition-all duration-300 rounded-lg sm:rounded-xl shadow-sm hover:shadow-md"
+                    className="card-minimal group p-3 sm:p-4 md:p-5 bg-gradient-to-br from-white to-[#f8f8f8] border border-[#e5e5e5] hover:border-accent/40 transition-all duration-300 rounded-lg sm:rounded-xl shadow-sm hover:shadow-md"
                   >
-                    <div className="text-[#b8b42d] mb-2 sm:mb-3 group-hover:scale-110 transition-transform duration-300">
+                    <div className="text-accent mb-2 sm:mb-3 group-hover:scale-110 transition-transform duration-300">
                       {stat.icon}
                     </div>
-                    <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-[#2f2f2f] mb-1 sm:mb-2">
+                    <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-neutral-dark mb-1 sm:mb-2">
                       {stat.value}
                     </div>
-                    <div className="text-[#b8b42d] font-semibold text-sm sm:text-base md:text-lg mb-1 sm:mb-2">
+                    <div className="text-accent font-semibold text-sm sm:text-base md:text-lg mb-1 sm:mb-2">
                       {stat.title}
                     </div>
-                    <div className="text-[#2f2f2f]/60 text-xs sm:text-sm md:text-base">
+                    <div className="text-neutral-dark text-xs sm:text-sm md:text-base">
                       {stat.desc}
                     </div>
                   </motion.div>
@@ -233,10 +233,10 @@ export default function About() {
                 transition={{ duration: 1, delay: 0.5 }}
                 className="p-3 sm:p-4 md:p-5 rounded-lg sm:rounded-xl border border-[#e5e5e5] shadow-sm"
               >
-                <h3 className="text-[#2f2f2f] font-semibold text-sm sm:text-base md:text-lg lg:text-xl mb-1 sm:mb-2">
+                <h3 className="text-neutral-dark font-semibold text-sm sm:text-base md:text-lg lg:text-xl mb-1 sm:mb-2">
                   Основа подхода
                 </h3>
-                <p className="text-[#2f2f2f]/70 text-xs sm:text-sm md:text-base leading-relaxed">
+                <p className="text-neutral-dark text-xs sm:text-sm md:text-base leading-relaxed">
                   Сочетание научной глубины PCM с практической применимостью в реальных ситуациях
                 </p>
               </motion.div>

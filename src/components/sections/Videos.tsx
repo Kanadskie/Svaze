@@ -171,18 +171,38 @@ export default function Videos() {
     <section id="videos" className="section-padding bg-[#485320]">
       <div className="container-custom">
         <div className="max-w-7xl mx-auto">
+          {/* Заголовок с анимацией */}
           <div className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              <span className="text-[#b8b42d] uppercase">Видео</span>
-              <span className="text-white uppercase"> материалы</span>
+              <span 
+                className="text-accent uppercase inline-block"
+                style={{
+                  animation: 'fadeInUp 0.6s ease-out'
+                }}
+              >
+                Видео
+              </span>
+              <span 
+                className="text-white uppercase inline-block ml-2"
+                style={{
+                  animation: 'fadeInUp 0.6s ease-out 0.2s both'
+                }}
+              >
+                материалы
+              </span>
             </h2>
-            <p className="text-lg text-white/80 max-w-3xl mx-auto">
+            <p 
+              className="text-lg text-white/80 max-w-3xl mx-auto"
+              style={{
+                animation: 'fadeInUp 0.6s ease-out 0.4s both'
+              }}
+            >
               Практические материалы и разборы реальных кейсов
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {videos.map((video) => {
+            {videos.map((video, index) => {
               const isActive = activeVideoId === video.id
               const isPlaying = playingStates[video.id] || false
               const isMuted = mutedStates[video.id] ?? false
@@ -195,7 +215,10 @@ export default function Videos() {
                       containerRefs.current[video.id] = el
                     }
                   }}
-                  className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden hover:border-[#b8b42d]/30 transition-colors"
+                  className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden hover:border-accent/30 transition-all duration-300"
+                  style={{
+                    animation: `fadeInUp 0.6s ease-out ${0.6 + index * 0.2}s both`
+                  }}
                 >
                   <div className="relative aspect-video bg-black overflow-hidden">
                     <video
@@ -234,7 +257,7 @@ export default function Videos() {
                         className="absolute inset-0 flex flex-col items-center justify-center cursor-pointer transition-opacity duration-150 bg-gradient-to-t from-black/60 via-transparent to-transparent"
                         onClick={() => handleVideoClick(video.id)}
                       >
-                        <div className="w-16 h-16 mb-4 bg-gradient-to-br from-[#b8b42d] to-[#a0a028] rounded-full flex items-center justify-center shadow-2xl transform transition-transform hover:scale-105">
+                        <div className="w-16 h-16 mb-4 bg-gradient-to-br from-accent to-[#a0a028] rounded-full flex items-center justify-center shadow-2xl transform transition-transform hover:scale-105">
                           <Play className="w-8 h-8 text-white ml-1" />
                         </div>
                       </div>
@@ -243,7 +266,7 @@ export default function Videos() {
                     {/* Индикатор загрузки */}
                     {loadingVideoId === video.id && (
                       <div className="absolute inset-0 bg-black/70 flex items-center justify-center">
-                        <Loader2 className="w-10 h-10 text-[#b8b42d] animate-spin" />
+                        <Loader2 className="w-10 h-10 text-accent animate-spin" />
                       </div>
                     )}
                     
@@ -294,6 +317,20 @@ export default function Videos() {
           </div>
         </div>
       </div>
+      
+      {/* Добавляем CSS анимации */}
+      <style jsx>{`
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </section>
   )
 }

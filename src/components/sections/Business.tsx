@@ -152,7 +152,7 @@ export default function Business() {
                       <div className="space-y-2 md:space-y-3">
                         {section.benefits.map((benefit, i) => (
                           <div key={i} className="flex items-start">
-                            <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-[#b8b42d] mr-3 mt-0.5 shrink-0" />
+                            <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-accent mr-3 mt-0.5 shrink-0" />
                             <span className="text-white/70 text-sm sm:text-base">{benefit}</span>
                           </div>
                         ))}
