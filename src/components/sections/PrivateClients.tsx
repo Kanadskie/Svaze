@@ -105,7 +105,7 @@ export default function PrivateClients() {
                 </div>
                 
                 <div className="mt-4 sm:mt-5 md:mt-6 p-3 sm:p-4 bg-gradient-to-br from-white to-gray-50 rounded-lg sm:rounded-xl border border-gray-200 shadow-sm">
-                  <p className="text-neutral-dark/70 text-center italic text-xs sm:text-sm md:text-base">
+                  <p className="text-neutral-dark text-center italic text-xs sm:text-sm md:text-base">
                     "Понимание себя и других — ключ к гармоничным отношениям"
                   </p>
                 </div>
