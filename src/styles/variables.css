@@ -1,0 +1,34 @@
+:root {
+  /* Основные цвета (быстро менять здесь) */
+  --color-primary: #485320;         /* used as bg primary */
+  --color-accent: #b8b42d;          /* primary accent (buttons, accents) */
+  --color-accent-dark: #a0a028;     /* darker accent (hover) */
+
+  /* Для прозрачного фона */
+  --color-primary-95: rgba(72, 83, 32, 0.95);
+  --color-primary-90: rgba(72, 83, 32, 0.90);
+  --color-primary-80: rgba(72, 83, 32, 0.80);
+
+  /* Нейтральные / текст */
+  --color-neutral-dark: #2f2f2f;    /* used for headings, dark text */
+  --color-surface: #f8f8f8;         /* light surface */
+  --color-border: #e5e5e5;          /* borders */
+
+  /* Прозрачные / rgba варианты */
+  --shadow-strong: rgba(72, 83, 32, 0.3);
+  --shadow-medium: rgba(72, 83, 32, 0.25);
+
+  /* Цвета текста/фоновые веса */
+  --color-white: #ffffff;
+  --color-white-90: rgba(255,255,255,0.9);
+  --color-white-80: rgba(255,255,255,0.8);
+  --color-white-60: rgba(255,255,255,0.6);
+}
+
+/* Быстрые темы (пример) */
+/*
+  Чтобы сменить тему — измените значения переменных выше.
+  Также можно добавить `.theme-light` и `.theme-dark` с переопределениями.
+*/
+
+

@@ -1,0 +1,167 @@
+@import './styles/variables.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --vh: 1vh;
+}
+
+@layer base {
+  body {
+    @apply bg-primary text-white;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    min-height: 100dvh;
+    min-height: calc(var(--vh, 1vh) * 100);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* ФИКСИРОВАННАЯ высота вместо var(--header-height) */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@layer components {
+  /* Контейнер */
+  .container-custom {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+  }
+
+  /* Секции - увеличенные отступы */
+  .section-padding {
+    @apply py-20 md:py-28 lg:py-32;
+  }
+
+  /* Кнопки */
+  .btn-primary {
+    @apply px-8 py-4 md:px-10 md:py-5 bg-accent text-white font-semibold rounded-lg 
+           hover:bg-accent-dark transition-all duration-300 
+           shadow-lg hover:shadow-xl hover:-translate-y-0.5 text-base md:text-lg;
+  }
+
+  .btn-secondary {
+    @apply px-8 py-4 md:px-10 md:py-5 bg-transparent text-white font-semibold rounded-lg 
+           border border-white border-opacity-20 hover:border-accent 
+           hover:text-accent transition-all duration-300 text-base md:text-lg;
+  }
+
+  /* Карточки */
+  .card-minimal {
+    @apply rounded-xl backdrop-blur-sm transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply hover:shadow-2xl hover:-translate-y-2;
+  }
+
+  /* Отступы для фиксированного хедера - УПРОЩАЕМ */
+  main {
+    scroll-margin-top: 80px; /* ФИКСИРОВАННАЯ высота */
+  }
+
+  section {
+    scroll-margin-top: 80px; /* ФИКСИРОВАННАЯ высота */
+  }
+
+  section[id] {
+    scroll-margin-top: 80px; /* ФИКСИРОВАННАЯ высота */
+  }
+
+  /* Сохраняем отступы между секциями */
+  section + section {
+    @apply pt-0;
+  }
+}
+
+@layer utilities {
+  /* Для Hero секции */
+  #hero {
+    overflow: visible !important;
+  }
+
+  /* Блокировка скролла при открытом меню */
+  .no-scroll {
+    overflow: hidden !important;
+    position: fixed !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  /* Стили для видео плеера */
+  video::-webkit-media-controls {
+    display: none !important;
+  }
+
+  video::-webkit-media-controls-enclosure {
+    display: none !important;
+  }
+
+  /* Улучшенный скролл */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(72, 83, 32, 0.1);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: theme('colors.accent');
+    border-radius: 4px;
+  }
+
+  /* Анимация загрузки */
+  .animate-pulse-slow {
+    animation: pulse 3s ease-in-out infinite;
+  }
+
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@supports (-webkit-touch-callout: none) {
+  body {
+    min-height: -webkit-fill-available;
+  }
+  
+  html {
+    height: -webkit-fill-available;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
