@@ -9,29 +9,40 @@ import pcmImage from '@/assets/certificates/pcm.jpg'
 import chetkospeeachImage from '@/assets/certificates/chetkospeeach.jpg'
 import trainertrainingImage from '@/assets/certificates/trainertraining.jpg'
 
+// Определяем тип для изображений
+type ImageType = string | { src: string }
+
 const certificates = [
   {
     id: 1,
     title: 'Certified Trainer PCM Certificate',
     issuer: 'PCM',
     year: '2025',
-    image: pcmImage,
+    image: pcmImage as ImageType,
   },
   {
     id: 2,
     title: 'Chetkospeech Diploma',
     issuer: 'Chetkospeech',
     year: '2025',
-    image: chetkospeeachImage,
+    image: chetkospeeachImage as ImageType,
   },
   {
     id: 3,
     title: 'Trainers Training Certificate',
     issuer: 'Kazakova Ekaterina',
     year: '2025',
-    image: trainertrainingImage,
+    image: trainertrainingImage as ImageType,
   }
 ]
+
+// Функция для получения URL изображения
+const getImageUrl = (image: ImageType): string => {
+  if (typeof image === 'string') {
+    return image
+  }
+  return image.src
+}
 
 export default function Certificates() {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -43,7 +54,7 @@ export default function Certificates() {
     const loadPromises = certificates.map((cert, index) => {
       return new Promise<void>((resolve) => {
         const img = new Image()
-        img.src = cert.image.src
+        img.src = getImageUrl(cert.image)
         img.onload = () => {
           setImagesLoaded(prev => {
             const newLoaded = [...prev]
@@ -132,7 +143,7 @@ export default function Certificates() {
                     className="absolute inset-0 flex items-center justify-center p-4"
                   >
                     <img 
-                      src={currentCert.image} 
+                      src={getImageUrl(currentCert.image)}
                       alt={currentCert.title} 
                       style={{ 
                         width: '100%', 
