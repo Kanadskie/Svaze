@@ -58,7 +58,7 @@ export default function Business() {
               <span className="text-accent uppercase">Для</span>
               <span className="text-white uppercase"> бизнеса</span>
             </h2>
-            <p className="text-lg sm:text-xl text-white/80 max-w-3xl mx-auto px-4">
+            <p className="text-sm md:text-lg lg:text-xl text-white/80 max-w-3xl mx-auto px-4">
               Эффективные коммуникации — основа успешного бизнеса
             </p>
           </div>

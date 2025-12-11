@@ -42,7 +42,7 @@ export default function PrivateClients() {
               <span className="text-neutral-dark uppercase">Частным</span>
               <span className="text-accent uppercase"> клиентам</span>
             </h2>
-            <p className="text-base sm:text-lg md:text-xl text-neutral-dark max-w-3xl mx-auto px-2 sm:px-4">
+            <p className="text-sm md:text-lg lg:text-xl text-neutral-dark max-w-3xl mx-auto px-2 sm:px-4">
               Каждый из нас сталкивается с трудностями в общении — недосказанными чувствами, конфликтами, непониманием. Моя задача — помочь увидеть закономерности в этих ситуациях и найти путь к взаимопониманию.
             </p>
           </div>

@@ -228,7 +228,7 @@ export default function Videos() {
               <motion.span 
                 custom={0}
                 variants={titleVariants}
-                className="text-[#b8b42d] uppercase inline-block"
+                className="text-accent uppercase inline-block"
               >
                 Видео
               </motion.span>
@@ -244,7 +244,7 @@ export default function Videos() {
             <motion.p
               custom={2}
               variants={titleVariants}
-              className="text-lg text-white/80 max-w-3xl mx-auto"
+              className="text-sm md:text-lg lg:text-xl text-white/80 max-w-3xl mx-auto"
             >
               Практические материалы и разборы реальных кейсов
             </motion.p>
@@ -273,7 +273,7 @@ export default function Videos() {
                       containerRefs.current[video.id] = el
                     }
                   }}
-                  className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden hover:border-[#b8b42d]/30 transition-colors"
+                  className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden hover:border-accent/30 transition-colors"
                 >
                   <div className="relative aspect-video bg-black overflow-hidden">
                     <video
@@ -315,7 +315,7 @@ export default function Videos() {
                         onClick={() => handleVideoClick(video.id)}
                       >
                         <motion.div 
-                          className="w-16 h-16 mb-4 bg-gradient-to-br from-[#b8b42d] to-[#a0a028] rounded-full flex items-center justify-center shadow-2xl"
+                          className="w-16 h-16 mb-4 bg-gradient-to-br from-accent to-[#a0a028] rounded-full flex items-center justify-center shadow-2xl"
                           whileHover={{ scale: 1.1 }}
                           whileTap={{ scale: 0.95 }}
                         >
@@ -343,7 +343,7 @@ export default function Videos() {
                           animate={{ rotate: 360 }}
                           transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                         >
-                          <Loader2 className="w-10 h-10 text-[#b8b42d]" />
+                          <Loader2 className="w-10 h-10 text-accent" />
                         </motion.div>
                       </motion.div>
                     )}

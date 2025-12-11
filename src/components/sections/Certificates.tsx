@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 // Если используете импорт изображений
@@ -35,6 +35,37 @@ const certificates = [
 
 export default function Certificates() {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [imagesLoaded, setImagesLoaded] = useState<boolean[]>(new Array(certificates.length).fill(false))
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  // Предзагружаем все изображения
+  useEffect(() => {
+    const loadPromises = certificates.map((cert, index) => {
+      return new Promise<void>((resolve) => {
+        const img = new Image()
+        img.src = cert.image.src
+        img.onload = () => {
+          setImagesLoaded(prev => {
+            const newLoaded = [...prev]
+            newLoaded[index] = true
+            return newLoaded
+          })
+          resolve()
+        }
+        img.onerror = () => {
+          console.error(`Failed to load image: ${cert.title}`)
+          setImagesLoaded(prev => {
+            const newLoaded = [...prev]
+            newLoaded[index] = true
+            return newLoaded
+          })
+          resolve()
+        }
+      })
+    })
+
+    Promise.all(loadPromises)
+  }, [])
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => 
@@ -53,6 +84,8 @@ export default function Certificates() {
   }
 
   const currentCert = certificates[currentIndex]
+  const isImageLoaded = imagesLoaded[currentIndex]
+  const allImagesLoaded = imagesLoaded.every(loaded => loaded)
 
   return (
     <section id="certificates" className="section-padding bg-white relative">
@@ -70,7 +103,7 @@ export default function Certificates() {
               <span className="text-neutral-dark uppercase"> и дипломы</span>
             </h2>
             
-            <p className="text-lg text-neutral-dark/60 max-w-3xl mx-auto">
+            <p className="text-sm md:text-lg lg:text-xl text-neutral-dark max-w-3xl mx-auto">
               Подтвержденная экспертиза
             </p>
           </motion.div>
@@ -78,23 +111,55 @@ export default function Certificates() {
           {/* Основная карусель */}
           <div className="mb-8">
             <div className="relative px-4 sm:px-6 md:px-0">
-              {/* Контейнер для ограничения ширины */}
-              <div className="relative max-w-2xl lg:max-w-3xl mx-auto">
-                {/* Основное изображение */}
-                <motion.div
-                  key={currentCert.id}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
+              {/* Контейнер для ограничения ширины - ТОЧНО КАК В ИСХОДНОМ */}
+              <div ref={containerRef} className="relative max-w-2xl lg:max-w-3xl mx-auto">
+                {/* Основное изображение с ФИКСИРОВАННОЙ ВЫСОТОЙ КОНТЕЙНЕРА */}
+                <div 
                   className="relative rounded-xl overflow-hidden border border-gray-200 shadow-sm"
+                  style={{
+                    // Фиксируем высоту, чтобы не было прыжков
+                    height: 'auto',
+                    minHeight: '200px',
+                    aspectRatio: '4/3',// Или подберите нужную высоту
+                    backgroundColor: '#fff' // Легкий фон вместо анимации
+                  }}
                 >
-                  <img src={currentCert.image} alt={currentCert.title} style={{ width: '100%', height: 'auto', display: 'block' }} />
-                </motion.div>
+                  <motion.div
+                    key={currentCert.id}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: isImageLoaded ? 1 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="absolute inset-0 flex items-center justify-center p-4"
+                  >
+                    <img 
+                      src={currentCert.image} 
+                      alt={currentCert.title} 
+                      style={{ 
+                        width: '100%', 
+                        height: 'auto', 
+                        maxHeight: '100%',
+                        objectFit: 'contain',
+                        display: 'block',
+                      }} 
+                      loading="eager"
+                    />
+                  </motion.div>
+                  
+                  {/* Простой статичный бэкграунд вместо анимации */}
+                  {!isImageLoaded && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-gray-50">
+                      <div className="text-neutral-dark text-sm">
+                        Загрузка...
+                      </div>
+                    </div>
+                  )}
+                </div>
 
                 {/* Навигационные стрелки - на границах изображения */}
                 <button
                   onClick={prevSlide}
                   className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 p-2 sm:p-3 bg-gradient-to-r from-accent to-accent-dark text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-10"
+                  disabled={!allImagesLoaded}
                 >
                   <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
                 </button>
@@ -102,6 +167,7 @@ export default function Certificates() {
                 <button
                   onClick={nextSlide}
                   className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 p-2 sm:p-3 bg-gradient-to-r from-accent to-accent-dark text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-10"
+                  disabled={!allImagesLoaded}
                 >
                   <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
                 </button>
@@ -119,6 +185,7 @@ export default function Certificates() {
                       ? 'bg-accent w-8' 
                       : 'bg-gray-300 hover:bg-gray-400'
                   }`}
+                  disabled={!allImagesLoaded}
                 />
               ))}
             </div>

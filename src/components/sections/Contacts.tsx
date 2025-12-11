@@ -58,7 +58,7 @@ export default function Contacts() {
               <span className="text-accent uppercase">Мои</span>
               <span className="text-white uppercase"> контакты</span>
             </h2>
-            <p className="text-base sm:text-lg text-white/80 max-w-3xl mx-auto px-2">
+            <p className="text-sm md:text-lg lg:text-xl text-white/80 max-w-3xl mx-auto px-2">
               Свяжитесь со мной для консультации и записи на встречу
             </p>
           </motion.div>

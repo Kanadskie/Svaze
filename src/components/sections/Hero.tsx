@@ -10,7 +10,7 @@ const titleContainerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15,
+      staggerChildren: 0.13,
       delayChildren: 0.5
     }
   }
@@ -43,7 +43,7 @@ export default function Hero() {
   return (
     <section 
       id="hero" 
-      className="bg-primary pt-12 pb-12 md:pt-14 md:pb-14 lg:pt-16 lg:pb-20"
+      className="bg-primary pt-10 pb-12 md:pt-14 md:pb-14 lg:pt-16 lg:pb-20"
     >
       <div className="container-custom relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-12 lg:gap-16 items-end">
