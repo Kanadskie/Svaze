@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect, useCallback } from 'react'
+import { motion } from 'framer-motion'
 import { Play, Pause, Volume2, VolumeX, Maximize2, Loader2 } from 'lucide-react'
 
 const videos = [
@@ -19,6 +20,49 @@ const videos = [
     thumbnail: '',
   }
 ]
+
+// Варианты анимаций
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.3
+    }
+  }
+}
+
+const itemVariants = {
+  hidden: { 
+    opacity: 0, 
+    y: 30,
+    scale: 0.95
+  },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    scale: 1,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 15
+    }
+  }
+}
+
+const titleVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.1,
+      duration: 0.6,
+      ease: "easeOut"
+    }
+  })
+}
 
 export default function Videos() {
   const [activeVideoId, setActiveVideoId] = useState<number | null>(null)
@@ -172,53 +216,64 @@ export default function Videos() {
       <div className="container-custom">
         <div className="max-w-7xl mx-auto">
           {/* Заголовок с анимацией */}
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              <span 
-                className="text-accent uppercase inline-block"
-                style={{
-                  animation: 'fadeInUp 0.6s ease-out'
-                }}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            className="text-center mb-12 md:mb-16"
+          >
+            <motion.h2
+              className="text-3xl md:text-5xl font-bold mb-6"
+            >
+              <motion.span 
+                custom={0}
+                variants={titleVariants}
+                className="text-[#b8b42d] uppercase inline-block"
               >
                 Видео
-              </span>
-              <span 
+              </motion.span>
+              <motion.span 
+                custom={1}
+                variants={titleVariants}
                 className="text-white uppercase inline-block ml-2"
-                style={{
-                  animation: 'fadeInUp 0.6s ease-out 0.2s both'
-                }}
               >
                 материалы
-              </span>
-            </h2>
-            <p 
+              </motion.span>
+            </motion.h2>
+            
+            <motion.p
+              custom={2}
+              variants={titleVariants}
               className="text-lg text-white/80 max-w-3xl mx-auto"
-              style={{
-                animation: 'fadeInUp 0.6s ease-out 0.4s both'
-              }}
             >
               Практические материалы и разборы реальных кейсов
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Видео блоки с анимацией */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          >
             {videos.map((video, index) => {
               const isActive = activeVideoId === video.id
               const isPlaying = playingStates[video.id] || false
               const isMuted = mutedStates[video.id] ?? false
 
               return (
-                <div 
-                  key={video.id} 
+                <motion.div
+                  key={video.id}
+                  variants={itemVariants}
+                  whileHover="hover"
                   ref={el => {
                     if (el) {
                       containerRefs.current[video.id] = el
                     }
                   }}
-                  className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden hover:border-accent/30 transition-all duration-300"
-                  style={{
-                    animation: `fadeInUp 0.6s ease-out ${0.6 + index * 0.2}s both`
-                  }}
+                  className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden hover:border-[#b8b42d]/30 transition-colors"
                 >
                   <div className="relative aspect-video bg-black overflow-hidden">
                     <video
@@ -253,84 +308,110 @@ export default function Videos() {
                     
                     {/* Overlay с кнопкой - показывается когда видео не активно ИЛИ активно но не играет */}
                     {(!isActive || !isPlaying) && loadingVideoId !== video.id && (
-                      <div 
-                        className="absolute inset-0 flex flex-col items-center justify-center cursor-pointer transition-opacity duration-150 bg-gradient-to-t from-black/60 via-transparent to-transparent"
+                      <motion.div 
+                        className="absolute inset-0 flex flex-col items-center justify-center cursor-pointer bg-gradient-to-t from-black/60 via-transparent to-transparent"
+                        initial={{ opacity: 1 }}
+                        whileHover={{ opacity: 0.9 }}
                         onClick={() => handleVideoClick(video.id)}
                       >
-                        <div className="w-16 h-16 mb-4 bg-gradient-to-br from-accent to-[#a0a028] rounded-full flex items-center justify-center shadow-2xl transform transition-transform hover:scale-105">
+                        <motion.div 
+                          className="w-16 h-16 mb-4 bg-gradient-to-br from-[#b8b42d] to-[#a0a028] rounded-full flex items-center justify-center shadow-2xl"
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
                           <Play className="w-8 h-8 text-white ml-1" />
-                        </div>
-                      </div>
+                        </motion.div>
+                        <motion.p 
+                          className="text-white/80 text-sm"
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.2 }}
+                        >
+                          Нажмите для воспроизведения
+                        </motion.p>
+                      </motion.div>
                     )}
                     
                     {/* Индикатор загрузки */}
                     {loadingVideoId === video.id && (
-                      <div className="absolute inset-0 bg-black/70 flex items-center justify-center">
-                        <Loader2 className="w-10 h-10 text-accent animate-spin" />
-                      </div>
+                      <motion.div 
+                        className="absolute inset-0 bg-black/70 flex items-center justify-center"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                      >
+                        <motion.div
+                          animate={{ rotate: 360 }}
+                          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                        >
+                          <Loader2 className="w-10 h-10 text-[#b8b42d]" />
+                        </motion.div>
+                      </motion.div>
                     )}
                     
                     {/* Контролы для активного видео */}
                     {isActive && !loadingVideoId && (
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                      <motion.div 
+                        className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-3">
-                            <button
+                            <motion.button
                               onClick={() => handleVideoClick(video.id)}
                               className="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white transition-colors"
+                              whileHover={{ scale: 1.1 }}
+                              whileTap={{ scale: 0.9 }}
                             >
                               {isPlaying ? (
                                 <Pause className="w-5 h-5" />
                               ) : (
                                 <Play className="w-5 h-5 ml-0.5" />
                               )}
-                            </button>
-                            <button
+                            </motion.button>
+                            <motion.button
                               onClick={() => toggleMute(video.id)}
                               className="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white transition-colors"
+                              whileHover={{ scale: 1.1 }}
+                              whileTap={{ scale: 0.9 }}
                             >
                               {isMuted ? (
                                 <VolumeX className="w-5 h-5" />
                               ) : (
                                 <Volume2 className="w-5 h-5" />
                               )}
-                            </button>
+                            </motion.button>
                           </div>
-                          <button
+                          <motion.button
                             onClick={() => toggleFullscreen(video.id)}
                             className="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white transition-colors"
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
                           >
                             <Maximize2 className="w-5 h-5" />
-                          </button>
+                          </motion.button>
                         </div>
-                      </div>
+                      </motion.div>
                     )}
                   </div>
                   
                   <div className="p-6">
-                    <h3 className="text-lg font-bold text-white mb-3">{video.title}</h3>
+                    <motion.h3 
+                      className="text-lg font-bold text-white mb-3"
+                      whileHover={{ color: "#b8b42d" }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      {video.title}
+                    </motion.h3>
                     <p className="text-white/70 mb-4">{video.description}</p>
                   </div>
-                </div>
+                </motion.div>
               )
             })}
-          </div>
+          </motion.div>
         </div>
       </div>
-      
-      {/* Добавляем CSS анимации */}
-      <style jsx>{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
     </section>
   )
 }

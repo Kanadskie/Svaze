@@ -45,6 +45,7 @@ const config: Config = {
         'accent': 'var(--color-accent)',
         'accent-dark': 'var(--color-accent-dark)',
         'surface': 'var(--color-surface)',
+        'accent-20': 'var(--color-accent-20)',
         'primary-95': 'var(--color-primary-95)',
         'primary-90': 'var(--color-primary-90)',
         'primary-80': 'var(--color-primary-80)',

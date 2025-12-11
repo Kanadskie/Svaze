@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Phone, Mail, Linkedin, Youtube, ExternalLink, Send } from 'lucide-react';
+import { Phone, Mail, Linkedin, Youtube, ContactRound, Send, ExternalLink} from 'lucide-react';
 
 export default function Contacts() {
   const ref = useRef(null);
@@ -35,7 +35,7 @@ export default function Contacts() {
       href: 'https://youtube.com/@suzannachannel'
     },
     {
-      icon: ExternalLink,
+      icon: ContactRound,
       label: 'PCM Россия',
       value: 'Профиль специалиста',
       href: 'https://pcmrussia.ru/pcm-certified-professionals/suzanna-kim'
@@ -88,7 +88,7 @@ export default function Contacts() {
                     whileHover={{ x: 5 }}
                     className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 md:p-5 bg-white/5 backdrop-blur-sm rounded-lg sm:rounded-xl border border-white/10 hover:border-accent/30 transition-all duration-300 group"
                   >
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-accent/20 rounded-full flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-accent-20 rounded-full flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
                       <contact.icon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-accent" />
                     </div>
                     <div className="flex-1 min-w-0">

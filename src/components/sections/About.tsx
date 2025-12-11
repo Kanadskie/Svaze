@@ -179,7 +179,7 @@ export default function About() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 1 }}
+                transition={{ delay: 0.6 }}
                 className="bg-gradient-to-br from-[#f8f8f8] to-white p-4 sm:p-5 md:p-6 rounded-lg sm:rounded-xl border border-[#e5e5e5] shadow-sm"
               >
                 <p className="text-neutral-dark leading-relaxed text-sm sm:text-base md:text-lg">

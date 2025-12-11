@@ -120,7 +120,7 @@ export default function Business() {
                   <div className="flex flex-col md:flex-row gap-6 md:gap-8">
                     {/* Первая колонка - Заголовок и иконка */}
                     <div className="md:w-1/4">
-                      <div className="w-14 h-14 mb-4 bg-accent/20 rounded-xl flex items-center justify-center">
+                      <div className="w-14 h-14 mb-4 bg-accent-20 rounded-xl flex items-center justify-center">
                         <section.icon className="h-7 w-7 text-accent" />
                       </div>
                       <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">{section.title}</h3>

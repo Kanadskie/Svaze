@@ -5,6 +5,7 @@
   --color-accent-dark: #a0a028;     /* darker accent (hover) */
 
   /* Для прозрачного фона */
+  --color-accent-20: rgba(184, 180, 45, 0.20);
   --color-primary-95: rgba(72, 83, 32, 0.95);
   --color-primary-90: rgba(72, 83, 32, 0.90);
   --color-primary-80: rgba(72, 83, 32, 0.80);
