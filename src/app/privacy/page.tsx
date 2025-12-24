@@ -22,7 +22,7 @@ export default function PrivacyPage() {
     <>
       <SimpleHeader />
       <section 
-        className="pt-[100px] pb-12 md:pt-[110px] md:pb-14 lg:pt-[120px] lg:pb-20"
+        className="pt-[40px] pb-12 md:pt-[110px] md:pb-14 lg:pt-[120px] lg:pb-20"
         style={{
           background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-earth-brown) 100%)'
         }}

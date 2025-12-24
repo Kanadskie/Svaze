@@ -274,7 +274,7 @@ export default function Header() {
               >
                 <a
                   href="/privacy"
-                  className="text-xs sm:text-sm transition-colors duration-300 block py-2"
+                  className="text-base transition-colors duration-300 block py-2"
                   style={{
                     color: 'rgba(217, 219, 210, 0.4)', // Dust Grey с прозрачностью
                   }}
