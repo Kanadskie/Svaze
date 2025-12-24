@@ -29,7 +29,13 @@ const services = [
 
 export default function PrivateClients() {
   return (
-    <section id="private" className="section-padding bg-white relative overflow-x-hidden">
+    <section 
+      id="private" 
+      className="section-padding relative overflow-x-hidden"
+      style={{
+        background: 'linear-gradient(135deg, var(--color-surface-light) 0%, var(--color-surface) 100%)'
+      }}
+    >
       <div className="container-custom px-3 sm:px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -39,10 +45,11 @@ export default function PrivateClients() {
         >
           <div className="text-center mb-10 md:mb-16">
             <h2 className="text-3xl xs:text-3xl sm:text-4xl md:text-5xl font-bold mb-3 md:mb-4 lg:mb-6">
-              <span className="text-neutral-dark uppercase">Частным</span>
-              <span className="text-accent uppercase"> клиентам</span>
+              <span style={{ color: 'var(--color-neutral-dark)' }} className="uppercase">Частным</span>
+              <span style={{ color: 'var(--color-warm-accent)' }} className="uppercase"> клиентам</span>
             </h2>
-            <p className="text-sm md:text-lg lg:text-xl text-neutral-dark max-w-3xl mx-auto px-2 sm:px-4">
+            <p className="text-sm md:text-lg lg:text-xl max-w-3xl mx-auto px-2 sm:px-4"
+               style={{ color: 'var(--color-neutral-dark)' }}>
               Каждый из нас сталкивается с трудностями в общении — недосказанными чувствами, конфликтами, непониманием. Моя задача — помочь увидеть закономерности в этих ситуациях и найти путь к взаимопониманию.
             </p>
           </div>
@@ -58,13 +65,27 @@ export default function PrivateClients() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="bg-gradient-to-br from-white to-gray-50 p-4 sm:p-5 md:p-6 rounded-lg sm:rounded-xl border border-gray-200 shadow-sm hover:shadow-md hover:border-accent/30 transition-all duration-300"
+                    className="p-4 sm:p-5 md:p-6 rounded-lg sm:rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
+                    style={{
+                      background: 'linear-gradient(135deg, var(--color-white) 0%, var(--color-surface-light) 100%)',
+                      border: '1px solid var(--color-border)'
+                    }}
                   >
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 mb-3 sm:mb-4 bg-gradient-to-br from-accent to-accent-dark rounded-lg sm:rounded-xl flex items-center justify-center">
-                      <service.icon className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-white" />
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 mb-3 sm:mb-4 rounded-lg sm:rounded-xl flex items-center justify-center"
+                         style={{
+                           background: 'linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%)'
+                         }}>
+                      <service.icon className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" 
+                                   style={{ color: 'var(--color-white)' }} />
                     </div>
-                    <h3 className="text-base sm:text-lg md:text-xl font-bold text-neutral-dark mb-2 sm:mb-3">{service.title}</h3>
-                    <p className="text-gray-600 text-xs sm:text-sm md:text-base leading-relaxed">{service.description}</p>
+                    <h3 className="text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3"
+                        style={{ color: 'var(--color-neutral-dark)' }}>
+                      {service.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm md:text-base leading-relaxed"
+                       style={{ color: 'var(--color-neutral-dark)' }}>
+                      {service.description}
+                    </p>
                   </motion.div>
                 ))}
               </div>
@@ -82,8 +103,10 @@ export default function PrivateClients() {
                 {/* Контейнер со скошенными уголками */}
                 <div className="relative h-[250px] xs:h-[280px] sm:h-[320px] md:h-[380px] lg:h-[420px] xl:h-[480px]">
                   {/* Декоративные уголки */}
-                  <div className="absolute -left-1 -top-1 xs:-left-2 xs:-top-2 w-6 h-6 xs:w-8 xs:h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 border-t-2 border-l-2 border-accent opacity-60 z-10"></div>
-                  <div className="absolute -right-1 -bottom-1 xs:-right-2 xs:-bottom-2 w-6 h-6 xs:w-8 xs:h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 border-b-2 border-r-2 border-accent opacity-60 z-10"></div>
+                  <div className="absolute -left-1 -top-1 xs:-left-2 xs:-top-2 w-6 h-6 xs:w-8 xs:h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 border-t-2 border-l-2 z-10"
+                       style={{ borderColor: 'var(--color-primary)', opacity: 0.8 }}></div>
+                  <div className="absolute -right-1 -bottom-1 xs:-right-2 xs:-bottom-2 w-6 h-6 xs:w-8 xs:h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 border-b-2 border-r-2 z-10"
+                       style={{ borderColor: 'var(--color-primary)', opacity: 0.8 }}></div>
                   
                   {/* Основной контейнер фото со скошенным углом */}
                   <div 
@@ -91,7 +114,7 @@ export default function PrivateClients() {
                     style={{
                       clipPath: 'polygon(0% 10%, 10% 0%, 100% 0%, 100% 90%, 90% 100%, 0% 100%)',
                       borderRadius: '8px sm:rounded-xl',
-                      boxShadow: '0 10px 25px rgba(72, 83, 32, 0.15) sm:0 15px 30px rgba(72, 83, 32, 0.2)'
+                      boxShadow: '0 10px 25px var(--shadow-light)'
                     }}
                   >
                     <div className="relative w-full h-full">
@@ -104,8 +127,13 @@ export default function PrivateClients() {
                   </div>
                 </div>
                 
-                <div className="mt-4 sm:mt-5 md:mt-6 p-3 sm:p-4 bg-gradient-to-br from-white to-gray-50 rounded-lg sm:rounded-xl border border-gray-200 shadow-sm">
-                  <p className="text-neutral-dark text-center italic text-xs sm:text-sm md:text-base">
+                <div className="mt-4 sm:mt-5 md:mt-6 p-3 sm:p-4 rounded-lg sm:rounded-xl border shadow-sm"
+                     style={{
+                       background: 'linear-gradient(135deg, var(--color-white) 0%, var(--color-surface-light) 100%)',
+                       borderColor: 'var(--color-border)'
+                     }}>
+                  <p className="text-center italic text-xs sm:text-sm md:text-base"
+                     style={{ color: 'var(--color-neutral-dark)' }}>
                     "Понимание себя и других — ключ к гармоничным отношениям"
                   </p>
                 </div>

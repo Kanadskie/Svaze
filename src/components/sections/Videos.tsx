@@ -8,20 +8,20 @@ const videos = [
   {
     id: 1,
     title: 'Знакомство с Моделью Процесса Коммуникаций (PCM)',
-    description: 'Тут коротко лучше описать содержание',
+    description: 'Основные принципы и методология PCM для эффективной коммуникации',
     videoUrl: '/videos/v1.mp4',
     thumbnail: '',
   },
   {
     id: 2,
     title: 'Коммуникации - ключ к успеху!',
-    description: 'Тут коротко лучше описать содержание',
+    description: 'Практические примеры применения PCM в бизнесе и жизни',
     videoUrl: '/videos/v2.mp4',
     thumbnail: '',
   }
 ]
 
-// Варианты анимаций
+// Анимации в стиле Hero
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -77,7 +77,6 @@ export default function Videos() {
     if (!videoElement) return
 
     requestAnimationFrame(async () => {
-      // Если кликаем на уже активное видео
       if (activeVideoId === videoId) {
         if (!videoElement.paused) {
           videoElement.pause()
@@ -91,7 +90,6 @@ export default function Videos() {
           }
         }
       } else {
-        // Останавливаем текущее видео
         if (activeVideoId && videoRefs.current[activeVideoId]) {
           const prevVideo = videoRefs.current[activeVideoId]
           if (prevVideo) {
@@ -101,7 +99,6 @@ export default function Videos() {
           }
         }
         
-        // Запускаем новое видео
         setActiveVideoId(videoId)
         setLoadingVideoId(videoId)
         
@@ -137,18 +134,9 @@ export default function Videos() {
           videoElement.preload = 'metadata'
           videoElement.load()
           
-          // Звук включен по умолчанию
           videoElement.muted = false
-          
-          // Инициализируем состояния
-          setMutedStates(prev => ({
-            ...prev,
-            [video.id]: false // false = не muted, звук включен
-          }))
-          setPlayingStates(prev => ({
-            ...prev,
-            [video.id]: false // изначально видео не играет
-          }))
+          setMutedStates(prev => ({...prev, [video.id]: false}))
+          setPlayingStates(prev => ({...prev, [video.id]: false}))
         }
       })
     }
@@ -157,7 +145,6 @@ export default function Videos() {
     return () => clearTimeout(timer)
   }, [])
 
-  // Обновляем состояние воспроизведения при событиях видео
   useEffect(() => {
     const handlePlay = (videoId: number) => {
       setPlayingStates(prev => ({...prev, [videoId]: true}))
@@ -174,7 +161,6 @@ export default function Videos() {
       }
     }
 
-    // Добавляем обработчики для каждого видео
     videos.forEach(video => {
       const videoElement = videoRefs.current[video.id]
       if (videoElement) {
@@ -212,10 +198,16 @@ export default function Videos() {
   }, [])
 
   return (
-    <section id="videos" className="section-padding bg-[#485320]">
+    <section 
+      id="videos" 
+      className="section-padding"
+      style={{
+        background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-earth-brown) 100%)'
+      }}
+    >
       <div className="container-custom">
         <div className="max-w-7xl mx-auto">
-          {/* Заголовок с анимацией */}
+          {/* Заголовок */}
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -228,14 +220,16 @@ export default function Videos() {
               <motion.span 
                 custom={0}
                 variants={titleVariants}
-                className="text-accent uppercase inline-block"
+                className="uppercase inline-block"
+                style={{ color: 'var(--color-accent)' }}
               >
                 Видео
               </motion.span>
               <motion.span 
                 custom={1}
                 variants={titleVariants}
-                className="text-white uppercase inline-block ml-2"
+                className="uppercase inline-block ml-2"
+                style={{ color: '#d9dbd2' }}
               >
                 материалы
               </motion.span>
@@ -244,13 +238,14 @@ export default function Videos() {
             <motion.p
               custom={2}
               variants={titleVariants}
-              className="text-sm md:text-lg lg:text-xl text-white/80 max-w-3xl mx-auto"
+              className="text-sm md:text-lg lg:text-xl max-w-3xl mx-auto"
+              style={{ color: '#d9dbd2' }}
             >
               Практические материалы и разборы реальных кейсов
             </motion.p>
           </motion.div>
 
-          {/* Видео блоки с анимацией */}
+          {/* Видео блоки */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -267,13 +262,16 @@ export default function Videos() {
                 <motion.div
                   key={video.id}
                   variants={itemVariants}
-                  whileHover="hover"
+                  whileHover={{ y: -5 }}
                   ref={el => {
                     if (el) {
                       containerRefs.current[video.id] = el
                     }
                   }}
-                  className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden hover:border-accent/30 transition-colors"
+                  className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden hover:border-accent/30 transition-all duration-300"
+                  style={{
+                    boxShadow: '0 4px 15px rgba(55, 73, 64, 0.2)'
+                  }}
                 >
                   <div className="relative aspect-video bg-black overflow-hidden">
                     <video
@@ -306,7 +304,7 @@ export default function Videos() {
                       }}
                     />
                     
-                    {/* Overlay с кнопкой - показывается когда видео не активно ИЛИ активно но не играет */}
+                    {/* Overlay с кнопкой */}
                     {(!isActive || !isPlaying) && loadingVideoId !== video.id && (
                       <motion.div 
                         className="absolute inset-0 flex flex-col items-center justify-center cursor-pointer bg-gradient-to-t from-black/60 via-transparent to-transparent"
@@ -315,7 +313,10 @@ export default function Videos() {
                         onClick={() => handleVideoClick(video.id)}
                       >
                         <motion.div 
-                          className="w-16 h-16 mb-4 bg-gradient-to-br from-accent to-[#a0a028] rounded-full flex items-center justify-center shadow-2xl"
+                          className="w-16 h-16 mb-4 rounded-full flex items-center justify-center shadow-2xl"
+                          style={{
+                            background: 'linear-gradient(135deg, var(--color-accent), var(--color-muted-teal))'
+                          }}
                           whileHover={{ scale: 1.1 }}
                           whileTap={{ scale: 0.95 }}
                         >
@@ -343,12 +344,12 @@ export default function Videos() {
                           animate={{ rotate: 360 }}
                           transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                         >
-                          <Loader2 className="w-10 h-10 text-accent" />
+                          <Loader2 className="w-10 h-10" style={{ color: 'var(--color-accent)' }} />
                         </motion.div>
                       </motion.div>
                     )}
                     
-                    {/* Контролы для активного видео */}
+                    {/* Контролы */}
                     {isActive && !loadingVideoId && (
                       <motion.div 
                         className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4"
@@ -398,13 +399,13 @@ export default function Videos() {
                   
                   <div className="p-6">
                     <motion.h3 
-                      className="text-lg font-bold text-white mb-3"
-                      whileHover={{ color: "#b8b42d" }}
-                      transition={{ duration: 0.2 }}
+                      className="text-base font-bold mb-3 cursor-pointer transition-colors duration-300"
+                      style={{ color: '#d9dbd2' }}
+                      whileHover={{ color: 'var(--color-warm-accent)' }}
                     >
                       {video.title}
                     </motion.h3>
-                    <p className="text-white/70 mb-4">{video.description}</p>
+                    <p style={{ color: 'var(--color-white-80)' }}>{video.description}</p>
                   </div>
                 </motion.div>
               )

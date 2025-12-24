@@ -33,7 +33,13 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="section-padding bg-white relative overflow-hidden">
+    <section 
+      id="about" 
+      className="section-padding relative overflow-hidden"
+      style={{
+        background: 'linear-gradient(135deg, var(--color-surface-light) 0%, var(--color-surface) 100%)'
+      }}
+    >
       <div className="container-custom px-3 sm:px-4 md:px-6">
         <div className="max-w-7xl mx-auto w-full">
           
@@ -45,8 +51,8 @@ export default function About() {
               viewport={{ once: true, margin: "0px" }}
               className="text-2xl xs:text-3xl sm:text-4xl font-bold mb-4"
             >
-              <span className="text-neutral-dark">ОБО </span>
-              <span className="text-accent">МНЕ</span>
+              <span style={{ color: 'var(--color-neutral-dark)' }}>ОБО </span>
+              <span style={{ color: 'var(--color-warm-accent)' }}>МНЕ</span>
             </motion.h2>
 
             {/* Фото с уголками для мобильных */}
@@ -58,8 +64,10 @@ export default function About() {
               className="relative max-w-[280px] xs:max-w-xs sm:max-w-sm mx-auto h-[200px] xs:h-[250px] sm:h-[300px] md:h-[350px] mb-6 sm:mb-8"
             >
               {/* Декоративные уголки */}
-              <div className="absolute -left-1 -top-1 xs:-left-2 xs:-top-2 w-6 h-6 xs:w-8 xs:h-8 sm:w-10 sm:h-10 border-t-2 border-l-2 border-accent opacity-60 z-10"></div>
-              <div className="absolute -right-1 -bottom-1 xs:-right-2 xs:-bottom-2 w-6 h-6 xs:w-8 xs:h-8 sm:w-10 sm:h-10 border-b-2 border-r-2 border-accent opacity-60 z-10"></div>
+              <div className="absolute -left-1 -top-1 xs:-left-2 xs:-top-2 w-6 h-6 xs:w-8 xs:h-8 sm:w-10 sm:h-10 border-t-2 border-l-2" 
+                   style={{ borderColor: 'var(--color-primary)', opacity: 0.8 }}></div>
+              <div className="absolute -right-1 -bottom-1 xs:-right-2 xs:-bottom-2 w-6 h-6 xs:w-8 xs:h-8 sm:w-10 sm:h-10 border-b-2 border-r-2"
+                   style={{ borderColor: 'var(--color-primary)', opacity: 0.8 }}></div>
               
               {/* Основной контейнер фото со скошенным углом */}
               <div 
@@ -67,7 +75,7 @@ export default function About() {
                 style={{
                   clipPath: 'polygon(0% 10%, 10% 0%, 100% 0%, 100% 90%, 90% 100%, 0% 100%)',
                   borderRadius: '8px sm:rounded-lg md:rounded-xl',
-                  boxShadow: '0 10px 20px rgba(72, 83, 32, 0.1) sm:0 15px 30px rgba(72, 83, 32, 0.15)'
+                  boxShadow: '0 10px 20px var(--shadow-light)'
                 }}
               >
                 <div className="relative w-full h-full">
@@ -95,8 +103,8 @@ export default function About() {
               <div className="sticky top-0 space-y-6 md:space-y-8">
                 {/* Заголовок */}
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">
-                  <span className="text-neutral-dark block">ОБО</span>
-                  <span className="text-accent block mt-2 lg:mt-3">МНЕ</span>
+                  <span style={{ color: 'var(--color-neutral-dark)' }} className="block">ОБО</span>
+                  <span style={{ color: 'var(--color-warm-accent)' }} className="block mt-2 lg:mt-3">МНЕ</span>
                 </h2>
                 
                 {/* Фото с уголками для десктопа */}
@@ -108,8 +116,10 @@ export default function About() {
                   className="relative w-full h-[250px] md:h-[300px] lg:h-[350px] xl:h-[400px]"
                 >
                   {/* Декоративные уголки */}
-                  <div className="absolute -left-2 -top-2 w-8 h-8 md:w-10 md:h-10 border-t-2 border-l-2 border-accent opacity-60 z-10"></div>
-                  <div className="absolute -right-2 -bottom-2 w-8 h-8 md:w-10 md:h-10 border-b-2 border-r-2 border-accent opacity:60 z-10"></div>
+                  <div className="absolute -left-2 -top-2 w-8 h-8 md:w-10 md:h-10 border-t-2 border-l-2" 
+                       style={{ borderColor: 'var(--color-primary)', opacity: 0.8 }}></div>
+                  <div className="absolute -right-2 -bottom-2 w-8 h-8 md:w-10 md:h-10 border-b-2 border-r-2"
+                       style={{ borderColor: 'var(--color-primary)', opacity: 0.8 }}></div>
                   
                   {/* Основной контейнер фото со скошенным углом */}
                   <div 
@@ -117,7 +127,7 @@ export default function About() {
                     style={{
                       clipPath: 'polygon(0% 10%, 10% 0%, 100% 0%, 100% 90%, 90% 100%, 0% 100%)',
                       borderRadius: '12px md:rounded-xl',
-                      boxShadow: '0 15px 35px rgba(72, 83, 32, 0.15)'
+                      boxShadow: '0 15px 35px var(--shadow-medium)'
                     }}
                   >
                     <div className="relative w-full h-full">
@@ -145,9 +155,10 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 }}
-                className="text-neutral-dark leading-relaxed text-sm sm:text-base md:text-lg"
+                className="leading-relaxed text-sm sm:text-base md:text-lg"
+                style={{ color: 'var(--color-neutral-dark)' }}
               >
-                Меня зовут Сюзанна. Я сертифицированный тренер по <span className="text-accent font-semibold">Process Communication Model (PCM)</span> — модели, которая помогает видеть глубинную структуру человеческого общения. Работаю с людьми, командами и компаниями, которые стремятся к осознанности, эффективности и внутренней гармонии через коммуникацию.
+                Меня зовут Сюзанна. Я сертифицированный тренер по <span style={{ color: 'var(--color-warm-accent)', fontWeight: '600' }}>Process Communication Model (PCM)</span> — модели, которая помогает видеть глубинную структуру человеческого общения. Работаю с людьми, командами и компаниями, которые стремятся к осознанности, эффективности и внутренней гармонии через коммуникацию.
               </motion.p>
               
               <motion.div
@@ -157,9 +168,11 @@ export default function About() {
                 transition={{ delay: 0.4 }}
                 className="relative pl-3 sm:pl-4"
               >
-                <div className="absolute left-0 top-2 bottom-2 w-0.5 sm:w-1 bg-gradient-to-b from-accent to-accent/60 rounded-full"></div>
-                <p className="text-neutral-dark leading-relaxed text-sm sm:text-base md:text-lg pl-3 sm:pl-4">
-                  <span className="text-accent font-semibold">PCM</span> — это не просто метод, а навык понимать: почему мы действуем именно так, как реагируем в стрессе, что нас мотивирует и как найти общий язык даже в самых сложных ситуациях. В основе модели лежат шесть личностных типов, каждый со своими сильными сторонами, потребностями и особенностями взаимодействия. Через эту призму легко увидеть, где теряется контакт — и как его вернуть.
+                <div className="absolute left-0 top-2 bottom-2 w-0.5 sm:w-1 bg-gradient-to-b from-warm-accent to-warm-accent/60 rounded-full"
+                     style={{ background: 'linear-gradient(to bottom, var(--color-accent), var(--color-accent-40))' }}></div>
+                <p className="leading-relaxed text-sm sm:text-base md:text-lg pl-3 sm:pl-4"
+                   style={{ color: 'var(--color-neutral-dark)' }}>
+                  <span style={{ color: 'var(--color-warm-accent)', fontWeight: '600' }}>PCM</span> — это не просто метод, а навык понимать: почему мы действуем именно так, как реагируем в стрессе, что нас мотивирует и как найти общий язык даже в самых сложных ситуациях. В основе модели лежат шесть личностных типов, каждый со своими сильными сторонами, потребностями и особенностями взаимодействия. Через эту призму легко увидеть, где теряется контакт — и как его вернуть.
                 </p>
               </motion.div>
               
@@ -168,9 +181,11 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 }}
-                className="pt-3 sm:pt-4 border-t border-[#e5e5e5]"
+                className="pt-3 sm:pt-4"
+                style={{ borderTop: '1px solid var(--color-border)' }}
               >
-                <p className="text-neutral-dark leading-relaxed text-sm sm:text-base md:text-lg">
+                <p className="leading-relaxed text-sm sm:text-base md:text-lg"
+                   style={{ color: 'var(--color-neutral-dark)' }}>
                   Мой подход сочетает научную глубину, мягкость и игровую динамику. На тренингах и индивидуальных встречах мы не просто обсуждаем теорию — мы проживаем реальные ситуации, учимся говорить так, чтобы быть услышанными, и слушать так, чтобы понимать.
                 </p>
               </motion.div>
@@ -180,10 +195,16 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.6 }}
-                className="bg-gradient-to-br from-[#f8f8f8] to-white p-4 sm:p-5 md:p-6 rounded-lg sm:rounded-xl border border-[#e5e5e5] shadow-sm"
+                className="p-4 sm:p-5 md:p-6 rounded-lg sm:rounded-xl border shadow-sm"
+                style={{
+                  background: 'linear-gradient(135deg, var(--color-surface-light) 0%, var(--color-surface) 100%)',
+                  borderColor: 'var(--color-border)',
+                  boxShadow: '0 4px 6px var(--shadow-light)'
+                }}
               >
-                <p className="text-neutral-dark leading-relaxed text-sm sm:text-base md:text-lg">
-                  Опыт корпоративных программ, обучения руководителей и сотен индивидуальных клиентов позволил мне создать систему, где осознанная коммуникация становится не абстрактным навыком, а инструментом реальных изменений — в отношениях, в командах и в бизнесе. <span className="text-accent font-semibold">Мне важно</span>, чтобы каждый участник уходил не только с пониманием, но и с осязаемым <span className="text-accent font-semibold">результатом</span>: улучшенным контактом, спокойствием и уверенностью в общении.
+                <p className="leading-relaxed text-sm sm:text-base md:text-lg"
+                   style={{ color: 'var(--color-neutral-dark)' }}>
+                  Опыт корпоративных программ, обучения руководителей и сотен индивидуальных клиентов позволил мне создать систему, где осознанная коммуникация становится не абстрактным навыком, а инструментом реальных изменений — в отношениях, в командах и в бизнесе. <span style={{ color: 'var(--color-warm-accent)', fontWeight: '600' }}>Мне важно</span>, чтобы каждый участник уходил не только с пониманием, но и с осязаемым <span style={{ color: 'var(--color-warm-accent)', fontWeight: '600' }}>результатом</span>: улучшенным контактом, спокойствием и уверенностью в общении.
                 </p>
               </motion.div>
             </motion.div>
@@ -207,18 +228,26 @@ export default function About() {
                     transition={{ duration: 1, delay: 0.1 + index * 0.1 }}
                     whileHover={{ y: -3, scale: 1.03 }}
                     whileTap={{ scale: 0.98 }}
-                    className="card-minimal group p-3 sm:p-4 md:p-5 bg-gradient-to-br from-white to-[#f8f8f8] border border-[#e5e5e5] hover:border-accent/40 transition-all duration-300 rounded-lg sm:rounded-xl shadow-sm hover:shadow-md"
+                    className="group p-3 sm:p-4 md:p-5 border transition-all duration-300 rounded-lg sm:rounded-xl shadow-sm hover:shadow-md"
+                    style={{
+                      background: 'linear-gradient(135deg, var(--color-white) 0%, var(--color-surface-light) 100%)',
+                      borderColor: 'var(--color-border)'
+                    }}
                   >
-                    <div className="text-accent mb-2 sm:mb-3 group-hover:scale-110 transition-transform duration-300">
+                    <div className="mb-2 sm:mb-3 group-hover:scale-110 transition-transform duration-300"
+                         style={{ color: 'var(--color-earth-brown)' }}>
                       {stat.icon}
                     </div>
-                    <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-neutral-dark mb-1 sm:mb-2">
+                    <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-1 sm:mb-2"
+                         style={{ color: 'var(--color-neutral-dark)' }}>
                       {stat.value}
                     </div>
-                    <div className="text-accent font-semibold text-sm sm:text-base md:text-lg mb-1 sm:mb-2">
+                    <div className="font-semibold text-sm sm:text-base md:text-lg mb-1 sm:mb-2"
+                         style={{ color: 'var(--color-accent)' }}>
                       {stat.title}
                     </div>
-                    <div className="text-neutral-dark text-xs sm:text-sm md:text-base">
+                    <div className="text-xs sm:text-sm md:text-base"
+                         style={{ color: 'var(--color-neutral-dark)' }}>
                       {stat.desc}
                     </div>
                   </motion.div>
@@ -231,12 +260,18 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1, delay: 0.5 }}
-                className="p-3 sm:p-4 md:p-5 rounded-lg sm:rounded-xl border border-[#e5e5e5] shadow-sm"
+                className="p-3 sm:p-4 md:p-5 rounded-lg sm:rounded-xl border shadow-sm"
+                style={{
+                  borderColor: 'var(--color-border)',
+                  background: 'linear-gradient(135deg, var(--color-white) 0%, var(--color-surface-light) 100%)'
+                }}
               >
-                <h3 className="text-neutral-dark font-semibold text-sm sm:text-base md:text-lg lg:text-xl mb-1 sm:mb-2">
+                <h3 className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl mb-1 sm:mb-2"
+                    style={{ color: 'var(--color-neutral-dark)' }}>
                   Основа подхода
                 </h3>
-                <p className="text-neutral-dark text-xs sm:text-sm md:text-base leading-relaxed">
+                <p className="text-xs sm:text-sm md:text-base leading-relaxed"
+                   style={{ color: 'var(--color-neutral-dark)' }}>
                   Сочетание научной глубины PCM с практической применимостью в реальных ситуациях
                 </p>
               </motion.div>

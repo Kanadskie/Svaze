@@ -1,35 +1,49 @@
 :root {
-  /* Основные цвета (быстро менять здесь) */
-  --color-primary: #485320;         /* used as bg primary */
-  --color-accent: #b8b42d;          /* primary accent (buttons, accents) */
-  --color-accent-dark: #a0a028;     /* darker accent (hover) */
+  /* === Цветовая схема на основе предоставленной палитры === */
+  
+  /* Основные цвета */
+  --color-primary: #1b3d33;         /* Pine Teal - основной темный фон */
+  --color-accent: #6b905d;          /* Sage Green - основной акцент */
+  --color-accent-dark: #5a7f4d;     /* более темный акцент (hover, производный) */
+  --color-accent-secondary: #967f58; /* Faded Copper - вторичный акцент */
 
-  /* Для прозрачного фона */
-  --color-accent-20: rgba(184, 180, 45, 0.20);
-  --color-primary-95: rgba(72, 83, 32, 0.95);
-  --color-primary-90: rgba(72, 83, 32, 0.90);
-  --color-primary-80: rgba(72, 83, 32, 0.80);
+  /* Прозрачные варианты основного акцента */
+  --color-accent-20: rgba(107, 144, 93, 0.20);
+  --color-accent-40: rgba(107, 144, 93, 0.40);
+  --color-primary-95: rgba(27, 61, 51, 0.95);
+  --color-primary-90: rgba(27, 61, 51, 0.90);
+  --color-primary-80: rgba(27, 61, 51, 0.80);
 
-  /* Нейтральные / текст */
-  --color-neutral-dark: #2f2f2f;    /* used for headings, dark text */
-  --color-surface: #f8f8f8;         /* light surface */
-  --color-border: #e5e5e5;          /* borders */
+  /* Нейтральные / текст / поверхности */
+  --color-neutral-dark: #1b3d33;    /* Pine Teal - основной темный текст */
+  --color-surface: #f0eee7;         /* Soft Linen - светлая поверхность */
+  --color-surface-light: #f9f8f5;   /* очень светлая поверхность (производный) */
+  --color-border: #e2e0d9;          /* границы (производный от Soft Linen) */
 
-  /* Прозрачные / rgba варианты */
-  --shadow-strong: rgba(72, 83, 32, 0.3);
-  --shadow-medium: rgba(72, 83, 32, 0.25);
+  /* Дополнительные цвета из палитры */
+  --color-warm-accent: #967f58;     /* Faded Copper - теплый акцент */
+  --color-earth-brown: #613e2b;     /* Brown Bark - коричневый */
+  --color-green-fern: #6b905d;      /* Sage Green - зелёный (дублирует accent) */
+  --color-muted-teal: #7ba08d;      /* приглушенный бирюзовый (производный) */
+  --color-faded-copper: #967f58;    /* медный - Faded Copper */
 
-  /* Цвета текста/фоновые веса */
+  /* Тени (на основе primary) */
+  --shadow-strong: rgba(27, 61, 51, 0.3);
+  --shadow-medium: rgba(27, 61, 51, 0.25);
+  --shadow-light: rgba(27, 61, 51, 0.1);
+
+  /* Цвета текста/белые с прозрачностью */
   --color-white: #ffffff;
-  --color-white-90: rgba(255,255,255,0.9);
-  --color-white-80: rgba(255,255,255,0.8);
-  --color-white-60: rgba(255,255,255,0.6);
+  --color-white-90: rgba(255, 255, 255, 0.9);
+  --color-white-80: rgba(255, 255, 255, 0.8);
+  --color-white-60: rgba(255, 255, 255, 0.6);
+  --color-white-40: rgba(255, 255, 255, 0.4);
 }
 
-/* Быстрые темы (пример) */
-/*
-  Чтобы сменить тему — измените значения переменных выше.
-  Также можно добавить `.theme-light` и `.theme-dark` с переопределениями.
-*/
-
-
+/* Темная тема (опционально) */
+.theme-dark {
+  --color-primary: #0d1a15;
+  --color-surface: #1a2722;
+  --color-neutral-dark: #f0eee7;
+  --color-border: #2a3d36;
+}
