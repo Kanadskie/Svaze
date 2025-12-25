@@ -80,7 +80,7 @@ export default function Header() {
             <div 
               className="w-10 h-10 rounded-lg flex items-center justify-center"
               style={{
-                background: 'linear-gradient(135deg, var(--color-accent), var(--color-muted-teal))'
+                background: 'var(--color-accent)'
               }}
             >
               <span className="text-white font-bold text-lg">S</span>
@@ -177,13 +177,6 @@ export default function Header() {
                 }}
               />
             )}
-            {/* Эффект свечения при наведении */}
-            <span 
-              className="absolute inset-0 rounded opacity-0 group-hover:opacity-20 transition-opacity duration-300"
-              style={{
-                backgroundColor: 'var(--color-warm-accent)'
-              }}
-            ></span>
           </button>
         </nav>
       </header>

@@ -46,64 +46,7 @@ export default function Contacts() {
     <section 
       id="contact" 
       ref={ref} 
-      className="section-padding relative overflow-x-hidden bg-primary"
-      // style={{
-      //   background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-earth-brown) 100%)'
-      // }}
-    >
-      {/* Глобальные стили для input фокуса и автозаполнения */}
-      <style jsx global>{`
-        /* Убираем стандартную синюю рамку фокуса */
-        input:focus,
-        textarea:focus {
-          outline: none !important;
-          box-shadow: none !important;
-          border-color: var(--color-accent) !important;
-        }
-        
-        /* Кастомные стили для фокуса */
-        .custom-input:focus {
-          border-color: var(--color-accent) !important;
-          box-shadow: 0 0 0 2px rgba(var(--color-accent-rgb), 0.2) !important;
-        }
-        
-        /* Стили для автозаполнения */
-        input:-webkit-autofill,
-        input:-webkit-autofill:hover,
-        input:-webkit-autofill:focus,
-        input:-webkit-autofill:active {
-          -webkit-box-shadow: 0 0 0px 1000px var(--color-primary) inset !important;
-          -webkit-text-fill-color: var(--color-surface) !important;
-          border-color: rgba(255, 255, 255, 0.3) !important;
-          transition: background-color 5000s ease-in-out 0s, border-color 0.3s ease !important;
-        }
-        
-        /* Фокус на автозаполненном поле */
-        input:-webkit-autofill:focus {
-          border-color: var(--color-accent) !important;
-          box-shadow: 
-            0 0 0px 1000px var(--color-primary) inset,
-            0 0 0 2px rgba(var(--color-accent-rgb), 0.2) !important;
-        }
-        
-        /* Для Firefox */
-        input:-moz-autofill {
-          background-color: var(--color-primary) !important;
-          color: var(--color-surface) !important;
-          border-color: rgba(255, 255, 255, 0.3) !important;
-        }
-        
-        input:-moz-autofill:focus {
-          background-color: var(--color-primary) !important;
-          border-color: var(--color-accent) !important;
-        }
-        
-        /* Для Edge */
-        input:autofill {
-          background-color: var(--color-primary) !important;
-          color: var(--color-surface) !important;
-        }
-      `}</style>
+      className="section-padding relative overflow-x-hidden bg-primary">
 
       <div className="container-custom px-3 sm:px-4 md:px-6">
         <div className="max-w-7xl mx-auto w-full">

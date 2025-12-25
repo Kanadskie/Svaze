@@ -47,7 +47,7 @@ export default function Business() {
   return (
     <section 
       id="business" 
-      className="section-padding relative bg-accent-secondary"
+      className="section-padding relative bg-primary"
     >
       <div className="container-custom px-4 sm:px-6">
         <motion.div

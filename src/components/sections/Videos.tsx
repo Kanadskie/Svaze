@@ -200,7 +200,7 @@ export default function Videos() {
   return (
     <section 
       id="videos" 
-      className="section-padding bg-warm-accent"
+      className="section-padding bg-primary"
     >
       <div className="container-custom">
         <div className="max-w-7xl mx-auto">
@@ -218,7 +218,7 @@ export default function Videos() {
                 custom={0}
                 variants={titleVariants}
                 className="uppercase inline-block"
-                style={{ color: 'var(--color-earth-brown)' }}
+                style={{ color: 'var(--color-accent)' }}
               >
                 Видео
               </motion.span>
@@ -396,7 +396,7 @@ export default function Videos() {
                   
                   <div className="p-6">
                     <motion.h3 
-                        className="text-base font-bold mb-3 cursor-pointer text-earth-brown"
+                        className="text-base font-bold mb-3 cursor-pointer text-accent"
                       >
                         {video.title}
                       </motion.h3>

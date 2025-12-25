@@ -27,7 +27,7 @@
   --color-earth-brown: #613e2b;     /* Brown Bark - коричневый */
   --color-green-fern: #6b905d;      /* Sage Green - зелёный (дублирует accent) */
   --color-muted-teal: #7ba08d;      /* приглушенный бирюзовый (производный) */
-  --color-faded-copper: #967f58;    /* медный - Faded Copper */
+  --color-faded-copper: #9a8b71;    /* медный - Faded Copper */
 
   /* Тени (на основе primary) */
   --shadow-strong: rgba(27, 61, 51, 0.3);

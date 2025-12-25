@@ -226,7 +226,7 @@ export default function Hero() {
                   <div 
                     className="absolute -right-2 -bottom-2 w-10 h-10 border-b-2 border-r-2 sm:w-12 sm:h-12 md:w-14 md:h-14"
                     style={{
-                      borderColor: 'var(--color-green-fern)',
+                      borderColor: 'var(--color-faded-copper)',
                       opacity: 0.6
                     }}
                   ></div>
