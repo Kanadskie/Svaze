@@ -82,7 +82,7 @@ export default function PrivateClients() {
                         style={{ color: 'var(--color-neutral-dark)' }}>
                       {service.title}
                     </h3>
-                    <p className="text-xs sm:text-sm md:text-base leading-relaxed"
+                    <p className="text-sm sm:text-base leading-relaxed"
                        style={{ color: 'var(--color-neutral-dark)' }}>
                       {service.description}
                     </p>

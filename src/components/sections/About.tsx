@@ -155,7 +155,7 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 }}
-                className="leading-relaxed text-sm sm:text-base md:text-lg"
+                className="leading-relaxed text-sm sm:text-base"
                 style={{ color: 'var(--color-neutral-dark)' }}
               >
                 Меня зовут Сюзанна. Я сертифицированный тренер по <span style={{ color: 'var(--color-warm-accent)', fontWeight: '600' }}>Process Communication Model (PCM)</span> — модели, которая помогает видеть глубинную структуру человеческого общения. Работаю с людьми, командами и компаниями, которые стремятся к осознанности, эффективности и внутренней гармонии через коммуникацию.
@@ -170,7 +170,7 @@ export default function About() {
               >
                 <div className="absolute left-0 top-2 bottom-2 w-0.5 sm:w-1 bg-gradient-to-b from-warm-accent to-warm-accent/60 rounded-full"
                      style={{ background: 'linear-gradient(to bottom, var(--color-accent), var(--color-accent-40))' }}></div>
-                <p className="leading-relaxed text-sm sm:text-base md:text-lg pl-3 sm:pl-4"
+                <p className="leading-relaxed text-sm sm:text-base pl-3 sm:pl-4"
                    style={{ color: 'var(--color-neutral-dark)' }}>
                   <span style={{ color: 'var(--color-warm-accent)', fontWeight: '600' }}>PCM</span> — это не просто метод, а навык понимать: почему мы действуем именно так, как реагируем в стрессе, что нас мотивирует и как найти общий язык даже в самых сложных ситуациях. В основе модели лежат шесть личностных типов, каждый со своими сильными сторонами, потребностями и особенностями взаимодействия. Через эту призму легко увидеть, где теряется контакт — и как его вернуть.
                 </p>
@@ -184,7 +184,7 @@ export default function About() {
                 className="pt-3 sm:pt-4"
                 style={{ borderTop: '1px solid var(--color-border)' }}
               >
-                <p className="leading-relaxed text-sm sm:text-base md:text-lg"
+                <p className="leading-relaxed text-sm sm:text-base"
                    style={{ color: 'var(--color-neutral-dark)' }}>
                   Мой подход сочетает научную глубину, мягкость и игровую динамику. На тренингах и индивидуальных встречах мы не просто обсуждаем теорию — мы проживаем реальные ситуации, учимся говорить так, чтобы быть услышанными, и слушать так, чтобы понимать.
                 </p>
@@ -202,7 +202,7 @@ export default function About() {
                   boxShadow: '0 4px 6px var(--shadow-light)'
                 }}
               >
-                <p className="leading-relaxed text-sm sm:text-base md:text-lg"
+                <p className="leading-relaxed text-sm sm:text-base"
                    style={{ color: 'var(--color-neutral-dark)' }}>
                   Опыт корпоративных программ, обучения руководителей и сотен индивидуальных клиентов позволил мне создать систему, где осознанная коммуникация становится не абстрактным навыком, а инструментом реальных изменений — в отношениях, в командах и в бизнесе. <span style={{ color: 'var(--color-warm-accent)', fontWeight: '600' }}>Мне важно</span>, чтобы каждый участник уходил не только с пониманием, но и с осязаемым <span style={{ color: 'var(--color-warm-accent)', fontWeight: '600' }}>результатом</span>: улучшенным контактом, спокойствием и уверенностью в общении.
                 </p>
@@ -242,11 +242,11 @@ export default function About() {
                          style={{ color: 'var(--color-neutral-dark)' }}>
                       {stat.value}
                     </div>
-                    <div className="font-semibold text-sm sm:text-base md:text-lg mb-1 sm:mb-2"
+                    <div className="font-semibold text-sm sm:text-base mb-1 sm:mb-2"
                          style={{ color: 'var(--color-accent)' }}>
                       {stat.title}
                     </div>
-                    <div className="text-xs sm:text-sm md:text-base"
+                    <div className="text-sm sm:text-base"
                          style={{ color: 'var(--color-neutral-dark)' }}>
                       {stat.desc}
                     </div>
@@ -266,11 +266,11 @@ export default function About() {
                   background: 'linear-gradient(135deg, var(--color-surface) 0%, var(--color-surface-light) 100%)'
                 }}
               >
-                <h3 className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl mb-1 sm:mb-2"
+                <h3 className="font-semibold text-sm sm:text-base mb-1 sm:mb-2"
                     style={{ color: 'var(--color-neutral-dark)' }}>
                   Основа подхода
                 </h3>
-                <p className="text-xs sm:text-sm md:text-base leading-relaxed"
+                <p className="text-sm sm:text-base leading-relaxed"
                    style={{ color: 'var(--color-neutral-dark)' }}>
                   Сочетание научной глубины PCM с практической применимостью в реальных ситуациях
                 </p>

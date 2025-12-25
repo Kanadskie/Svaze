@@ -312,7 +312,7 @@ export default function Videos() {
                         <motion.div 
                           className="w-16 h-16 mb-4 rounded-full flex items-center justify-center shadow-2xl"
                           style={{
-                            background: 'linear-gradient(135deg, var(--color-primary), var(--color-primary-80))'
+                            background: 'var(--color-accent-dark)'
                           }}
                           whileHover={{ scale: 1.1 }}
                           whileTap={{ scale: 0.95 }}
@@ -396,11 +396,11 @@ export default function Videos() {
                   
                   <div className="p-6">
                     <motion.h3 
-                        className="text-base font-bold mb-3 cursor-pointer text-accent"
+                        className="text-sm sm:text-base font-bold mb-3 cursor-pointer text-accent"
                       >
                         {video.title}
                       </motion.h3>
-                    <p className='text-surface'>{video.description}</p>
+                    <p className='text-surface text-sm sm:text-base'>{video.description}</p>
                   </div>
                 </motion.div>
               )

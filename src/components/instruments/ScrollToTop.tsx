@@ -105,9 +105,9 @@ export default function ScrollToTop() {
       </div>
       
       {/* Текст под кнопкой */}
-          <span className="text-xs sm:text-sm text-neutral-dark bg-white/90 backdrop-blur-sm px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          {/* <span className="text-xs sm:text-sm text-neutral-dark bg-white/90 backdrop-blur-sm px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         Наверх
-      </span>
+      </span> */}
     </motion.button>
   );
 }

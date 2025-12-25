@@ -77,14 +77,6 @@ export default function Header() {
             className="flex items-center gap-3 no-underline"
             onClick={(e) => { e.preventDefault(); handleLogoClick(e as unknown as React.MouseEvent); window.location.href = '/' }}
           >
-            <div 
-              className="w-10 h-10 rounded-lg flex items-center justify-center"
-              style={{
-                background: 'var(--color-accent)'
-              }}
-            >
-              <span className="text-white font-bold text-lg">S</span>
-            </div>
             <div className="flex flex-col">
               <span 
                 className="text-white font-bold text-xl sm:text-2xl tracking-tight uppercase"

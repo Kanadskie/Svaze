@@ -88,7 +88,7 @@ export default function Hero() {
                       variants={letterVariants}
                       className="inline-block"
                       style={{
-                        color: 'var(--color-faded-copper)'}}
+                        color: 'var(--color-warm-accent)'}}
                     >
                       {letter}
                     </motion.span>
@@ -144,7 +144,7 @@ export default function Hero() {
                     });
                   }
                 }}
-                className="group relative overflow-hidden w-full sm:w-auto px-6 py-3 sm:px-7 sm:py-3.5 md:px-8 md:py-4 lg:px-9 lg:py-4 xl:px-10 xl:py-5 rounded-lg"
+                className="group relative overflow-hidden min-w-[220px] sm:w-auto px-6 py-3 sm:px-7 sm:py-3.5 md:px-8 md:py-4 lg:px-9 lg:py-4 xl:px-10 xl:py-5 rounded-lg"
                 style={{
                   backgroundColor: 'var(--color-accent)',
                   boxShadow: '0 4px 15px rgba(54, 106, 93, 0.3)'
@@ -181,7 +181,7 @@ export default function Hero() {
                     });
                   }
                 }}
-                className="group border w-full sm:w-auto px-6 py-3 sm:px-7 sm:py-3.5 md:px-8 md:py-4 lg:px-9 lg:py-4 xl:px-10 xl:py-5 rounded-lg"
+                className="group border sm:w-auto min-w-[220px] px-6 py-3 sm:px-7 sm:py-3.5 md:px-8 md:py-4 lg:px-9 lg:py-4 xl:px-10 xl:py-5 rounded-lg"
                 style={{
                   borderColor: 'var(--color-surface)',
                   boxShadow: '0 4px 15px var(--color-warm-accent-20)'

@@ -37,14 +37,6 @@ export default function SimpleHeader() {
             to="/" 
             className="flex items-center gap-3 no-underline"
           >
-            <div 
-              className="w-10 h-10 rounded-lg flex items-center justify-center"
-              style={{
-                background: 'linear-gradient(135deg, var(--color-accent), var(--color-muted-teal))'
-              }}
-            >
-              <span className="text-white font-bold text-lg">S</span>
-            </div>
             <div className="flex flex-col">
               <span 
                 className="text-white font-bold text-xl sm:text-2xl tracking-tight uppercase"

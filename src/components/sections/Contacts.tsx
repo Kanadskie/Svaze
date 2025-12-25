@@ -62,9 +62,9 @@ export default function Contacts() {
               <span 
                 className="uppercase"
                 style={{ color: 'var(--color-accent)' }}
-              >Мои</span>
+              >Мои </span>
               <span 
-                className="uppercase ml-2"
+                className="uppercase"
                 style={{ color: 'var(--color-surface)' }}
               > контакты</span>
             </h2>
