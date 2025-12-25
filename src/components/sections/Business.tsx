@@ -47,10 +47,7 @@ export default function Business() {
   return (
     <section 
       id="business" 
-      className="section-padding relative"
-      style={{
-        background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-earth-brown) 100%)'
-      }}
+      className="section-padding relative bg-accent-secondary"
     >
       <div className="container-custom px-4 sm:px-6">
         <motion.div
@@ -67,12 +64,12 @@ export default function Business() {
               >Для</span>
               <span 
                 className="uppercase ml-2"
-                style={{ color: '#d9dbd2' }}
+                style={{ color: 'var(--color-surface)' }}
               > бизнеса</span>
             </h2>
             <p 
               className="text-sm md:text-lg lg:text-xl max-w-3xl mx-auto px-4"
-              style={{ color: '#d9dbd2' }}
+              style={{ color: 'var(--color-surface)' }}
             >
               Эффективные коммуникации — основа успешного бизнеса
             </p>
@@ -100,7 +97,7 @@ export default function Business() {
                   <div 
                     className="absolute -right-2 -bottom-2 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 border-b-2 border-r-2 z-10"
                     style={{
-                      borderColor: 'var(--color-green-fern)',
+                      borderColor: 'var(--color-faded-copper)',
                       opacity: 0.6
                     }}
                   ></div>
@@ -138,7 +135,7 @@ export default function Business() {
                 >
                   <p 
                     className="text-center italic text-sm sm:text-base"
-                    style={{ color: '#d9dbd2' }}
+                    style={{ color: 'var(--color-surface)' }}
                   >
                     "Эффективная коммуникация — это стратегическое преимущество бизнеса"
                   </p>
@@ -176,7 +173,7 @@ export default function Business() {
                       </div>
                       <h3 
                         className="text-xl sm:text-2xl font-bold mb-4"
-                        style={{ color: '#d9dbd2' }}
+                        style={{ color: 'var(--color-surface)' }}
                       >
                         {section.title}
                       </h3>
@@ -224,7 +221,7 @@ export default function Business() {
                           <div key={i} className="flex items-start">
                             <CheckCircle 
                               className="h-4 w-4 sm:h-5 sm:w-5 mr-3 mt-0.5 shrink-0" 
-                              style={{ color: 'var(--color-green-fern)' }} 
+                              style={{ color: 'var(--color-warm-accent)' }} 
                             />
                             <span 
                               className="text-sm sm:text-base"

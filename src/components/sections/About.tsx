@@ -225,16 +225,16 @@ export default function About() {
                     initial={{ opacity: 0, y: 15 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 1, delay: 0.1 + index * 0.1 }}
-                    whileHover={{ y: -3, scale: 1.03 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="group p-3 sm:p-4 md:p-5 border transition-all duration-300 rounded-lg sm:rounded-xl shadow-sm hover:shadow-md"
+                    transition={{ duration: 0.2, delay: 0.05 + index * 0.1 }}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 1.02 }}
+                    className="group p-3 sm:p-4 md:p-5 border transition-all duration-300 rounded-lg sm:rounded-xl shadow-sm hover:shadow-md cursor-pointer"
                     style={{
-                      background: 'linear-gradient(135deg, var(--color-white) 0%, var(--color-surface-light) 100%)',
+                      background: 'linear-gradient(135deg, var(--color-surface) 0%, var(--color-surface-light) 100%)',
                       borderColor: 'var(--color-border)'
                     }}
                   >
-                    <div className="mb-2 sm:mb-3 group-hover:scale-110 transition-transform duration-300"
+                    <div className="mb-2 sm:mb-3"
                          style={{ color: 'var(--color-earth-brown)' }}>
                       {stat.icon}
                     </div>
@@ -263,7 +263,7 @@ export default function About() {
                 className="p-3 sm:p-4 md:p-5 rounded-lg sm:rounded-xl border shadow-sm"
                 style={{
                   borderColor: 'var(--color-border)',
-                  background: 'linear-gradient(135deg, var(--color-white) 0%, var(--color-surface-light) 100%)'
+                  background: 'linear-gradient(135deg, var(--color-surface) 0%, var(--color-surface-light) 100%)'
                 }}
               >
                 <h3 className="font-semibold text-sm sm:text-base md:text-lg lg:text-xl mb-1 sm:mb-2"

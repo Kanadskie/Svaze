@@ -5,7 +5,7 @@
   --color-primary: #1b3d33;         /* Pine Teal - основной темный фон */
   --color-accent: #6b905d;          /* Sage Green - основной акцент */
   --color-accent-dark: #5a7f4d;     /* более темный акцент (hover, производный) */
-  --color-accent-secondary: #967f58; /* Faded Copper - вторичный акцент */
+  --color-accent-secondary: #163C27; /* Faded Copper - вторичный акцент */
 
   /* Прозрачные варианты основного акцента */
   --color-accent-20: rgba(107, 144, 93, 0.20);
@@ -13,6 +13,8 @@
   --color-primary-95: rgba(27, 61, 51, 0.95);
   --color-primary-90: rgba(27, 61, 51, 0.90);
   --color-primary-80: rgba(27, 61, 51, 0.80);
+  --color-primary-50: rgba(27, 61, 51, 0.50);
+  --color-warm-accent-20: rgba(150, 127, 88, 0.20);
 
   /* Нейтральные / текст / поверхности */
   --color-neutral-dark: #1b3d33;    /* Pine Teal - основной темный текст */

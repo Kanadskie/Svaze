@@ -22,10 +22,7 @@ export default function PrivacyPage() {
     <>
       <SimpleHeader />
       <section 
-        className="pt-[40px] pb-12 md:pt-[110px] md:pb-14 lg:pt-[120px] lg:pb-20"
-        style={{
-          background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-earth-brown) 100%)'
-        }}
+        className="pt-[40px] pb-12 md:pt-[60px] md:pb-14 lg:pb-20 bg-primary"
       >
         <div className="container-custom">
         <div className="max-w-4xl mx-auto">
@@ -36,16 +33,10 @@ export default function PrivacyPage() {
             }}
           >
             {/* Заголовок */}
-            <div className="text-center mb-8 sm:mb-10 md:mb-12">
+                        <div className="text-center mb-8 sm:mb-10 md:mb-12">
               <h1 className="text-xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
-                <span 
-                  className="uppercase"
-                  style={{ color: 'var(--color-accent)' }}
-                >Политика</span>
-                <span 
-                  className="uppercase ml-2"
-                  style={{ color: '#d9dbd2' }}
-                > конфиденциальности</span>
+                <span className="text-accent uppercase">Политика</span>
+                <span className="text-surface uppercase"> конфиденциальности</span>
               </h1>
               <div 
                 className="text-sm sm:text-base md:text-lg"
@@ -65,7 +56,7 @@ export default function PrivacyPage() {
             >
               <h3 
                 className="font-semibold mb-3 sm:mb-4 text-lg"
-                style={{ color: '#d9dbd2' }}
+                style={{ color: 'var(--color-surface)' }}
               >Быстрая навигация:</h3>
               <div className="flex flex-wrap gap-2 sm:gap-3">
                 {[
@@ -99,7 +90,7 @@ export default function PrivacyPage() {
               >
                 <h2 
                   className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4"
-                  style={{ color: '#d9dbd2' }}
+                  style={{ color: 'var(--color-surface)' }}
                 >1. Общие положения</h2>
                 <div 
                   className="space-y-3 sm:space-y-4 text-sm sm:text-base"
@@ -125,7 +116,7 @@ export default function PrivacyPage() {
               >
                 <h2 
                   className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4"
-                  style={{ color: '#d9dbd2' }}
+                  style={{ color: 'var(--color-surface)' }}
                 >2. Цели сбора и обработки персональной информации пользователей</h2>
                 <div 
                   className="space-y-3 sm:space-y-4 text-sm sm:text-base"
@@ -158,7 +149,7 @@ export default function PrivacyPage() {
               >
                 <h2 
                   className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4"
-                  style={{ color: '#d9dbd2' }}
+                  style={{ color: 'var(--color-surface)' }}
                 >3. Условия обработки персональной информации предоставленной Пользователем и ее передачи третьим лицам</h2>
                 <div 
                   className="space-y-3 sm:space-y-4 text-sm sm:text-base"
@@ -207,7 +198,7 @@ export default function PrivacyPage() {
               >
                 <h2 
                   className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4"
-                  style={{ color: '#d9dbd2' }}
+                  style={{ color: 'var(--color-surface)' }}
                 >4. Пользование Пользователем Сайтом</h2>
                 <div 
                   className="space-y-3 sm:space-y-4 text-sm sm:text-base"
@@ -239,7 +230,7 @@ export default function PrivacyPage() {
               >
                 <h2 
                   className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4"
-                  style={{ color: '#d9dbd2' }}
+                  style={{ color: 'var(--color-surface)' }}
                 >5. В рамках настоящей Политики под «персональной информацией Пользователя» понимаются:</h2>
                 <div 
                   className="space-y-3 sm:space-y-4 text-sm sm:text-base"
@@ -273,7 +264,7 @@ export default function PrivacyPage() {
               >
                 <h2 
                   className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4"
-                  style={{ color: '#d9dbd2' }}
+                  style={{ color: 'var(--color-surface)' }}
                 >6. Изменение Политики конфиденциальности. Применимое законодательство</h2>
                 <div 
                   className="space-y-3 sm:space-y-4 text-sm sm:text-base"

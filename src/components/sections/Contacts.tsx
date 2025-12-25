@@ -46,11 +46,65 @@ export default function Contacts() {
     <section 
       id="contact" 
       ref={ref} 
-      className="section-padding relative overflow-x-hidden"
-      style={{
-        background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-earth-brown) 100%)'
-      }}
+      className="section-padding relative overflow-x-hidden bg-primary"
+      // style={{
+      //   background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-earth-brown) 100%)'
+      // }}
     >
+      {/* Глобальные стили для input фокуса и автозаполнения */}
+      <style jsx global>{`
+        /* Убираем стандартную синюю рамку фокуса */
+        input:focus,
+        textarea:focus {
+          outline: none !important;
+          box-shadow: none !important;
+          border-color: var(--color-accent) !important;
+        }
+        
+        /* Кастомные стили для фокуса */
+        .custom-input:focus {
+          border-color: var(--color-accent) !important;
+          box-shadow: 0 0 0 2px rgba(var(--color-accent-rgb), 0.2) !important;
+        }
+        
+        /* Стили для автозаполнения */
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        input:-webkit-autofill:active {
+          -webkit-box-shadow: 0 0 0px 1000px var(--color-primary) inset !important;
+          -webkit-text-fill-color: var(--color-surface) !important;
+          border-color: rgba(255, 255, 255, 0.3) !important;
+          transition: background-color 5000s ease-in-out 0s, border-color 0.3s ease !important;
+        }
+        
+        /* Фокус на автозаполненном поле */
+        input:-webkit-autofill:focus {
+          border-color: var(--color-accent) !important;
+          box-shadow: 
+            0 0 0px 1000px var(--color-primary) inset,
+            0 0 0 2px rgba(var(--color-accent-rgb), 0.2) !important;
+        }
+        
+        /* Для Firefox */
+        input:-moz-autofill {
+          background-color: var(--color-primary) !important;
+          color: var(--color-surface) !important;
+          border-color: rgba(255, 255, 255, 0.3) !important;
+        }
+        
+        input:-moz-autofill:focus {
+          background-color: var(--color-primary) !important;
+          border-color: var(--color-accent) !important;
+        }
+        
+        /* Для Edge */
+        input:autofill {
+          background-color: var(--color-primary) !important;
+          color: var(--color-surface) !important;
+        }
+      `}</style>
+
       <div className="container-custom px-3 sm:px-4 md:px-6">
         <div className="max-w-7xl mx-auto w-full">
           
@@ -68,12 +122,12 @@ export default function Contacts() {
               >Мои</span>
               <span 
                 className="uppercase ml-2"
-                style={{ color: '#d9dbd2' }}
+                style={{ color: 'var(--color-surface)' }}
               > контакты</span>
             </h2>
             <p 
               className="text-sm md:text-lg lg:text-xl max-w-3xl mx-auto px-2"
-              style={{ color: '#d9dbd2' }}
+              style={{ color: 'var(--color-surface)' }}
             >
               Свяжитесь со мной для консультации и записи на встречу
             </p>
@@ -110,7 +164,7 @@ export default function Contacts() {
                     <div 
                       className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300"
                       style={{
-                        background: 'linear-gradient(135deg, var(--color-accent), var(--color-muted-teal))'
+                        background: 'var(--color-accent)'
                       }}
                     >
                       <contact.icon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" />
@@ -124,7 +178,7 @@ export default function Contacts() {
                       </p>
                       <p 
                         className="text-sm sm:text-base md:text-lg font-semibold hover:text-accent transition-colors truncate"
-                        style={{ color: '#d9dbd2' }}
+                        style={{ color: 'var(--color-surface)' }}
                       >
                         {contact.value}
                       </p>
@@ -153,7 +207,7 @@ export default function Contacts() {
               >
                 <h3 
                   className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6"
-                  style={{ color: '#d9dbd2' }}
+                  style={{ color: 'var(--color-surface)' }}
                 >
                   Запись на консультацию
                 </h3>
@@ -178,9 +232,9 @@ export default function Contacts() {
                         type="text"
                         id="name"
                         required
-                        className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-white/10 border border-white/20 rounded-lg placeholder-white/40 focus:ring-2 focus:border-accent outline-none transition-all duration-300 backdrop-blur-sm text-sm sm:text-base"
+                        className="custom-input w-full px-3 py-2 sm:px-4 sm:py-3 bg-white/10 border border-white/20 rounded-lg placeholder-white/40 outline-none transition-all duration-300 backdrop-blur-sm text-sm sm:text-base"
                         style={{ 
-                          color: '#d9dbd2',
+                          color: 'var(--color-surface)',
                           borderColor: 'rgba(217, 219, 210, 0.2)'
                         }}
                         placeholder="Ваше имя"
@@ -198,9 +252,9 @@ export default function Contacts() {
                         type="email"
                         id="email"
                         required
-                        className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-white/10 border border-white/20 rounded-lg placeholder-white/40 focus:ring-2 focus:border-accent outline-none transition-all duration-300 backdrop-blur-sm text-sm sm:text-base"
+                        className="custom-input w-full px-3 py-2 sm:px-4 sm:py-3 bg-white/10 border border-white/20 rounded-lg placeholder-white/40 outline-none transition-all duration-300 backdrop-blur-sm text-sm sm:text-base"
                         style={{ 
-                          color: '#d9dbd2',
+                          color: 'var(--color-surface)',
                           borderColor: 'rgba(217, 219, 210, 0.2)'
                         }}
                         placeholder="example@email.com"
@@ -220,9 +274,9 @@ export default function Contacts() {
                       id="message"
                       required
                       rows={3}
-                      className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-white/10 border border-white/20 rounded-lg placeholder-white/40 focus:ring-2 focus:border-accent outline-none transition-all duration-300 backdrop-blur-sm resize-vertical text-sm sm:text-base"
+                      className="custom-input w-full px-3 py-2 sm:px-4 sm:py-3 bg-white/10 border border-white/20 rounded-lg placeholder-white/40 outline-none transition-all duration-300 backdrop-blur-sm resize-vertical text-sm sm:text-base"
                       style={{ 
-                        color: '#d9dbd2',
+                        color: 'var(--color-surface)',
                         borderColor: 'rgba(217, 219, 210, 0.2)'
                       }}
                       placeholder="Расскажите о ваших целях и задачах..."
@@ -230,7 +284,7 @@ export default function Contacts() {
                   </div>
 
                   <motion.button
-                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     type="submit"
                     className="w-full py-3 sm:py-4 px-4 rounded-lg font-semibold text-base sm:text-lg transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 sm:gap-3 group"

@@ -62,14 +62,11 @@ export default function Header() {
     <header 
         className={`fixed top-0 left-0 right-0 z-50 h-20 transition-all duration-300 ${
           scrolled 
-            ? 'backdrop-blur-md shadow-lg' 
-            : ''
+            ? 'bg-primary-95 backdrop-blur-md shadow-lg' 
+            : 'bg-primary-95'
         }`}
         style={{ 
-          height: '80px',
-          background: scrolled 
-            ? 'linear-gradient(135deg, rgba(55, 73, 64, 0.9) 0%, rgba(69, 54, 34, 0.9) 100%)' // более прозрачный
-            : 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-earth-brown) 100%)' // тот же что у Hero
+          height: '80px'
         }}
       >
         <nav className="container-custom h-full flex items-center justify-between">
@@ -162,7 +159,6 @@ export default function Header() {
             className="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg relative group"
             aria-label={isMenuOpen ? "Закрыть меню" : "Открыть меню"}
             style={{
-              backgroundColor: 'rgba(186, 159, 129, 0.1)',
               border: '1px solid var(--color-warm-accent)'
             }}
           >
@@ -170,14 +166,14 @@ export default function Header() {
               <XMarkIcon 
                 className="w-6 h-6"
                 style={{
-                  color: 'var(--color-warm-accent)'
+                  color: 'var(--color-surface)'
                 }}
               />
             ) : (
               <Bars3Icon 
                 className="w-6 h-6"
                 style={{
-                  color: 'var(--color-warm-accent)'
+                  color: 'var(--color-surface)'
                 }}
               />
             )}
@@ -208,7 +204,7 @@ export default function Header() {
           <div 
             className="absolute top-20 right-0 bottom-0 w-64 p-6"
             style={{
-              background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-earth-brown) 100%)',
+              background: 'var(--color-primary)',
               boxShadow: '-5px 0 20px rgba(0,0,0,0.3)'
             }}
           >
@@ -276,10 +272,10 @@ export default function Header() {
                   href="/privacy"
                   className="text-base transition-colors duration-300 block py-2"
                   style={{
-                    color: 'rgba(217, 219, 210, 0.4)', // Dust Grey с прозрачностью
+                    color: 'rgba(217, 219, 210, 0.7)', // Dust Grey с прозрачностью
                   }}
                   onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-warm-accent)'}
-                  onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(217, 219, 210, 0.4)'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(217, 219, 210, 0.7)'}
                 >
                   Политика конфиденциальности
                 </a>

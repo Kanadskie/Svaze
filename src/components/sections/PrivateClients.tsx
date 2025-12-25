@@ -67,7 +67,7 @@ export default function PrivateClients() {
                     transition={{ delay: index * 0.1 }}
                     className="p-4 sm:p-5 md:p-6 rounded-lg sm:rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
                     style={{
-                      background: 'linear-gradient(135deg, var(--color-white) 0%, var(--color-surface-light) 100%)',
+                      background: 'linear-gradient(135deg, var(--color-var(--color-surface)) 0%, var(--color-surface-light) 100%)',
                       border: '1px solid var(--color-border)'
                     }}
                   >
@@ -76,7 +76,7 @@ export default function PrivateClients() {
                            background: 'linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%)'
                          }}>
                       <service.icon className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" 
-                                   style={{ color: 'var(--color-white)' }} />
+                                   style={{ color: 'var(--color-var(--color-surface))' }} />
                     </div>
                     <h3 className="text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3"
                         style={{ color: 'var(--color-neutral-dark)' }}>
@@ -129,7 +129,7 @@ export default function PrivateClients() {
                 
                 <div className="mt-4 sm:mt-5 md:mt-6 p-3 sm:p-4 rounded-lg sm:rounded-xl border shadow-sm"
                      style={{
-                       background: 'linear-gradient(135deg, var(--color-white) 0%, var(--color-surface-light) 100%)',
+                       background: 'linear-gradient(135deg, var(--color-var(--color-surface)) 0%, var(--color-surface-light) 100%)',
                        borderColor: 'var(--color-border)'
                      }}>
                   <p className="text-center italic text-xs sm:text-sm md:text-base"

@@ -200,10 +200,7 @@ export default function Videos() {
   return (
     <section 
       id="videos" 
-      className="section-padding"
-      style={{
-        background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-earth-brown) 100%)'
-      }}
+      className="section-padding bg-warm-accent"
     >
       <div className="container-custom">
         <div className="max-w-7xl mx-auto">
@@ -221,7 +218,7 @@ export default function Videos() {
                 custom={0}
                 variants={titleVariants}
                 className="uppercase inline-block"
-                style={{ color: 'var(--color-accent)' }}
+                style={{ color: 'var(--color-earth-brown)' }}
               >
                 Видео
               </motion.span>
@@ -229,7 +226,7 @@ export default function Videos() {
                 custom={1}
                 variants={titleVariants}
                 className="uppercase inline-block ml-2"
-                style={{ color: '#d9dbd2' }}
+                style={{ color: 'var(--color-surface)' }}
               >
                 материалы
               </motion.span>
@@ -239,7 +236,7 @@ export default function Videos() {
               custom={2}
               variants={titleVariants}
               className="text-sm md:text-lg lg:text-xl max-w-3xl mx-auto"
-              style={{ color: '#d9dbd2' }}
+              style={{ color: 'var(--color-surface)' }}
             >
               Практические материалы и разборы реальных кейсов
             </motion.p>
@@ -315,12 +312,12 @@ export default function Videos() {
                         <motion.div 
                           className="w-16 h-16 mb-4 rounded-full flex items-center justify-center shadow-2xl"
                           style={{
-                            background: 'linear-gradient(135deg, var(--color-accent), var(--color-muted-teal))'
+                            background: 'linear-gradient(135deg, var(--color-primary), var(--color-primary-80))'
                           }}
                           whileHover={{ scale: 1.1 }}
                           whileTap={{ scale: 0.95 }}
                         >
-                          <Play className="w-8 h-8 text-white ml-1" />
+                          <Play className="w-8 h-8 text-surface ml-1" />
                         </motion.div>
                         <motion.p 
                           className="text-white/80 text-sm"
@@ -344,7 +341,7 @@ export default function Videos() {
                           animate={{ rotate: 360 }}
                           transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                         >
-                          <Loader2 className="w-10 h-10" style={{ color: 'var(--color-accent)' }} />
+                          <Loader2 className="w-10 h-10" style={{ color: 'var(--color-primary-95)' }} />
                         </motion.div>
                       </motion.div>
                     )}
@@ -399,13 +396,11 @@ export default function Videos() {
                   
                   <div className="p-6">
                     <motion.h3 
-                      className="text-base font-bold mb-3 cursor-pointer transition-colors duration-300"
-                      style={{ color: '#d9dbd2' }}
-                      whileHover={{ color: 'var(--color-warm-accent)' }}
-                    >
-                      {video.title}
-                    </motion.h3>
-                    <p style={{ color: 'var(--color-white-80)' }}>{video.description}</p>
+                        className="text-base font-bold mb-3 cursor-pointer text-earth-brown"
+                      >
+                        {video.title}
+                      </motion.h3>
+                    <p className='text-surface'>{video.description}</p>
                   </div>
                 </motion.div>
               )

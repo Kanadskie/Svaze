@@ -44,9 +44,6 @@ export default function Hero() {
     <section 
       id="hero" 
       className="bg-primary pt-10 pb-12 md:pt-14 md:pb-14 lg:pt-16 lg:pb-20"
-      style={{
-        background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-earth-brown) 100%)'
-      }}
     >
       <div className="container-custom relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-12 lg:gap-16 items-end">
@@ -68,8 +65,8 @@ export default function Hero() {
                       variants={letterVariants}
                       className="inline-block"
                       style={{
-                        color: '#d9dbd2', // Dust Grey
-                        textShadow: '2px 2px 4px rgba(55, 73, 64, 0.5)'
+                        color: 'var(--color-surface)',
+                        textShadow: '2px 2px 4px var(--color-warm-accent-20)'
                       }}
                     >
                       {letter}
@@ -107,7 +104,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl text-white/90 mb-6 sm:mb-7 md:mb-8 lg:mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed font-light"
               style={{
-                color: '#d9dbd2' // Dust Grey
+                color: 'var(--color-surface)' // Dust Grey
               }}
             >
               Осознанная коммуникация для бизнеса и жизни через{' '}
@@ -115,7 +112,7 @@ export default function Hero() {
                 className="font-medium"
                 style={{
                   color: 'var(--color-warm-accent)',
-                  textShadow: '0 0 10px rgba(186, 159, 129, 0.3)'
+                  textShadow: '0 0 10px var(--color-warm-accent-20)'
                 }}
               >
                 Process Communication Model
@@ -186,21 +183,21 @@ export default function Hero() {
                 }}
                 className="group border w-full sm:w-auto px-6 py-3 sm:px-7 sm:py-3.5 md:px-8 md:py-4 lg:px-9 lg:py-4 xl:px-10 xl:py-5 rounded-lg"
                 style={{
-                  borderColor: 'var(--color-warm-accent)',
-                  backgroundColor: 'rgba(186, 159, 129, 0.1)',
-                  boxShadow: '0 4px 15px rgba(186, 159, 129, 0.1)'
+                  borderColor: 'var(--color-surface)',
+                  boxShadow: '0 4px 15px var(--color-warm-accent-20)'
                 }}
               >
                 <span className="flex items-center justify-center gap-2 sm:gap-3 md:gap-4 text-sm sm:text-base md:text-lg font-medium"
                   style={{
-                    color: 'var(--color-warm-accent)'
+                    color: 'var(--color-surface)',
+                    
                   }}
                 >
                   Посмотреть услуги
                   <ArrowRightIcon 
                     className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 group-hover:translate-x-2 transition-transform duration-300"
                     style={{
-                      color: 'var(--color-warm-accent)'
+                      color: 'var(--color-surface)'
                     }}
                   />
                 </span>
@@ -265,7 +262,7 @@ export default function Hero() {
                   <div 
                     className="absolute -right-2 -bottom-2 w-10 h-10 border-b-2 border-r-2 z-10 sm:w-12 sm:h-12"
                     style={{
-                      borderColor: 'var(--color-green-fern)',
+                      borderColor: 'var(--color-faded-copper)',
                       opacity: 0.6
                     }}
                   ></div>

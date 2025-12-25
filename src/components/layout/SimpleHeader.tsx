@@ -23,14 +23,11 @@ export default function SimpleHeader() {
       <header 
         className={`fixed top-0 left-0 right-0 z-50 h-20 transition-all duration-300 ${
           scrolled 
-            ? 'backdrop-blur-md shadow-lg' 
-            : ''
+            ? 'bg-primary-95 backdrop-blur-md shadow-lg' 
+            : 'bg-primary-95'
         }`}
         style={{ 
           height: '80px',
-          background: scrolled 
-            ? 'linear-gradient(135deg, rgba(55, 73, 64, 0.9) 0%, rgba(69, 54, 34, 0.9) 100%)'
-            : 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-earth-brown) 100%)'
         }}
       >
         <nav className="container-custom h-full flex items-center justify-between">
@@ -69,31 +66,34 @@ export default function SimpleHeader() {
           </Link>
 
           {/* Кнопка возврата - стилизованная как кнопки в основном Header */}
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Link
-              to="/"
-              className="flex items-center gap-2 px-4 sm:px-6 py-2.5 font-semibold rounded-lg relative overflow-hidden group"
-              style={{
-                background: 'linear-gradient(135deg, var(--color-accent) 0%, var(--color-green-fern) 100%)',
-                boxShadow: '0 4px 15px rgba(54, 106, 93, 0.3)'
-              }}
-            >
-              <ArrowLeftIcon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-              <span className="relative z-10 text-white text-sm sm:text-base ml-1">
-                <span className="hidden sm:inline">На главную</span>
-                <span className="sm:hidden">Назад</span>
-              </span>
-              <div 
-                className="absolute inset-0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
-                style={{
-                  background: 'linear-gradient(to right, var(--color-accent), var(--color-muted-teal))'
-                }}
-              ></div>
-            </Link>
-          </motion.div>
+        <motion.div
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+>
+  <Link
+    to="/"
+    className="flex items-center gap-2 px-4 sm:px-6 py-2.5 font-semibold rounded-lg relative overflow-hidden group"
+    style={{
+      background: 'linear-gradient(135deg, var(--color-accent) 0%, var(--color-green-fern) 100%)',
+      boxShadow: '0 4px 15px rgba(54, 106, 93, 0.3)'
+    }}
+  >
+    {/* Стрелка и текст должны быть поверх всего */}
+    <ArrowLeftIcon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 group-hover:-translate-x-2 transition-transform duration-300 relative z-10" />
+    <span className="relative z-10 text-white text-sm sm:text-base ml-1">
+      <span className="hidden sm:inline">На главную</span>
+      <span className="sm:hidden">Назад</span>
+    </span>
+    
+    {/* Градиентный оверлей - должен быть ПОД контентом */}
+    <div 
+      className="absolute inset-0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left z-0"
+      style={{
+        background: 'linear-gradient(to right, var(--color-accent), var(--color-muted-teal))'
+      }}
+    ></div>
+  </Link>
+</motion.div>
         </nav>
       </header>
 

@@ -67,6 +67,8 @@ const config: Config = {
         'primary-95': 'var(--color-primary-95)',
         'primary-90': 'var(--color-primary-90)',
         'primary-80': 'var(--color-primary-80)',
+        'primary-50': 'var(--color-primary-50)',
+        'warm-accent-20': 'var(--color-warm-accent-20)',
         
         // Дополнительные
         'warm-accent': 'var(--color-warm-accent)',
