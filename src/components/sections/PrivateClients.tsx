@@ -132,7 +132,7 @@ export default function PrivateClients() {
                        background: 'linear-gradient(135deg, var(--color-var(--color-surface)) 0%, var(--color-surface-light) 100%)',
                        borderColor: 'var(--color-border)'
                      }}>
-                  <p className="text-center italic text-xs sm:text-sm md:text-base"
+                  <p className="text-center italic text-sm sm:text-base"
                      style={{ color: 'var(--color-neutral-dark)' }}>
                     "Понимание себя и других — ключ к гармоничным отношениям"
                   </p>
