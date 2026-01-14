@@ -10,14 +10,14 @@ const videos = [
     title: 'Знакомство с Моделью Процесса Коммуникаций (PCM)',
     description: 'Основные принципы и методология PCM для эффективной коммуникации',
     videoUrl: '/videos/v1.mp4',
-    thumbnail: '',
+    thumbnail: '/videos/v1_tn.jpg'
   },
   {
     id: 2,
     title: 'Коммуникации - ключ к успеху!',
     description: 'Практические примеры применения PCM в бизнесе и жизни',
     videoUrl: '/videos/v2.mp4',
-    thumbnail: '',
+    thumbnail: '/videos/v2_tn.jpg'
   }
 ]
 
@@ -200,7 +200,10 @@ export default function Videos() {
   return (
     <section 
       id="videos" 
-      className="section-padding bg-primary"
+      className="section-padding bg-surface"
+      style={{
+        background: 'linear-gradient(135deg, var(--color-surface-light) 0%, var(--color-surface) 100%)'
+      }}
     >
       <div className="container-custom">
         <div className="max-w-7xl mx-auto">
@@ -218,7 +221,7 @@ export default function Videos() {
                 custom={0}
                 variants={titleVariants}
                 className="uppercase inline-block"
-                style={{ color: 'var(--color-accent)' }}
+                style={{ color: 'var(--color-neutral-dark)' }}
               >
                 Видео
               </motion.span>
@@ -226,20 +229,11 @@ export default function Videos() {
                 custom={1}
                 variants={titleVariants}
                 className="uppercase inline-block ml-2"
-                style={{ color: 'var(--color-surface)' }}
+                style={{ color: 'var(--color-warm-accent)' }}
               >
                 материалы
               </motion.span>
             </motion.h2>
-            
-            <motion.p
-              custom={2}
-              variants={titleVariants}
-              className="text-sm md:text-lg lg:text-xl max-w-3xl mx-auto"
-              style={{ color: 'var(--color-surface)' }}
-            >
-              Практические материалы и разборы реальных кейсов
-            </motion.p>
           </motion.div>
 
           {/* Видео блоки */}
@@ -254,6 +248,7 @@ export default function Videos() {
               const isActive = activeVideoId === video.id
               const isPlaying = playingStates[video.id] || false
               const isMuted = mutedStates[video.id] ?? false
+              const showPoster = !isActive || !isPlaying
 
               return (
                 <motion.div
@@ -270,7 +265,16 @@ export default function Videos() {
                     boxShadow: '0 4px 15px rgba(55, 73, 64, 0.2)'
                   }}
                 >
-                  <div className="relative aspect-video bg-black overflow-hidden">
+                  <div className="relative aspect-video overflow-hidden">
+                    {/* Превью изображение */}
+                    {showPoster && (
+                      <img
+                        src={video.thumbnail}
+                        alt={`Превью: ${video.title}`}
+                        className="absolute inset-0 w-full h-full object-cover z-0"
+                      />
+                    )}
+                    
                     <video
                       ref={el => {
                         if (el) {
@@ -278,7 +282,7 @@ export default function Videos() {
                         }
                       }}
                       src={video.videoUrl}
-                      className="w-full h-full object-cover video-optimized"
+                      className={`w-full h-full object-cover video-optimized ${showPoster ? 'opacity-0' : 'opacity-100'}`}
                       preload="metadata"
                       muted={isMuted}
                       playsInline
@@ -304,36 +308,18 @@ export default function Videos() {
                     {/* Overlay с кнопкой */}
                     {(!isActive || !isPlaying) && loadingVideoId !== video.id && (
                       <motion.div 
-                        className="absolute inset-0 flex flex-col items-center justify-center cursor-pointer bg-gradient-to-t from-black/60 via-transparent to-transparent"
+                        className="absolute inset-0 flex flex-col items-center justify-center cursor-pointer bg-gradient-to-t from-black/60 via-transparent to-transparent z-10"
                         initial={{ opacity: 1 }}
                         whileHover={{ opacity: 0.9 }}
                         onClick={() => handleVideoClick(video.id)}
                       >
-                        <motion.div 
-                          className="w-16 h-16 mb-4 rounded-full flex items-center justify-center shadow-2xl"
-                          style={{
-                            background: 'var(--color-accent-dark)'
-                          }}
-                          whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          <Play className="w-8 h-8 text-surface ml-1" />
-                        </motion.div>
-                        <motion.p 
-                          className="text-white/80 text-sm"
-                          initial={{ opacity: 0, y: 10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: 0.2 }}
-                        >
-                          Нажмите для воспроизведения
-                        </motion.p>
                       </motion.div>
                     )}
                     
                     {/* Индикатор загрузки */}
                     {loadingVideoId === video.id && (
                       <motion.div 
-                        className="absolute inset-0 bg-black/70 flex items-center justify-center"
+                        className="absolute inset-0 bg-primary flex items-center justify-center z-20"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                       >
@@ -349,7 +335,7 @@ export default function Videos() {
                     {/* Контролы */}
                     {isActive && !loadingVideoId && (
                       <motion.div 
-                        className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4"
+                        className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 z-10"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.3 }}
@@ -396,11 +382,11 @@ export default function Videos() {
                   
                   <div className="p-6">
                     <motion.h3 
-                        className="text-sm sm:text-base font-bold mb-3 cursor-pointer text-accent"
+                        className="text-sm sm:text-base font-bold mb-3 cursor-pointer text-primary"
                       >
                         {video.title}
                       </motion.h3>
-                    <p className='text-surface text-sm sm:text-base'>{video.description}</p>
+                    <p className='text-primary text-sm sm:text-base'>{video.description}</p>
                   </div>
                 </motion.div>
               )

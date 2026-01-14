@@ -3,18 +3,24 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Phone, Mail, Linkedin, Youtube, ContactRound, Send, ExternalLink} from 'lucide-react';
+import { Mail, Linkedin, Youtube, ContactRound, Send, ExternalLink} from 'lucide-react';
 
 export default function Contacts() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
   
   const contacts = [
+    // {
+    //   icon: Phone,
+    //   label: 'Телефон',
+    //   value: '+7 (926) 591-05-73',
+    //   href: 'tel:+79265910573'
+    // },
     {
-      icon: Phone,
-      label: 'Телефон',
-      value: '+7 (926) 591-05-73',
-      href: 'tel:+79265910573'
+      icon: Send,
+      label: 'Telegram',
+      value: '@Suzanna_Kim',
+      href: 'https://t.me/Suzanna_Kim'
     },
     {
       icon: Mail,
@@ -37,7 +43,7 @@ export default function Contacts() {
     {
       icon: ContactRound,
       label: 'PCM Россия',
-      value: 'Профиль специалиста',
+      value: 'Профиль тренера',
       href: 'https://pcmrussia.ru/pcm-certified-professionals/suzanna-kim'
     }
   ];
@@ -46,7 +52,11 @@ export default function Contacts() {
     <section 
       id="contact" 
       ref={ref} 
-      className="section-padding relative overflow-x-hidden bg-primary">
+      className="section-padding relative overflow-x-hidden"
+      style={{
+        background: 'linear-gradient(135deg, var(--color-surface-light) 0%, var(--color-surface) 100%)'
+      }}
+    >
 
       <div className="container-custom px-3 sm:px-4 md:px-6">
         <div className="max-w-7xl mx-auto w-full">
@@ -61,19 +71,13 @@ export default function Contacts() {
             <h2 className="text-3xl xs:text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6">
               <span 
                 className="uppercase"
-                style={{ color: 'var(--color-accent)' }}
+                style={{ color: 'var(--color-neutral-dark)' }}
               >Мои </span>
               <span 
                 className="uppercase"
-                style={{ color: 'var(--color-surface)' }}
+                style={{ color: 'var(--color-warm-accent)' }}
               > контакты</span>
             </h2>
-            <p 
-              className="text-sm md:text-lg lg:text-xl max-w-3xl mx-auto px-2"
-              style={{ color: 'var(--color-surface)' }}
-            >
-              Свяжитесь со мной для консультации и записи на встречу
-            </p>
           </motion.div>
 
           {/* Две колонки */}
@@ -101,7 +105,8 @@ export default function Contacts() {
                     whileHover={{ x: 5 }}
                     className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 md:p-5 bg-white/5 backdrop-blur-sm rounded-lg sm:rounded-xl border border-white/10 hover:border-accent/30 transition-all duration-300 group"
                     style={{
-                      boxShadow: '0 4px 15px rgba(55, 73, 64, 0.1)'
+                      background: 'linear-gradient(135deg, var(--color-var(--color-surface)) 0%, var(--color-surface-light) 100%)',
+                      border: '1px solid var(--color-border)'
                     }}
                   >
                     <div 
@@ -115,19 +120,19 @@ export default function Contacts() {
                     <div className="flex-1 min-w-0">
                       <p 
                         className="text-xs sm:text-sm mb-1 truncate"
-                        style={{ color: 'var(--color-white-80)' }}
+                        style={{ color: 'var(--color-primary)' }}
                       >
                         {contact.label}
                       </p>
                       <p 
                         className="text-sm sm:text-base md:text-lg font-semibold hover:text-accent transition-colors truncate"
-                        style={{ color: 'var(--color-surface)' }}
+                        style={{ color: 'var(--color-primary)' }}
                       >
                         {contact.value}
                       </p>
                     </div>
                     {(contact.label === 'LinkedIn' || contact.label === 'YouTube' || contact.label === 'PCM Россия') && (
-                      <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 text-white/40 group-hover:text-accent transition-colors shrink-0" />
+                      <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 text-accent group-hover:text-warm-accent transition-colors shrink-0" />
                     )}
                   </motion.a>
                 ))}
@@ -145,18 +150,19 @@ export default function Contacts() {
               <div 
                 className="bg-white/5 backdrop-blur-sm p-4 sm:p-5 md:p-6 lg:p-8 rounded-lg sm:rounded-xl border border-white/10"
                 style={{
-                  boxShadow: '0 4px 15px rgba(55, 73, 64, 0.2)'
+                  background: 'linear-gradient(135deg, var(--color-var(--color-surface)) 0%, var(--color-surface-light) 100%)',
+                  border: '1px solid var(--color-border)'
                 }}
               >
                 <h3 
                   className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6"
-                  style={{ color: 'var(--color-surface)' }}
+                  style={{ color: 'var(--color-primary)' }}
                 >
                   Запись на консультацию
                 </h3>
                 <p 
                   className="mb-4 sm:mb-6 md:mb-8 text-sm sm:text-base leading-relaxed"
-                  style={{ color: 'var(--color-white-80)' }}
+                  style={{ color: 'var(--color-primary)' }}
                 >
                   Оставьте ваши контакты, и я свяжусь с вами в ближайшее время для уточнения деталей и назначения времени встречи.
                 </p>
@@ -167,7 +173,7 @@ export default function Contacts() {
                       <label 
                         htmlFor="name" 
                         className="block text-xs sm:text-sm font-medium mb-1 sm:mb-2"
-                        style={{ color: 'var(--color-white-80)' }}
+                        style={{ color: 'var(--color-primary)' }}
                       >
                         Имя *
                       </label>
@@ -175,10 +181,10 @@ export default function Contacts() {
                         type="text"
                         id="name"
                         required
-                        className="custom-input w-full px-3 py-2 sm:px-4 sm:py-3 bg-white/10 border border-white/20 rounded-lg placeholder-white/40 outline-none transition-all duration-300 backdrop-blur-sm text-sm sm:text-base"
+                        className="custom-input w-full px-3 py-2 sm:px-4 sm:py-3 bg-surface rounded-lg placeholder-warm-accent outline-none transition-all duration-300 backdrop-blur-sm text-sm sm:text-base"
                         style={{ 
-                          color: 'var(--color-surface)',
-                          borderColor: 'rgba(217, 219, 210, 0.2)'
+                          color: 'var(--color-primary)',
+                          border: '1px solid var(--color-border)'
                         }}
                         placeholder="Ваше имя"
                       />
@@ -187,7 +193,7 @@ export default function Contacts() {
                       <label 
                         htmlFor="email" 
                         className="block text-xs sm:text-sm font-medium mb-1 sm:mb-2"
-                        style={{ color: 'var(--color-white-80)' }}
+                        style={{ color: 'var(--color-primary)' }}
                       >
                         Email *
                       </label>
@@ -195,10 +201,10 @@ export default function Contacts() {
                         type="email"
                         id="email"
                         required
-                        className="custom-input w-full px-3 py-2 sm:px-4 sm:py-3 bg-white/10 border border-white/20 rounded-lg placeholder-white/40 outline-none transition-all duration-300 backdrop-blur-sm text-sm sm:text-base"
+                        className="custom-input w-full px-3 py-2 sm:px-4 sm:py-3 bg-surface rounded-lg placeholder-warm-accent outline-none transition-all duration-300 backdrop-blur-sm text-sm sm:text-base"
                         style={{ 
-                          color: 'var(--color-surface)',
-                          borderColor: 'rgba(217, 219, 210, 0.2)'
+                          color: 'var(--color-primary)',
+                          border: '1px solid var(--color-border)'
                         }}
                         placeholder="example@email.com"
                       />
@@ -207,9 +213,30 @@ export default function Contacts() {
 
                   <div>
                     <label 
+                      htmlFor="phone" 
+                      className="block text-xs sm:text-sm font-medium mb-1 sm:mb-2"
+                      style={{ color: 'var(--color-primary)' }}
+                    >
+                      Телефон
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      // required
+                      className="custom-input w-full px-3 py-2 sm:px-4 sm:py-3 bg-surface rounded-lg placeholder-warm-accent outline-none transition-all duration-300 backdrop-blur-sm text-sm sm:text-base"
+                      style={{ 
+                        color: 'var(--color-primary)',
+                        border: '1px solid var(--color-border)'
+                      }}
+                      placeholder="+7 (999) 999-99-99"
+                    />
+                  </div>
+
+                  <div>
+                    <label 
                       htmlFor="message" 
                       className="block text-xs sm:text-sm font-medium mb-1 sm:mb-2"
-                      style={{ color: 'var(--color-white-80)' }}
+                      style={{ color: 'var(--color-primary)' }}
                     >
                       Сообщение *
                     </label>
@@ -217,28 +244,33 @@ export default function Contacts() {
                       id="message"
                       required
                       rows={3}
-                      className="custom-input w-full px-3 py-2 sm:px-4 sm:py-3 bg-white/10 border border-white/20 rounded-lg placeholder-white/40 outline-none transition-all duration-300 backdrop-blur-sm resize-vertical text-sm sm:text-base"
+                      className="custom-input w-full px-3 py-2 sm:px-4 sm:py-3 bg-surface rounded-lg placeholder-warm-accent outline-none transition-all duration-300 backdrop-blur-sm resize-vertical text-sm sm:text-base"
                       style={{ 
-                        color: 'var(--color-surface)',
-                        borderColor: 'rgba(217, 219, 210, 0.2)'
+                        color: 'var(--color-primary)',
+                        border: '1px solid var(--color-border)'
                       }}
                       placeholder="Расскажите о ваших целях и задачах..."
                     />
                   </div>
 
                   <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
                     type="submit"
-                    className="w-full py-3 sm:py-4 px-4 rounded-lg font-semibold text-base sm:text-lg transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 sm:gap-3 group"
+                    className="group relative overflow-hidden w-full px-6 py-3 rounded-lg"
                     style={{
-                      background: 'linear-gradient(135deg, var(--color-accent) 0%, var(--color-green-fern) 100%)',
-                      color: '#ffffff',
+                      backgroundColor: 'var(--color-accent)',
                       boxShadow: '0 4px 15px rgba(54, 106, 93, 0.3)'
                     }}
                   >
-                    <span>Отправить заявку</span>
-                    <Send className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-2 transition-transform duration-300" />
+                  <span className="relative z-10 flex items-center justify-center gap-2 sm:gap-3 md:gap-4 text-sm sm:text-base md:text-lg font-medium text-white">
+                    Отправить заявку
+                  </span>
+                  <div 
+                    className="absolute inset-0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
+                    style={{
+                      background: 'linear-gradient(to right, var(--color-accent), var(--color-muted-teal))'
+                    }}
+                  ></div>
+                    
                   </motion.button>
                 </form>
               </div>

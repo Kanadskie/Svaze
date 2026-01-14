@@ -170,7 +170,7 @@ export default function Hero() {
                 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => {
-                  const element = document.getElementById('private');
+                  const element = document.getElementById('business');
                   if (element) {
                     const headerHeight = window.innerWidth >= 1024 ? 80 : 72;
                     const elementPosition = element.getBoundingClientRect().top;
@@ -272,7 +272,6 @@ export default function Hero() {
                     style={{
                       clipPath: 'polygon(0% 10%, 10% 0%, 100% 0%, 100% 90%, 90% 100%, 0% 100%)',
                       borderRadius: '12px',
-                      boxShadow: '0 20px 40px rgba(69, 54, 34, 0.3)'
                     }}
                   >
                     <div className="relative w-full h-full">

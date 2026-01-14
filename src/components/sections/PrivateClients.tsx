@@ -7,23 +7,23 @@ import personalPhoto from '../../assets/images/p1.jpg'
 const services = [
   {
     icon: Users,
-    title: 'Отношения и семья',
-    description: 'Выстраивание доверия, управление конфликтами, возвращение тепла и уважения в диалог. Помощь в том, чтобы слышать себя и другого без обвинений.'
+    title: 'Отношения',
+    description: 'Работа с конфликтами, недосказанностью и напряжением. Помощь в том, чтобы слышать друг друга без обвинений и возвращать настоящий контакт в отношения.'
   },
   {
     icon: Heart,
     title: 'Родительство',
-    description: 'Как говорить с ребёнком так, чтобы он чувствовал поддержку; как замечать его потребности и сохранять спокойствие, даже когда эмоции зашкаливают.'
+    description: 'Как говорить с ребёнком так, чтобы он чувствовал поддержку. Понимать его потребности и сохранять спокойствие даже в сложных эмоциональных ситуациях.'
   },
   {
     icon: CheckCircle,
-    title: 'Метод PCM',
-    description: 'Через PCM мы понимаем, что каждое сообщение — это не просто слова, а отражение внутреннего состояния. Вместе мы учимся читать сигналы, замечать стрессовые драйверы и грамотно находить к ним подход.'
+    title: 'Подход PCM',
+    description: 'PCM помогает видеть за словами состояние, мотивацию и стрессовые реакции. Это даёт возможность выбирать, как говорить и как слышать, а не реагировать автоматически.'
   },
   {
     icon: CheckCircle,
-    title: 'Безопасная атмосфера',
-    description: 'Все встречи проходят в безопасной атмосфере, где можно открыто разбирать личные сложности и находить решения. Без оценок, без шаблонных советов — с вниманием, практикой и добротой.'
+    title: 'Безопасное пространство',
+    description: 'Все встречи проходят в атмосфере уважения и доверия. Без оценок и шаблонных советов, с вниманием к вашей ситуации и реальными шагами вперёд.'
   }
 ]
 
@@ -50,7 +50,7 @@ export default function PrivateClients() {
             </h2>
             <p className="text-sm md:text-lg lg:text-xl max-w-3xl mx-auto px-2 sm:px-4"
                style={{ color: 'var(--color-neutral-dark)' }}>
-              Каждый из нас сталкивается с трудностями в общении — недосказанными чувствами, конфликтами, непониманием. Моя задача — помочь увидеть закономерности в этих ситуациях и найти путь к взаимопониманию.
+             Про отношения, контакт и понимание
             </p>
           </div>
 
@@ -78,7 +78,7 @@ export default function PrivateClients() {
                       <service.icon className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" 
                                    style={{ color: 'var(--color-var(--color-surface))' }} />
                     </div>
-                    <h3 className="text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3"
+                    <h3 className="text-base md:text-xl font-bold mb-2 sm:mb-3"
                         style={{ color: 'var(--color-neutral-dark)' }}>
                       {service.title}
                     </h3>
@@ -113,8 +113,7 @@ export default function PrivateClients() {
                     className="absolute inset-0 overflow-hidden"
                     style={{
                       clipPath: 'polygon(0% 10%, 10% 0%, 100% 0%, 100% 90%, 90% 100%, 0% 100%)',
-                      borderRadius: '8px sm:rounded-xl',
-                      boxShadow: '0 10px 25px var(--shadow-light)'
+                      borderRadius: '12px',
                     }}
                   >
                     <div className="relative w-full h-full">

@@ -45,7 +45,7 @@
 
   /* Секции - увеличенные отступы */
   .section-padding {
-    @apply py-20 md:py-28 lg:py-32;
+    @apply py-8 md:py-10 lg:py-12;
   }
 
   /* Кнопки */

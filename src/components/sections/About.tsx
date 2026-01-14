@@ -1,34 +1,28 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { CheckCircleIcon, UserGroupIcon, AcademicCapIcon, ChartBarIcon } from '@heroicons/react/24/outline';
+import { UserGroupIcon, AcademicCapIcon, ClockIcon } from '@heroicons/react/24/outline';
 import aboutPhoto from '../../assets/images/p4.jpg';
 
 export default function About() {
   const stats = [
     { 
-      icon: <AcademicCapIcon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" />,
-      title: 'Опыт', 
-      value: '15+ лет', 
-      desc: 'В коучинге' 
-    },
-    { 
       icon: <UserGroupIcon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" />,
       title: 'Клиенты', 
-      value: '500+', 
-      desc: 'Довольных участников' 
+      value: '300+', 
+      desc: 'Индивидуальных клиентов и участников программ' 
     },
     { 
-      icon: <ChartBarIcon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" />,
-      title: 'Тренинги', 
-      value: '100+', 
-      desc: 'Успешно проведено' 
+      icon: <AcademicCapIcon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" />,
+      title: 'Программы', 
+      value: '20+', 
+      desc: 'Корпоративных программ и командных форматов' 
     },
     { 
-      icon: <CheckCircleIcon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" />,
-      title: 'Результат', 
-      value: '95%', 
-      desc: 'Рекомендуют коллегам' 
+      icon: <ClockIcon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" />,
+      title: 'Опыт', 
+      value: '1000+ часов', 
+      desc: 'Практики в обучении и сопровождении' 
     },
   ];
 
@@ -49,7 +43,7 @@ export default function About() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "0px" }}
-              className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4"
+              className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6"
             >
               <span style={{ color: 'var(--color-neutral-dark)' }}>ОБО </span>
               <span style={{ color: 'var(--color-warm-accent)' }}>МНЕ</span>
@@ -89,7 +83,7 @@ export default function About() {
             </motion.div>
           </div>
 
-          {/* Контент в 3 колонки с адаптивной сеткой */}
+          {/* Контент в 2 колонки с адаптивной сеткой */}
           <div className="grid grid-cols-1 lg:grid-cols-6 gap-4 sm:gap-6 md:gap-8 lg:gap-10 xl:gap-12">
             
             {/* Первая колонка - Заголовок + Фото (скрыт на мобильных) */}
@@ -98,13 +92,13 @@ export default function About() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "50px" }}
               transition={{ duration: 0.8 }}
-              className="hidden lg:flex flex-col lg:col-span-1"
+              className="hidden lg:flex flex-col lg:col-span-2"
             >
               <div className="sticky top-0 space-y-6 md:space-y-8">
                 {/* Заголовок */}
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">
-                  <span style={{ color: 'var(--color-neutral-dark)' }} className="block">ОБО</span>
-                  <span style={{ color: 'var(--color-warm-accent)' }} className="block mt-2 lg:mt-3">МНЕ</span>
+                  <span style={{ color: 'var(--color-neutral-dark)' }}>ОБО </span>
+                  <span style={{ color: 'var(--color-warm-accent)' }}>МНЕ</span>
                 </h2>
                 
                 {/* Фото с уголками для десктопа */}
@@ -126,8 +120,7 @@ export default function About() {
                     className="absolute inset-0 overflow-hidden"
                     style={{
                       clipPath: 'polygon(0% 10%, 10% 0%, 100% 0%, 100% 90%, 90% 100%, 0% 100%)',
-                      borderRadius: '12px md:rounded-xl',
-                      boxShadow: '0 15px 35px var(--shadow-medium)'
+                      borderRadius: '12px'
                     }}
                   >
                     <div className="relative w-full h-full">
@@ -142,13 +135,13 @@ export default function About() {
               </div>
             </motion.div>
 
-            {/* Вторая колонка - Текст */}
+            {/* Вторая колонка - Текст + Инфографика */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "0px" }}
               transition={{ duration: 0.6 }}
-              className="space-y-3 sm:space-y-4 md:space-y-5 lg:col-span-3"
+              className="space-y-3 sm:space-y-4 md:space-y-5 lg:col-span-4"
             >
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -158,7 +151,9 @@ export default function About() {
                 className="leading-relaxed text-sm sm:text-base"
                 style={{ color: 'var(--color-neutral-dark)' }}
               >
-                Меня зовут Сюзанна. Я сертифицированный тренер по <span style={{ color: 'var(--color-warm-accent)', fontWeight: '600' }}>Process Communication Model (PCM)</span> — модели, которая помогает видеть глубинную структуру человеческого общения. Работаю с людьми, командами и компаниями, которые стремятся к осознанности, эффективности и внутренней гармонии через коммуникацию.
+                Коммуникация — это не слова. Это контакт.
+                Я помогаю людям и командам находить общий язык даже в напряжённых и сложных ситуациях.
+                Меня зовут <span style={{ color: 'var(--color-warm-accent)', fontWeight: '600' }}>Сюзанна</span>. Я сертифицированный тренер по <span style={{ color: 'var(--color-warm-accent)', fontWeight: '600' }}>Process Communication Model (PCM)</span>.
               </motion.p>
               
               <motion.div
@@ -172,44 +167,11 @@ export default function About() {
                      style={{ background: 'linear-gradient(to bottom, var(--color-accent), var(--color-accent-40))' }}></div>
                 <p className="leading-relaxed text-sm sm:text-base pl-3 sm:pl-4"
                    style={{ color: 'var(--color-neutral-dark)' }}>
-                  <span style={{ color: 'var(--color-warm-accent)', fontWeight: '600' }}>PCM</span> — это не просто метод, а навык понимать: почему мы действуем именно так, как реагируем в стрессе, что нас мотивирует и как найти общий язык даже в самых сложных ситуациях. В основе модели лежат шесть личностных типов, каждый со своими сильными сторонами, потребностями и особенностями взаимодействия. Через эту призму легко увидеть, где теряется контакт — и как его вернуть.
+                  <span style={{ color: 'var(--color-warm-accent)', fontWeight: '600' }}>PCM</span> позволяет увидеть, что стоит за реакциями, стрессом и недопониманием — и изменить способ общения так, чтобы он работал. В работе со мной вы получаете не теорию, а практический навык:
+                  говорить ясно, слышать глубже и сохранять контакт.
                 </p>
               </motion.div>
-              
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4 }}
-                className="pt-3 sm:pt-4"
-                style={{ borderTop: '1px solid var(--color-border)' }}
-              >
-                <p className="leading-relaxed text-sm sm:text-base"
-                   style={{ color: 'var(--color-neutral-dark)' }}>
-                  Мой подход сочетает научную глубину, мягкость и игровую динамику. На тренингах и индивидуальных встречах мы не просто обсуждаем теорию — мы проживаем реальные ситуации, учимся говорить так, чтобы быть услышанными, и слушать так, чтобы понимать.
-                </p>
-              </motion.div>
-              
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.6 }}
-                className="p-4 sm:p-5 md:p-6 rounded-lg sm:rounded-xl border shadow-sm"
-                style={{
-                  background: 'linear-gradient(135deg, var(--color-surface-light) 0%, var(--color-surface) 100%)',
-                  borderColor: 'var(--color-border)',
-                  boxShadow: '0 4px 6px var(--shadow-light)'
-                }}
-              >
-                <p className="leading-relaxed text-sm sm:text-base"
-                   style={{ color: 'var(--color-neutral-dark)' }}>
-                  Опыт корпоративных программ, обучения руководителей и сотен индивидуальных клиентов позволил мне создать систему, где осознанная коммуникация становится не абстрактным навыком, а инструментом реальных изменений — в отношениях, в командах и в бизнесе. <span style={{ color: 'var(--color-warm-accent)', fontWeight: '600' }}>Мне важно</span>, чтобы каждый участник уходил не только с пониманием, но и с осязаемым <span style={{ color: 'var(--color-warm-accent)', fontWeight: '600' }}>результатом</span>: улучшенным контактом, спокойствием и уверенностью в общении.
-                </p>
-              </motion.div>
-            </motion.div>
 
-            {/* Третья колонка - Карточки */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -218,7 +180,7 @@ export default function About() {
               className="space-y-3 sm:space-y-4 md:space-y-5 lg:col-span-2"
             >
               {/* Сетка карточек статистики */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-5 lg:gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 md:gap-5 lg:gap-6">
                 {stats.map((stat, index) => (
                   <motion.div
                     key={stat.title}
@@ -242,39 +204,45 @@ export default function About() {
                          style={{ color: 'var(--color-neutral-dark)' }}>
                       {stat.value}
                     </div>
-                    <div className="font-semibold text-sm sm:text-base mb-1 sm:mb-2"
-                         style={{ color: 'var(--color-accent)' }}>
-                      {stat.title}
-                    </div>
                     <div className="text-sm sm:text-base"
-                         style={{ color: 'var(--color-neutral-dark)' }}>
+                         style={{ color: 'var(--color-primary)' }}>
                       {stat.desc}
                     </div>
                   </motion.div>
                 ))}
               </div>
-
-              {/* Дополнительный блок */}
-              <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1, delay: 0.5 }}
-                className="p-3 sm:p-4 md:p-5 rounded-lg sm:rounded-xl border shadow-sm"
-                style={{
-                  borderColor: 'var(--color-border)',
-                  background: 'linear-gradient(135deg, var(--color-surface) 0%, var(--color-surface-light) 100%)'
-                }}
-              >
-                <h3 className="font-semibold text-sm sm:text-base mb-1 sm:mb-2"
-                    style={{ color: 'var(--color-neutral-dark)' }}>
-                  Основа подхода
-                </h3>
-                <p className="text-sm sm:text-base leading-relaxed"
-                   style={{ color: 'var(--color-neutral-dark)' }}>
-                  Сочетание научной глубины PCM с практической применимостью в реальных ситуациях
-                </p>
-              </motion.div>
+              <div className='flex justify-center md:justify-start'>
+                <button
+                  onClick={() => {
+                    const element = document.getElementById('contact');
+                    if (element) {
+                      const headerHeight = window.innerWidth >= 1024 ? 80 : 72;
+                      const elementPosition = element.getBoundingClientRect().top;
+                      const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+                      window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                      });
+                    }
+                  }}
+                  className="px-6 py-2.5 my-4 font-semibold rounded-lg relative overflow-hidden group"
+                  style={{
+                    background: 'linear-gradient(135deg, var(--color-accent) 0%, var(--color-green-fern) 100%)',
+                    boxShadow: '0 4px 15px rgba(54, 106, 93, 0.3)'
+                  }}
+                >
+                  <span className="relative z-10 text-white">
+                    Разобрать вашу ситуацию
+                  </span>
+                  <div 
+                    className="absolute inset-0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
+                    style={{
+                      background: 'linear-gradient(to right, var(--color-accent), var(--color-muted-teal))'
+                    }}
+                  ></div>
+                </button>
+              </div>
+            </motion.div>
             </motion.div>
           </div>
         </div>

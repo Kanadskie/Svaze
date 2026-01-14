@@ -9,8 +9,8 @@ export default function Header() {
 
   const navItems = [
     { name: 'Обо мне', href: '#about' },
-    { name: 'Частным клиентам', href: '#private' },
     { name: 'Для бизнеса', href: '#business' },
+    { name: 'Частным клиентам', href: '#private' },
     { name: 'Контакты', href: '#contact' },
   ];
 
