@@ -1,27 +1,27 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Users, Heart, CheckCircle } from 'lucide-react'
+import { Heart, ShieldCheck, MessagesSquare, Baby } from 'lucide-react'
 import personalPhoto from '../../assets/images/p1.jpg'
 
 const services = [
   {
-    icon: Users,
+    icon: Heart,
     title: 'Отношения',
     description: 'Работа с конфликтами, недосказанностью и напряжением. Помощь в том, чтобы слышать друг друга без обвинений и возвращать настоящий контакт в отношения.'
   },
   {
-    icon: Heart,
+    icon: Baby,
     title: 'Родительство',
     description: 'Как говорить с ребёнком так, чтобы он чувствовал поддержку. Понимать его потребности и сохранять спокойствие даже в сложных эмоциональных ситуациях.'
   },
   {
-    icon: CheckCircle,
+    icon: MessagesSquare,
     title: 'Подход PCM',
     description: 'PCM помогает видеть за словами состояние, мотивацию и стрессовые реакции. Это даёт возможность выбирать, как говорить и как слышать, а не реагировать автоматически.'
   },
   {
-    icon: CheckCircle,
+    icon: ShieldCheck,
     title: 'Безопасное пространство',
     description: 'Все встречи проходят в атмосфере уважения и доверия. Без оценок и шаблонных советов, с вниманием к вашей ситуации и реальными шагами вперёд.'
   }

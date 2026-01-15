@@ -386,7 +386,7 @@ export default function Videos() {
                       >
                         {video.title}
                       </motion.h3>
-                    <p className='text-primary text-sm sm:text-base'>{video.description}</p>
+                    <p className='text-warm-accent text-sm sm:text-base'>{video.description}</p>
                   </div>
                 </motion.div>
               )

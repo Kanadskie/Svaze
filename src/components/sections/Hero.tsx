@@ -119,90 +119,85 @@ export default function Hero() {
               </span>
             </motion.p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-5 justify-center lg:justify-start items-center"
-            >
-              <motion.button
-                whileHover={{ 
-                  scale: 1.05, 
-                  y: -2,
-                  backgroundColor: 'var(--color-green-fern)'
-                }}
-                whileTap={{ scale: 0.98 }}
-                onClick={() => {
-                  const element = document.getElementById('contact');
-                  if (element) {
-                    const headerHeight = window.innerWidth >= 1024 ? 80 : 72;
-                    const elementPosition = element.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
-                    window.scrollTo({
-                      top: offsetPosition,
-                      behavior: 'smooth'
-                    });
-                  }
-                }}
-                className="hidden md:block group relative overflow-hidden min-w-[220px] sm:w-auto px-6 py-3 sm:px-7 sm:py-3.5 md:px-8 md:py-4 lg:px-9 lg:py-4 xl:px-10 xl:py-5 rounded-lg"
-                style={{
-                  backgroundColor: 'var(--color-accent)',
-                  boxShadow: '0 4px 15px rgba(54, 106, 93, 0.3)'
-                }}
-              >
-                <span className="relative z-10 flex items-center justify-center gap-2 sm:gap-3 md:gap-4 text-sm sm:text-base md:text-lg font-medium text-white">
-                  Начать диалог
-                  <ArrowRightIcon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 group-hover:translate-x-2 transition-transform duration-300" />
-                </span>
-                <div 
-                  className="absolute inset-0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
-                  style={{
-                    background: 'linear-gradient(to right, var(--color-accent), var(--color-muted-teal))'
-                  }}
-                ></div>
-              </motion.button>
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6, delay: 0.4 }}
+  className="hidden md:flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-5 justify-center lg:justify-start items-stretch"
+>
+  {/* Первая кнопка (без рамки) */}
+  <motion.button
+    whileHover={{ 
+      scale: 1.05, 
+      y: -2,
+      backgroundColor: 'var(--color-green-fern)'
+    }}
+    whileTap={{ scale: 0.98 }}
+    onClick={() => {
+      const element = document.getElementById('contact');
+      if (element) {
+        const headerHeight = window.innerWidth >= 1024 ? 80 : 72;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }}
+    className="group relative overflow-hidden min-w-[200px] lg:min-w-[220px] sm:w-auto px-6 py-3 sm:px-7 sm:py-3.5 md:px-7 md:py-3.5 lg:px-8 lg:py-4 xl:px-10 xl:py-5 rounded-lg h-[56px] md:h-[60px] lg:h-[64px] xl:h-[68px]"
+    style={{
+      backgroundColor: 'var(--color-accent)',
+      boxShadow: '0 4px 15px rgba(54, 106, 93, 0.3)'
+    }}
+  >
+    <span className="relative z-10 flex items-center justify-center gap-2 sm:gap-2 md:gap-3 lg:gap-4 text-sm sm:text-base md:text-base lg:text-lg font-medium text-white whitespace-nowrap">
+      Начать диалог
+      <ArrowRightIcon className="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 group-hover:translate-x-2 transition-transform duration-300" />
+    </span>
+    <div 
+      className="absolute inset-0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
+      style={{
+        background: 'linear-gradient(to right, var(--color-accent), var(--color-muted-teal))'
+      }}
+    ></div>
+  </motion.button>
 
-              <motion.button
-                whileHover={{ 
-                  scale: 1.05, 
-                  y: -2,
-                  borderColor: 'var(--color-faded-copper)'
-                }}
-                whileTap={{ scale: 0.98 }}
-                onClick={() => {
-                  const element = document.getElementById('business');
-                  if (element) {
-                    const headerHeight = window.innerWidth >= 1024 ? 80 : 72;
-                    const elementPosition = element.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
-                    window.scrollTo({
-                      top: offsetPosition,
-                      behavior: 'smooth'
-                    });
-                  }
-                }}
-                className="hidden md:block group border sm:w-auto min-w-[220px] px-6 py-3 sm:px-7 sm:py-3.5 md:px-8 md:py-4 lg:px-9 lg:py-4 xl:px-10 xl:py-5 rounded-lg"
-                style={{
-                  borderColor: 'var(--color-surface)',
-                  boxShadow: '0 4px 15px var(--color-warm-accent-20)'
-                }}
-              >
-                <span className="flex items-center justify-center gap-2 sm:gap-3 md:gap-4 text-sm sm:text-base md:text-lg font-medium"
-                  style={{
-                    color: 'var(--color-surface)',
-                    
-                  }}
-                >
-                  Посмотреть услуги
-                  <ArrowRightIcon 
-                    className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 group-hover:translate-x-2 transition-transform duration-300"
-                    style={{
-                      color: 'var(--color-surface)'
-                    }}
-                  />
-                </span>
-              </motion.button>
-            </motion.div>
+  {/* Вторая кнопка (с рамкой) */}
+  <motion.button
+    whileHover={{ 
+      scale: 1.05, 
+      y: -2,
+      borderColor: 'var(--color-faded-copper)'
+    }}
+    whileTap={{ scale: 0.98 }}
+    onClick={() => {
+      const element = document.getElementById('business');
+      if (element) {
+        const headerHeight = window.innerWidth >= 1024 ? 80 : 72;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }}
+    className="group border box-border sm:w-auto min-w-[200px] lg:min-w-[220px] px-6 py-3 sm:px-7 sm:py-3.5 md:px-7 md:py-3.5 lg:px-8 lg:py-4 xl:px-10 xl:py-5 rounded-lg h-[56px] md:h-[60px] lg:h-[64px] xl:h-[68px]"
+    style={{
+      borderColor: 'var(--color-surface)',
+      boxShadow: '0 4px 15px var(--color-warm-accent-20)'
+    }}
+  >
+    <span className="flex items-center justify-center gap-2 sm:gap-2 md:gap-3 lg:gap-4 text-sm sm:text-base md:text-base lg:text-lg font-medium whitespace-nowrap"
+      style={{
+        color: 'var(--color-surface)'
+      }}
+    >
+      Посмотреть услуги
+    </span>
+  </motion.button>
+</motion.div>
           </div>
 
           {/* Фото с оригинальной анимацией - БЕЗ НАЛОЖЕНИЙ */}
@@ -212,7 +207,7 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="relative flex justify-center lg:justify-end order-1 lg:order-2 mb-0"
           >
-            <div className="relative w-full max-w-[280px] sm:max-w-xs md:max-w-sm lg:max-w-md">
+            <div className="relative w-full max-w-[280px] sm:max-w-xs md:max-w-sm lg:max-w-[350px] xl:max-w-md 2xl:max-w-lg">
               
               <div className="lg:hidden relative">
                 <div className="relative h-[300px] sm:h-[340px] md:h-[380px]">

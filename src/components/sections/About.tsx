@@ -83,6 +83,12 @@ export default function About() {
             </motion.div>
           </div>
 
+          {/* Заголовок */}
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-8 hidden lg:block">
+            <span style={{ color: 'var(--color-neutral-dark)' }}>ОБО </span>
+            <span style={{ color: 'var(--color-warm-accent)' }}>МНЕ</span>
+          </h2>
+
           {/* Контент в 2 колонки с адаптивной сеткой */}
           <div className="grid grid-cols-1 lg:grid-cols-6 gap-4 sm:gap-6 md:gap-8 lg:gap-10 xl:gap-12">
             
@@ -95,19 +101,13 @@ export default function About() {
               className="hidden lg:flex flex-col lg:col-span-2"
             >
               <div className="sticky top-0 space-y-6 md:space-y-8">
-                {/* Заголовок */}
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">
-                  <span style={{ color: 'var(--color-neutral-dark)' }}>ОБО </span>
-                  <span style={{ color: 'var(--color-warm-accent)' }}>МНЕ</span>
-                </h2>
-                
                 {/* Фото с уголками для десктопа */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true, margin: "50px" }}
                   transition={{ duration: 1, delay: 0.5 }}
-                  className="relative w-full h-[250px] md:h-[300px] lg:h-[350px] xl:h-[400px]"
+                  className="relative w-full h-[250px] md:h-[300px] lg:h-[350px] xl:h-[350 px]"
                 >
                   {/* Декоративные уголки */}
                   <div className="absolute -left-2 -top-2 w-8 h-8 md:w-10 md:h-10 border-t-2 border-l-2" 
@@ -192,7 +192,6 @@ export default function About() {
                     whileTap={{ scale: 1.02 }}
                     className="group p-3 sm:p-4 md:p-5 border transition-all duration-300 rounded-lg sm:rounded-xl shadow-sm hover:shadow-md cursor-pointer"
                     style={{
-                      background: 'linear-gradient(135deg, var(--color-surface) 0%, var(--color-surface-light) 100%)',
                       borderColor: 'var(--color-border)'
                     }}
                   >
@@ -200,47 +199,16 @@ export default function About() {
                          style={{ color: 'var(--color-earth-brown)' }}>
                       {stat.icon}
                     </div>
-                    <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-1 sm:mb-2"
+                    <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold mb-1 sm:mb-2"
                          style={{ color: 'var(--color-neutral-dark)' }}>
                       {stat.value}
                     </div>
-                    <div className="text-sm sm:text-base"
-                         style={{ color: 'var(--color-primary)' }}>
+                    <div className="text-base"
+                         style={{ color: 'var(--color-accent)' }}>
                       {stat.desc}
                     </div>
                   </motion.div>
                 ))}
-              </div>
-              <div className='flex justify-center md:justify-start'>
-                <button
-                  onClick={() => {
-                    const element = document.getElementById('contact');
-                    if (element) {
-                      const headerHeight = window.innerWidth >= 1024 ? 80 : 72;
-                      const elementPosition = element.getBoundingClientRect().top;
-                      const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
-                      window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                      });
-                    }
-                  }}
-                  className="px-6 py-2.5 my-4 font-semibold rounded-lg relative overflow-hidden group"
-                  style={{
-                    background: 'linear-gradient(135deg, var(--color-accent) 0%, var(--color-green-fern) 100%)',
-                    boxShadow: '0 4px 15px rgba(54, 106, 93, 0.3)'
-                  }}
-                >
-                  <span className="relative z-10 text-white">
-                    Разобрать вашу ситуацию
-                  </span>
-                  <div 
-                    className="absolute inset-0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
-                    style={{
-                      background: 'linear-gradient(to right, var(--color-accent), var(--color-muted-teal))'
-                    }}
-                  ></div>
-                </button>
               </div>
             </motion.div>
             </motion.div>
