@@ -1,28 +1,28 @@
 {
-  "name": "Svaze.pro - PCM Coach",
-  "short_name": "Svaze",
+  "name": "SVAZE.PRO - PCM Coach",
+  "short_name": "SVAZE.PRO",
   "description": "Осознанная коммуникация для бизнеса и жизни",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait-primary",
-  "theme_color": "#485320",
-  "background_color": "primary",
+  "theme_color": "#1b3d33",
+  "background_color": "#1b3d33",
   "icons": [
     {
-      "src": "/logo.svg",
+      "src": "/favicon_gr.svg",
       "sizes": "64x64",
       "type": "image/svg+xml",
       "purpose": "any"
     },
     {
-      "src": "/logo.svg",
+      "src": "/favicon_gr.svg",
       "sizes": "192x192",
       "type": "image/svg+xml",
       "purpose": "any"
     },
     {
-      "src": "/logo.svg",
+      "src": "/favicon_gr.svg",
       "sizes": "512x512",
       "type": "image/svg+xml",
       "purpose": "any"
@@ -31,7 +31,7 @@
   "categories": ["business", "coaching"],
   "screenshots": [
     {
-      "src": "/logo.svg",
+      "src": "/favicon_gr.svg",
       "sizes": "540x720",
       "type": "image/svg+xml"
     }
