@@ -130,11 +130,11 @@ export default function Business() {
           <div className="text-center mb-10 md:mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6">
               <span 
-                className="uppercase"
+                className="uppercase inline-block"
                 style={{ color: 'var(--color-accent)' }}
               >Для</span>
               <span 
-                className="uppercase ml-2"
+                className="uppercase ml-1 md:ml-2 inline-block"
                 style={{ color: 'var(--color-surface)' }}
               > бизнеса</span>
             </h2>

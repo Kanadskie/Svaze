@@ -35,8 +35,8 @@ export default function PrivacyPage() {
             {/* Заголовок */}
                         <div className="text-center mb-8 sm:mb-10 md:mb-12">
               <h1 className="text-xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
-                <span className="text-accent uppercase">Политика</span>
-                <span className="text-surface uppercase"> конфиденциальности</span>
+                <span className="text-accent uppercase inline-block">Политика</span>
+                <span className="text-surface uppercase inline-block ml-1 md:ml-2"> конфиденциальности</span>
               </h1>
               <div 
                 className="text-sm sm:text-base md:text-lg"

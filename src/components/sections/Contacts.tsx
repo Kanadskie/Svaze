@@ -70,11 +70,11 @@ export default function Contacts() {
           >
             <h2 className="text-3xl xs:text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6">
               <span 
-                className="uppercase"
+                className="uppercase inline-block"
                 style={{ color: 'var(--color-neutral-dark)' }}
               >Мои </span>
               <span 
-                className="uppercase"
+                className="uppercase inline-block ml-1 md:ml-2"
                 style={{ color: 'var(--color-warm-accent)' }}
               > контакты</span>
             </h2>

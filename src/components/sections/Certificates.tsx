@@ -113,8 +113,8 @@ export default function Certificates() {
             className="text-center mb-12 md:mb-16"
           >
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              <span style={{ color: 'var(--color-accent)' }} className="uppercase">Сертификаты</span>
-              <span style={{ color: 'var(--color-surface)' }} className="uppercase"> и дипломы</span>
+              <span style={{ color: 'var(--color-accent)' }} className="uppercase inline-block">Сертификаты</span>
+              <span style={{ color: 'var(--color-surface)' }} className="uppercase inline-block ml-1 md:ml-2"> и дипломы</span>
             </h2>
             
             <p className="text-sm md:text-lg lg:text-xl max-w-3xl mx-auto"

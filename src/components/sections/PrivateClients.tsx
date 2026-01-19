@@ -45,8 +45,8 @@ export default function PrivateClients() {
         >
           <div className="text-center mb-10 md:mb-16">
             <h2 className="text-3xl xs:text-3xl sm:text-4xl md:text-5xl font-bold mb-3 md:mb-4 lg:mb-6">
-              <span style={{ color: 'var(--color-neutral-dark)' }} className="uppercase">Частным</span>
-              <span style={{ color: 'var(--color-warm-accent)' }} className="uppercase"> клиентам</span>
+              <span style={{ color: 'var(--color-neutral-dark)' }} className="uppercase inline-block">Частным</span>
+              <span style={{ color: 'var(--color-warm-accent)' }} className="uppercase inline-block ml-1 md:ml-2">клиентам</span>
             </h2>
             <p className="text-sm md:text-lg lg:text-xl max-w-3xl mx-auto px-2 sm:px-4"
                style={{ color: 'var(--color-neutral-dark)' }}>

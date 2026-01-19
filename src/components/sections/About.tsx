@@ -45,8 +45,8 @@ export default function About() {
               viewport={{ once: true, margin: "0px" }}
               className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6"
             >
-              <span style={{ color: 'var(--color-neutral-dark)' }}>ОБО </span>
-              <span style={{ color: 'var(--color-warm-accent)' }}>МНЕ</span>
+              <span className='inline-block uppercase' style={{ color: 'var(--color-neutral-dark)' }}>Обо</span>
+              <span className='uppercase ml-1 md:ml-2 inline-block' style={{ color: 'var(--color-warm-accent)' }}>мне</span>
             </motion.h2>
 
             {/* Фото с уголками для мобильных */}

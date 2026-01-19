@@ -228,7 +228,7 @@ export default function Videos() {
               <motion.span 
                 custom={1}
                 variants={titleVariants}
-                className="uppercase inline-block ml-2"
+                className="uppercase inline-block ml-1 md:ml-2"
                 style={{ color: 'var(--color-warm-accent)' }}
               >
                 материалы

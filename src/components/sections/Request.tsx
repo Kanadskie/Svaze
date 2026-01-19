@@ -52,11 +52,11 @@ export default function Request() {
             >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6">
               <span 
-                className="uppercase"
+                className="uppercase inline-block"
                 style={{ color: 'var(--color-accent)' }}
               >С какими запросами</span>
               <span 
-                className="uppercase ml-2"
+                className="uppercase ml-1 md:ml-2 inline-block"
                 style={{ color: 'var(--color-surface)' }}
               > ко мне приходят?</span>
             </h2>
