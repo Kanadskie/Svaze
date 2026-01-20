@@ -22,25 +22,22 @@ export default function PrivacyPage() {
     <>
       <SimpleHeader />
       <section 
-        className="pt-[40px] pb-12 md:pt-[60px] md:pb-14 lg:pb-20 bg-primary"
+        className="bg-primary"
       >
         <div className="container-custom">
         <div className="max-w-4xl mx-auto">
           <div 
-            className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-2 sm:p-4 md:p-6 lg:p-10"
-            style={{
-              boxShadow: '0 4px 15px rgba(55, 73, 64, 0.2)'
-            }}
+            className="p-2 sm:p-4 md:p-6 lg:p-10"
           >
             {/* Заголовок */}
-                        <div className="text-center mb-8 sm:mb-10 md:mb-12">
+            <div className="text-center mb-8 sm:mb-10 md:mb-12">
               <h1 className="text-xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
                 <span className="text-accent uppercase inline-block">Политика</span>
                 <span className="text-surface uppercase inline-block ml-1 md:ml-2"> конфиденциальности</span>
               </h1>
               <div 
                 className="text-sm sm:text-base md:text-lg"
-                style={{ color: 'var(--color-white-70)' }}
+                style={{ color: 'var(--color-surface)' }}
               >
                 <p>г. Москва</p>
                 <p>«01» декабря 2025 года</p>
@@ -70,7 +67,7 @@ export default function PrivacyPage() {
                   <a
                     key={item.id}
                     href={`#${item.id}`}
-                    className="inline-block px-3 sm:px-4 py-2 text-sm bg-white/10 hover:bg-white/20 text-white rounded-lg transition-colors"
+                    className="inline-block px-3 sm:px-4 py-2 text-sm bg-white/10 hover:bg-white/20 text-surface rounded-lg transition-colors"
                   >
                     {item.label}
                   </a>
@@ -94,7 +91,7 @@ export default function PrivacyPage() {
                 >1. Общие положения</h2>
                 <div 
                   className="space-y-3 sm:space-y-4 text-sm sm:text-base"
-                  style={{ color: 'var(--color-white-80)' }}
+                  style={{ color: 'var(--color-surface)' }}
                 >
                   <p>1.1. Настоящая Политика конфиденциальности (далее – «Политика») устанавливает порядок обработки и защиты персональных данных Пользователей сайта https://svaze.pro/ в соответствии с требованиями Федерального закона от 27.07.2006. № 152-ФЗ «О персональных данных» (далее — «Закон о персональных данных»). Пользователи сайта – физические лица, которые используют услуги **** (далее – «Оператор»), предоставляемые посредством сайта https://svaze.pro/.</p>
                   <p>1.2. Цель настоящей Политики – обеспечить защиту информации о Пользователях, включая полученные персональные данные, от несанкционированного доступа и разглашения.</p>
@@ -120,13 +117,13 @@ export default function PrivacyPage() {
                 >2. Цели сбора и обработки персональной информации пользователей</h2>
                 <div 
                   className="space-y-3 sm:space-y-4 text-sm sm:text-base"
-                  style={{ color: 'var(--color-white-80)' }}
+                  style={{ color: 'var(--color-surface)' }}
                 >
                   <p>2.1. Обработка персональных данных Пользователя осуществляется в соответствии с законодательством Российской Федерации и производится только на основании его согласия, за исключением случаев, предусмотренных законом. Обрабатываемые данные не должны быть избыточными по отношению к заявленным целям обработки.</p>
                   <p>2.2. Персональные данные Пользователя, переданные Оператору, обрабатываются с целью:</p>
                   <ul 
                     className="list-disc pl-5 sm:pl-6 space-y-1 sm:space-y-2"
-                    style={{ color: 'var(--color-white-80)' }}
+                    style={{ color: 'var(--color-surface)' }}
                   >
                     <li>Идентификации стороны в рамках соглашений и Договоров с ******;</li>
                     <li>Предоставления Пользователю услуг;</li>
@@ -153,12 +150,12 @@ export default function PrivacyPage() {
                 >3. Условия обработки персональной информации предоставленной Пользователем и ее передачи третьим лицам</h2>
                 <div 
                   className="space-y-3 sm:space-y-4 text-sm sm:text-base"
-                  style={{ color: 'var(--color-white-80)' }}
+                  style={{ color: 'var(--color-surface)' }}
                 >
                   <p>3.1. Обработка Персональных данных осуществляется в соответствии с требованиями, установленными Федеральным законом от 27.07.06 № 152-ФЗ «О персональных данных», иными законами и подзаконными актами, устанавливающими требования к обработке Персональных данных.</p>
                   <ul 
                     className="list-disc pl-5 sm:pl-6 space-y-1 sm:space-y-2"
-                    style={{ color: 'var(--color-white-80)' }}
+                    style={{ color: 'var(--color-surface)' }}
                   >
                     <li>Оператор принимает все необходимые меры для защиты персональных данных Пользователя от случайного доступа, изменения, раскрытия, блокирования, уничтожения, неправомерных действий.</li>
                     <li>Оператор вправе передавать персональные данные Пользователя только тем работникам, подрядчикам и аффилированным лицам, которым эта информация необходима для оказания услуги Пользователю или обеспечения функционирования Сайта https://svaze.pro/.</li>
@@ -166,7 +163,7 @@ export default function PrivacyPage() {
                   </ul>
                   <ul 
                     className="list-disc pl-8 sm:pl-12 space-y-1 sm:space-y-2"
-                    style={{ color: 'var(--color-white-80)' }}
+                    style={{ color: 'var(--color-surface)' }}
                   >
                     <li>получение согласия Пользователя;</li>
                     <li>исполнение обязательств по Договору;</li>
@@ -176,7 +173,7 @@ export default function PrivacyPage() {
                   <p>3.6. Оператор не несет ответственность перед Пользователями:</p>
                   <ul 
                     className="list-disc pl-5 sm:pl-6 space-y-1 sm:space-y-2"
-                    style={{ color: 'var(--color-white-80)' }}
+                    style={{ color: 'var(--color-surface)' }}
                   >
                     <li>за действия/бездействия третьих лиц;</li>
                     <li>в случае сбоев в работе сети Интернет, деятельности операторов связи, поисковых систем, провайдеров хостинга и т.п., а равно выполнения профилактических работ на Сайте https://svaze.pro/;</li>
@@ -202,12 +199,12 @@ export default function PrivacyPage() {
                 >4. Пользование Пользователем Сайтом</h2>
                 <div 
                   className="space-y-3 sm:space-y-4 text-sm sm:text-base"
-                  style={{ color: 'var(--color-white-80)' }}
+                  style={{ color: 'var(--color-surface)' }}
                 >
                   <p>4.1. Используя Сайт https://svaze.pro/, Пользователь подтверждает, что:</p>
                   <ul 
                     className="list-disc pl-5 sm:pl-6 space-y-1 sm:space-y-2"
-                    style={{ color: 'var(--color-white-80)' }}
+                    style={{ color: 'var(--color-surface)' }}
                   >
                     <li>обладает правами, позволяющими ему осуществлять регистрацию и использовать Услуги сайта https://svaze.pro/;</li>
                     <li>указывает достоверную информацию о себе в необходимых объемах для пользования Услугами Сайта https://svaze.pro/.</li>
@@ -234,12 +231,12 @@ export default function PrivacyPage() {
                 >5. В рамках настоящей Политики под «персональной информацией Пользователя» понимаются:</h2>
                 <div 
                   className="space-y-3 sm:space-y-4 text-sm sm:text-base"
-                  style={{ color: 'var(--color-white-80)' }}
+                  style={{ color: 'var(--color-surface)' }}
                 >
                   <p>5.1. Данные, которые Пользователь сообщает самостоятельно при пользовании Сайтом https://svaze.pro/, в объеме, необходимом для выполнения целей обработки, предусмотренных настоящей Политикой. К таким данным могут относиться:</p>
                   <ul 
                     className="list-disc pl-5 sm:pl-6 space-y-1 sm:space-y-2"
-                    style={{ color: 'var(--color-white-80)' }}
+                    style={{ color: 'var(--color-surface)' }}
                   >
                     <li>фамилия, имя, отчество;</li>
                     <li>контактные данные (номер телефона, адрес электронной почты);</li>
@@ -268,7 +265,7 @@ export default function PrivacyPage() {
                 >6. Изменение Политики конфиденциальности. Применимое законодательство</h2>
                 <div 
                   className="space-y-3 sm:space-y-4 text-sm sm:text-base"
-                  style={{ color: 'var(--color-white-80)' }}
+                  style={{ color: 'var(--color-surface)' }}
                 >
                   <p>6.1. Оператор имеет право вносить изменения в настоящую Политику конфиденциальности путем размещения новой версии на Сайте https://svaze.pro/. После внесения изменений в последней редакции указывается дата обновления. Новая редакция Политики вступает в силу с момента ее размещения, если иное не предусмотрено новой редакцией Политики.</p>
                   <p>6.2. К настоящей Политике и отношениям между Пользователем и ****, возникающим в связи с применением Политики конфиденциальности, подлежит применению право Российской Федерации.</p>

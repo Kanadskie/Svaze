@@ -1,5 +1,7 @@
 'use client';
 
+import kanadskie from '/k-white.svg';
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -24,13 +26,29 @@ export default function Footer() {
 
           {/* Копирайт - адаптивный текст */}
           <p 
-            className="text-base order-3 sm:order-1 text-center sm:text-left"
+            className="text-base order-3 sm:order-2 text-center sm:text-left"
             style={{ color: '#d9dbd2' }}
           >
             &copy; {currentYear} <span style={{ color: '#ffffff' }}>Сюзанна</span>
             <span style={{ color: 'var(--color-accent)' }}> Ким</span>.
             Все права защищены.
           </p>
+
+          <a
+          href="https://t.me/kanadskie"
+          className="flex items-center justify-center"
+          aria-label="Kanadskie Studio"
+          >
+          <span className="block text-surface mr-2">Создано: </span>
+          <img
+            src={kanadskie}
+            alt="Создано Kanadskie"
+            width="72"
+            height="24"
+            className="w-18 h-auto hover:opacity-70 safari-img-fix"
+            loading="lazy"
+          />
+        </a>
           
           {/* Политика конфиденциальности */}
           <div className="flex gap-4 sm:gap-6 sm:order-3">

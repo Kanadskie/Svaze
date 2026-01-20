@@ -115,7 +115,7 @@ export default function Request() {
                         
                         {/* Свечение при ховере */}
                         <div className="absolute inset-0 opacity-0 group-hover:opacity-5 
-                          transition-opacity duration-300 bg-white blur-md" />
+                          transition-opacity duration-300 bg-surface blur-md" />
                       </div>
                     </motion.div>
                     

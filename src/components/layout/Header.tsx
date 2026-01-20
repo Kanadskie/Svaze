@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import logo from '../../../public/logo.svg';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -86,6 +87,7 @@ export default function Header() {
               >
                 Svaze.<span style={{ color: 'var(--color-warm-accent)' }}>pro</span>
               </span>
+              {/* <img className='w-28' src={logo} alt="" /> */}
               <span 
                 className="text-xs font-medium hidden sm:block"
                 style={{
