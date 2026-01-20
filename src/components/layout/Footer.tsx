@@ -41,8 +41,8 @@ export default function Footer() {
           >
           <span className="block text-surface mr-2 text-sm md:text-base">Построено: </span>
           <SvgLogo 
-            width={72}
-            height={24}
+            width={65}
+            height={20}
             hoverColor="#967f58"
           />
         </a>
