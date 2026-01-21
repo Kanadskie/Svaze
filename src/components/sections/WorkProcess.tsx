@@ -564,9 +564,9 @@ export default function WorkProcess() {
                                           >
                                             <motion.div
                                               whileHover={{ scale: 1.1 }}
-                                              className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0"
+                                              className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center flex-shrink-0"
                                             >
-                                              <Pin className="w-5 h-5" style={{ color: 'var(--color-accent)' }} />
+                                              <Pin className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: 'var(--color-surface)' }} />
                                             </motion.div>
                                             <p className="text-sm sm:text-base ml-3"
                                               style={{ color: 'var(--color-primary)' }}>
