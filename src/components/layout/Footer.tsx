@@ -39,11 +39,12 @@ export default function Footer() {
           className="flex items-center justify-center order-3 md:order-2"
           aria-label="Kanadskie Studio"
           >
-          <span className="block text-surface mr-2 text-sm md:text-base">Построено: </span>
+          <span className="block text-surface text-sm md:text-base">Построено:</span>
           <SvgLogo 
-            width={65}
+            width={75}
             height={20}
             hoverColor="#967f58"
+            className='ml-[7px]'
           />
         </a>
           

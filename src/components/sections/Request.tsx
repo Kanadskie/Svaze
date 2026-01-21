@@ -85,12 +85,9 @@ export default function Request() {
                   }}
                   className="group"
                 >
-                  <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg sm:rounded-xl 
+                  <div className="bg-white/5 border border-white/10 rounded-lg sm:rounded-xl 
                     p-4 sm:p-5 md:p-6 hover:border-accent/30 transition-all duration-300 
                     flex items-start gap-4 sm:gap-5 md:gap-6 h-full"
-                    style={{ 
-                      boxShadow: '0 4px 12px rgba(55, 73, 64, 0.1)'
-                    }}
                   >
                     
                     {/* Левая колонка - Иконка */}
@@ -146,9 +143,6 @@ export default function Request() {
               
             <div className="p-2 md:p-4 text-center
               hover:border-accent/20 transition-all duration-300"
-              style={{ 
-                boxShadow: '0 8px 32px rgba(55, 73, 64, 0.15)'
-              }}
             >
               <div className="flex items-center justify-center gap-2 sm:gap-3 md:gap-4">
                 

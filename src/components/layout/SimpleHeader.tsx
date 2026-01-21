@@ -39,7 +39,7 @@ export default function SimpleHeader() {
           >
             <div className="flex flex-col">
               <span 
-                className="text-white font-bold text-xl sm:text-2xl tracking-tight uppercase"
+                className="text-surface font-bold text-xl sm:text-2xl tracking-tight uppercase"
                 style={{
                   textShadow: '2px 2px 4px rgba(55, 73, 64, 0.5)'
                 }}
@@ -52,7 +52,7 @@ export default function SimpleHeader() {
                   color: 'var(--color-faded-copper)'
                 }}
               >
-                Политика конфиденциальности
+                Тренер по коммуникациям
               </span>
             </div>
           </Link>
@@ -72,7 +72,7 @@ export default function SimpleHeader() {
   >
     {/* Стрелка и текст должны быть поверх всего */}
     <ArrowLeftIcon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 group-hover:-translate-x-2 transition-transform duration-300 relative z-10" />
-    <span className="relative z-10 text-white text-sm sm:text-base ml-1">
+    <span className="relative z-10 text-surface text-sm sm:text-base ml-1">
       <span className="hidden sm:inline">На главную</span>
       <span className="sm:hidden">Назад</span>
     </span>

@@ -6,6 +6,7 @@ import Contacts from '@/components/sections/Contacts';
 import Certificates from '@/components/sections/Certificates';
 import Videos from '@/components/sections/Videos';
 import Request from '@/components/sections/Request';
+import WorkProcess from '@/components/sections/WorkProcess';
 
 export default function Home() {
   return (
@@ -13,10 +14,11 @@ export default function Home() {
       <Hero />
       <About />
       <Request />
-      <Videos />
+      <WorkProcess />
       <Business />
       <PrivateClients />
       <Certificates />
+      <Videos />
       <Contacts />
     </>
   );

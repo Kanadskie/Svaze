@@ -107,7 +107,7 @@ export default function Hero() {
                 color: 'var(--color-surface)' // Dust Grey
               }}
             >
-              Осознанная коммуникация для бизнеса и жизни через{' '}
+              Помогаю людям и командам слышать друг друга, даже в{' '}
               <span 
                 className="font-medium"
                 style={{
@@ -115,7 +115,7 @@ export default function Hero() {
                   textShadow: '0 0 10px var(--color-warm-accent-20)'
                 }}
               >
-                Process Communication Model
+               сложных ситуациях
               </span>
             </motion.p>
 

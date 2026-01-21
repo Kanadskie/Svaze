@@ -80,21 +80,21 @@ export default function Header() {
           >
             <div className="flex flex-col">
               <span 
-                className="text-white font-bold text-xl sm:text-2xl tracking-tight uppercase"
+                className="text-surface font-bold text-xl sm:text-2xl tracking-tight uppercase"
                 style={{
                   textShadow: '2px 2px 4px rgba(55, 73, 64, 0.5)'
                 }}
               >
                 Svaze.<span style={{ color: 'var(--color-warm-accent)' }}>pro</span>
               </span>
-              {/* <img className='w-28' src={logo} alt="" /> */}
+              {/* <img className='w-24' src={logo} alt="" /> */}
               <span 
                 className="text-xs font-medium hidden sm:block"
                 style={{
                   color: 'var(--color-faded-copper)'
                 }}
               >
-                PCM Тренер
+                Тренер по коммуникациям
               </span>
             </div>
           </a>
@@ -135,7 +135,7 @@ export default function Header() {
                 boxShadow: '0 4px 15px rgba(54, 106, 93, 0.3)'
               }}
             >
-              <span className="relative z-10 text-white">
+              <span className="relative z-10 text-surface">
                 Начать диалог
               </span>
               <div 

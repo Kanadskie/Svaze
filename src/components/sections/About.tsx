@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { UserGroupIcon, AcademicCapIcon, ClockIcon } from '@heroicons/react/24/outline';
 import aboutPhoto from '../../assets/images/p4.jpg';
+import { CheckCircle } from 'lucide-react';
 
 export default function About() {
   const stats = [
@@ -151,9 +152,65 @@ export default function About() {
                 className="leading-relaxed text-sm sm:text-base"
                 style={{ color: 'var(--color-neutral-dark)' }}
               >
-                Коммуникация — это не слова. Это контакт.
-                Я помогаю людям и командам находить общий язык даже в напряжённых и сложных ситуациях.
-                Меня зовут <span style={{ color: 'var(--color-warm-accent)', fontWeight: '600' }}>Сюзанна</span>. Я сертифицированный тренер по <span style={{ color: 'var(--color-warm-accent)', fontWeight: '600' }}>Process Communication Model (PCM)</span>.
+                <strong>Коммуникация — это не слова. Это контакт</strong>. Я помогаю людям и командам находить общий язык даже в напряжённых и сложных ситуациях.
+              </motion.p>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 }}
+                className="leading-relaxed text-sm sm:text-base"
+                style={{ color: 'var(--color-neutral-dark)' }}
+              >
+                <span className='block'>Меня зовут <span style={{ color: 'var(--color-warm-accent)', fontWeight: '600' }}>Сюзанна</span>. 
+                  Я тренер по коммуникациям и работе с поведением в стрессе.
+                  Моя задача — не «научить говорить правильно», а помочь выстроить живое, рабочее общение:
+                  <div className="mb-4 mt-4">
+                    <div className="space-y-2 sm:space-y-3 mb-2">
+                        <div className="flex items-start">
+                          <CheckCircle 
+                            className="h-4 w-4 sm:h-5 sm:w-5 mr-3 mt-0.5 shrink-0" 
+                            style={{ color: 'var(--color-warm-accent)' }} 
+                          />
+                          <span 
+                            className="text-sm sm:text-base"
+                            style={{ color: 'var(--color-white-70)' }}
+                          >
+                            Говорить ясно
+                          </span>
+                        </div>
+                    </div>
+                    <div className="space-y-2 sm:space-y-3 mb-2">
+                        <div className="flex items-start">
+                          <CheckCircle 
+                            className="h-4 w-4 sm:h-5 sm:w-5 mr-3 mt-0.5 shrink-0" 
+                            style={{ color: 'var(--color-warm-accent)' }} 
+                          />
+                          <span 
+                            className="text-sm sm:text-base"
+                            style={{ color: 'var(--color-white-70)' }}
+                          >
+                            Слышать глубже
+                          </span>
+                        </div>
+                    </div>
+                    <div className="space-y-2 sm:space-y-3 mb-2">
+                        <div className="flex items-start">
+                          <CheckCircle 
+                            className="h-4 w-4 sm:h-5 sm:w-5 mr-3 mt-0.5 shrink-0" 
+                            style={{ color: 'var(--color-warm-accent)' }} 
+                          />
+                          <span 
+                            className="text-sm sm:text-base"
+                            style={{ color: 'var(--color-white-70)' }}
+                          >
+                            Сохранять контакт
+                          </span>
+                        </div>
+                    </div>
+                  </div>
+                </span>
               </motion.p>
               
               <motion.div
@@ -167,10 +224,20 @@ export default function About() {
                      style={{ background: 'linear-gradient(to bottom, var(--color-accent), var(--color-accent-40))' }}></div>
                 <p className="leading-relaxed text-sm sm:text-base pl-3 sm:pl-4"
                    style={{ color: 'var(--color-neutral-dark)' }}>
-                  <span style={{ color: 'var(--color-warm-accent)', fontWeight: '600' }}>PCM</span> позволяет увидеть, что стоит за реакциями, стрессом и недопониманием — и изменить способ общения так, чтобы он работал. В работе со мной вы получаете не теорию, а практический навык:
-                  говорить ясно, слышать глубже и сохранять контакт.
+                  В работе я опираюсь на современные психологические модели и практики, которые помогают увидеть, <span style={{ color: 'var(--color-warm-accent)', fontWeight: '600' }}>что стоит за реакциями, напряжением и недопониманием,</span> и изменить способ общения так, чтобы он действительно работал.
                 </p>
               </motion.div>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 }}
+                className="leading-relaxed text-sm sm:text-base"
+                style={{ color: 'var(--color-neutral-dark)' }}
+              >
+                В том числе я сертифицированный тренер международной модели <span style={{ color: 'var(--color-warm-accent)', fontWeight: '600' }}>Process Communication Model</span> (PCM).
+              </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -203,7 +270,7 @@ export default function About() {
                          style={{ color: 'var(--color-neutral-dark)' }}>
                       {stat.value}
                     </div>
-                    <div className="text-base"
+                    <div className="text-sm"
                          style={{ color: 'var(--color-accent)' }}>
                       {stat.desc}
                     </div>

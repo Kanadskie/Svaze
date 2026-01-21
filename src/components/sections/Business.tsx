@@ -1,9 +1,8 @@
 'use client'
 
-import { motion, AnimatePresence } from 'framer-motion'
-import { Building2, Users2, Crown, CheckCircle, Handshake, ChevronDown, User, Users, CircleArrowRight, Bookmark, Award, HandCoins, BookmarkCheck, BriefcaseBusiness, Landmark, Coins } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { Building2, Users2, Crown, CheckCircle, Handshake, BriefcaseBusiness, Landmark } from 'lucide-react'
 import businessPhoto from '../../assets/images/p2.jpg'
-import { useState } from 'react'
 
 const businessSections = [
   {
@@ -16,19 +15,7 @@ const businessSections = [
       'Укрепление командной динамики',
       'Снижение текучести за счёт понимания личных мотиваций',
       'Улучшение качества внутренних коммуникаций и обратной связи'
-    ],
-    tariffs: {
-      personal: 'Индивидуальный тренинг для HR-специалиста',
-      team: 'Корпоративный тренинг для HR-отдела',
-      pricePerPerson: 'от 15 000 ₽',
-      includes: [
-        'Диагностика коммуникативного профиля',
-        'Персональная обратная связь',
-        'Рабочая тетрадь с инструментами',
-        '3 месяца поддержки в чате',
-        'Сертификат о прохождении'
-      ]
-    }
+    ]
   },
   {
     icon: BriefcaseBusiness,
@@ -40,19 +27,7 @@ const businessSections = [
       'Замечать стрессовое поведение и корректировать его',
       'Эффективно управлять без микроменеджмента',
       'Усиливать влияние через точную и живую коммуникацию'
-    ],
-    tariffs: {
-      personal: 'Индивидуальный коучинг для руководителя',
-      team: 'Тренинг для управленческой команды',
-      pricePerPerson: 'от 25 000 ₽',
-      includes: [
-        'Анализ коммуникаций в команде',
-        'Кейсы из вашей практики',
-        'Инструменты для ежедневного применения',
-        'Индивидуальные рекомендации',
-        'План внедрения изменений'
-      ]
-    }
+    ]
   },
   {
     icon: Landmark,
@@ -64,19 +39,7 @@ const businessSections = [
       'Развитие лидеров второго уровня',
       'Улучшение стратегических решений через качественный диалог',
       'Создание системы, где коммуникации поддерживают рост'
-    ],
-    tariffs: {
-      personal: 'Стратегическая сессия для собственника',
-      team: 'Тренинг для топ-команды',
-      pricePerPerson: 'от 35 000 ₽',
-      includes: [
-        'Диагностика корпоративной культуры',
-        'Рекомендации по развитию лидерства',
-        'Инструменты для масштабирования',
-        'Индивидуальный план изменений',
-        'Годовое сопровождение'
-      ]
-    }
+    ]
   },
   {
     icon: Handshake,
@@ -89,32 +52,11 @@ const businessSections = [
       'Меньше конфликтов внутри команды',
       'Проще взаимодействие между подразделениями',
       'Более ясный диалог между руководителями и сотрудниками'
-    ],
-    tariffs: {
-      personal: 'Индивидуальные сессии для членов команды',
-      team: 'Командный тренинг по коммуникациям',
-      pricePerPerson: 'от 12 000 ₽',
-      includes: [
-        'Диагностика командной динамики',
-        'Индивидуальные профили участников',
-        'Командные упражнения и кейсы',
-        'План развития команда',
-        'Фоллоу-ап сессия через месяц'
-      ]
-    }
+    ]
   }
 ]
 
 export default function Business() {
-  const [openAccordions, setOpenAccordions] = useState<Record<number, boolean>>({})
-
-  const toggleAccordion = (sectionIndex: number) => {
-    setOpenAccordions(prev => ({
-      ...prev,
-      [sectionIndex]: !prev[sectionIndex]
-    }))
-  }
-
   return (
     <section 
       id="business" 
@@ -216,8 +158,6 @@ export default function Business() {
             {/* Правая часть - Контент */}
             <div className="lg:w-2/3 space-y-6 md:space-y-8">
               {businessSections.map((section, index) => {
-                const isTariffsOpen = openAccordions[index]
-
                 return (
                   <motion.div
                     key={section.title}
@@ -252,7 +192,7 @@ export default function Business() {
                         </h3>
                       </div>
                       
-                      {/* Правая колонка - Описание и Результат (всегда видимы) */}
+                      {/* Правая колонка - Описание и Результат */}
                       <div className="md:w-3/4">
                         {/* Описание */}
                         <div className="mb-6">
@@ -293,7 +233,7 @@ export default function Business() {
                         </div>
 
                         {/* Результат */}
-                        <div className="mb-8">
+                        <div>
                           <div className="space-y-2 sm:space-y-3">
                             {section.benefits.map((benefit, i) => (
                               <div key={i} className="flex items-start">
@@ -310,133 +250,6 @@ export default function Business() {
                               </div>
                             ))}
                           </div>
-                        </div>
-
-                        {/* Тарифы (аккордеон) */}
-                        <div className="border border-white/10 rounded-lg overflow-hidden">
-                          <button
-                            onClick={() => toggleAccordion(index)}
-                            className="w-full p-4 sm:p-5 flex items-center justify-between hover:bg-white/5 transition-colors duration-200"
-                          >
-                            <div className="flex items-center gap-3 sm:gap-4">
-                              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-white/10 flex items-center justify-center">
-                                <HandCoins className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: 'var(--color-accent)' }} />
-                              </div>
-                              <span 
-                                className="font-medium text-sm sm:text-base"
-                                style={{ color: 'var(--color-surface)' }}
-                              >
-                                Тарифы
-                              </span>
-                            </div>
-                            <ChevronDown 
-                              className={`w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-300 ${
-                                isTariffsOpen ? 'rotate-180' : ''
-                              }`}
-                              style={{ color: 'var(--color-accent)' }}
-                            />
-                          </button>
-                          
-                          <AnimatePresence>
-                            {isTariffsOpen && (
-                              <motion.div
-                                initial={{ height: 0, opacity: 0 }}
-                                animate={{ height: 'auto', opacity: 1 }}
-                                exit={{ height: 0, opacity: 0 }}
-                                transition={{ duration: 0.3 }}
-                                className="overflow-hidden"
-                              >
-                                <div className="mt-4 px-4 sm:px-5 pb-4 sm:pb-5">
-                                  {/* Личный и командный тренинг */}
-                                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-                                    <div className="bg-white/5 rounded-lg p-4">
-                                      <div className="flex items-center gap-2 mb-3">
-                                        <User className="w-5 h-5" style={{ color: 'var(--color-accent)' }} />
-                                        <h4 
-                                          className="font-medium text-sm sm:text-base"
-                                          style={{ color: 'var(--color-surface)' }}
-                                        >
-                                          Личный тренинг
-                                        </h4>
-                                      </div>
-                                      <p 
-                                        className="text-sm text-white/70"
-                                        style={{ color: 'var(--color-white-70)' }}
-                                      >
-                                        {section.tariffs.personal}
-                                      </p>
-                                    </div>
-
-                                    <div className="bg-white/5 rounded-lg p-4">
-                                      <div className="flex items-center gap-2 mb-3">
-                                        <Users className="w-5 h-5" style={{ color: 'var(--color-accent)' }} />
-                                        <h4 
-                                          className="font-medium text-sm sm:text-base"
-                                          style={{ color: 'var(--color-surface)' }}
-                                        >
-                                          Командный тренинг
-                                        </h4>
-                                      </div>
-                                      <p 
-                                        className="text-sm text-white/70"
-                                        style={{ color: 'var(--color-white-70)' }}
-                                      >
-                                        {section.tariffs.team}
-                                      </p>
-                                    </div>
-                                  </div>
-
-                                  {/* Цена за человека */}
-                                  <div className="bg-gradient-to-r from-accent/10 to-green-fern/10 rounded-lg mb-8">
-                                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                                      <div className="flex items-center gap-2">
-                                        <Coins className="w-5 h-5" style={{ color: 'var(--color-accent)' }} />
-                                        <span 
-                                          className="font-medium text-sm sm:text-base"
-                                          style={{ color: 'var(--color-surface)' }}
-                                        >
-                                          Цена за 1 человека
-                                        </span>
-                                      </div>
-                                      <span 
-                                        className="text-xl sm:text-2xl font-bold"
-                                        style={{ color: 'var(--color-warm-accent)' }}
-                                      >
-                                        {section.tariffs.pricePerPerson}
-                                      </span>
-                                    </div>
-                                  </div>
-
-                                  {/* Что входит в тренинг */}
-                                  <div>
-                                    <div className="flex items-center gap-2 mb-3">
-                                      <BookmarkCheck className="w-5 h-5" style={{ color: 'var(--color-accent)' }} />
-                                      <h4 
-                                        className="font-medium text-sm sm:text-base"
-                                        style={{ color: 'var(--color-surface)' }}
-                                      >
-                                        Что входит в тренинг
-                                      </h4>
-                                    </div>
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                      {section.tariffs.includes.map((item, i) => (
-                                        <div key={i} className="flex items-start gap-3 bg-white/5 rounded-lg p-3 sm:p-4">
-                                          <CircleArrowRight className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 mt-0.5" 
-                                            style={{ color: 'var(--color-warm-accent)' }} />
-                                          <span 
-                                            className="text-sm text-white/80 leading-relaxed"
-                                            style={{ color: 'var(--color-white-80)' }}
-                                          >
-                                            {item}
-                                          </span>
-                                        </div>
-                                      ))}
-                                    </div>
-                                  </div>
-                                </div>
-                              </motion.div>
-                            )}
-                          </AnimatePresence>
                         </div>
                       </div>
                     </div>
