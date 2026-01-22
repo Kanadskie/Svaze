@@ -46,14 +46,14 @@ export default function SimpleHeader() {
               >
                 Svaze.<span style={{ color: 'var(--color-warm-accent)' }}>pro</span>
               </span>
-              <span 
+              {/* <span 
                 className="text-xs font-medium hidden sm:block"
                 style={{
                   color: 'var(--color-faded-copper)'
                 }}
               >
                 Тренер по коммуникациям
-              </span>
+              </span> */}
             </div>
           </Link>
 

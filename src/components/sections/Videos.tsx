@@ -200,10 +200,7 @@ export default function Videos() {
   return (
     <section 
       id="videos" 
-      className="section-padding bg-surface"
-      style={{
-        background: 'linear-gradient(135deg, var(--color-surface-light) 0%, var(--color-surface) 100%)'
-      }}
+      className="section-padding bg-primary"
     >
       <div className="container-custom">
         <div className="max-w-7xl mx-auto">
@@ -221,7 +218,7 @@ export default function Videos() {
                 custom={0}
                 variants={titleVariants}
                 className="uppercase inline-block"
-                style={{ color: 'var(--color-neutral-dark)' }}
+                style={{ color: 'var(--color-accent)' }}
               >
                 Видео
               </motion.span>
@@ -229,7 +226,7 @@ export default function Videos() {
                 custom={1}
                 variants={titleVariants}
                 className="uppercase inline-block ml-1 md:ml-2"
-                style={{ color: 'var(--color-warm-accent)' }}
+                style={{ color: 'var(--color-surface)' }}
               >
                 материалы
               </motion.span>
@@ -382,11 +379,11 @@ export default function Videos() {
                   
                   <div className="p-6">
                     <motion.h3 
-                        className="text-sm sm:text-base font-bold mb-3 cursor-pointer text-primary"
+                        className="text-sm sm:text-base font-bold mb-3 cursor-pointer text-accent"
                       >
                         {video.title}
                       </motion.h3>
-                    <p className='text-warm-accent text-sm sm:text-base'>{video.description}</p>
+                    <p className='text-surface text-sm sm:text-base'>{video.description}</p>
                   </div>
                 </motion.div>
               )

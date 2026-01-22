@@ -372,7 +372,7 @@ export default function WorkProcess() {
                           whileInView={{ opacity: 1, y: 0 }}
                           viewport={{ once: true }}
                           transition={{ delay: stageIndex * 0.2 + 0.9 }}
-                          className="mb-6 shadow-sm rounded-lg overflow-hidden"
+                          className="hidden md:block mb-6 shadow-sm rounded-lg overflow-hidden"
                           style={{
                             background: 'linear-gradient(135deg, var(--color-var(--color-surface)) 0%, var(--color-surface-light) 100%)',
                             border: '1px solid var(--color-border)'

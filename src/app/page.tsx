@@ -17,8 +17,8 @@ export default function Home() {
       <WorkProcess />
       <Business />
       <PrivateClients />
-      <Certificates />
       <Videos />
+      <Certificates />
       <Contacts />
     </>
   );

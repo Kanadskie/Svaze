@@ -164,7 +164,7 @@ export default function Hero() {
   </motion.button>
 
   {/* Вторая кнопка (с рамкой) */}
-  <motion.button
+  {/* <motion.button
     whileHover={{ 
       scale: 1.05, 
       y: -2,
@@ -196,7 +196,7 @@ export default function Hero() {
     >
       Посмотреть услуги
     </span>
-  </motion.button>
+  </motion.button> */}
 </motion.div>
           </div>
 
