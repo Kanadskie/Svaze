@@ -8,6 +8,7 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(0);
 
   const navItems = [
     { name: 'Обо мне', href: '#about' },
@@ -20,8 +21,19 @@ export default function Header() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
+    
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Инициализируем ширину
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   // Функция для открытия/закрытия меню с анимацией
@@ -30,15 +42,17 @@ export default function Header() {
       // Открытие меню
       setIsMenuOpen(true);
       setIsAnimating(true);
+      // Блокируем скролл, но сохраняем ширину полосы прокрутки
       document.body.style.overflow = 'hidden';
-      document.documentElement.style.overflow = 'hidden'; // Также блокируем на html
+      document.body.style.paddingRight = '0'; // Сбрасываем padding
     } else {
       // Закрытие меню
       setIsAnimating(false);
       setTimeout(() => {
         setIsMenuOpen(false);
-        document.body.style.overflow = 'auto';
-        document.documentElement.style.overflow = 'auto';
+        // Восстанавливаем скролл
+        document.body.style.overflow = '';
+        document.body.style.paddingRight = '';
       }, 400);
     }
   };
@@ -82,6 +96,24 @@ export default function Header() {
         behavior: 'smooth'
       });
     }
+  };
+
+  // Рассчитываем адаптивную ширину меню
+  const getMenuWidth = () => {
+    if (windowWidth === 0) return '280px';
+    
+    // На очень узких экранах используем меньшую ширину
+    if (windowWidth <= 320) {
+      return '260px';
+    }
+    
+    // На средних экранах используем фиксированную ширину
+    if (windowWidth <= 480) {
+      return '280px';
+    }
+    
+    // На более широких экранах можно использовать w-64 (256px) или немного больше
+    return '280px';
   };
 
   return (
@@ -202,7 +234,7 @@ export default function Header() {
             onClick={toggleMenu}
           />
           
-          {/* Панель меню */}
+          {/* Панель меню с адаптивной шириной */}
           <div 
             className={`lg:hidden fixed top-20 right-0 bottom-0 z-50 transition-all duration-500 ease-out ${
               isAnimating 
@@ -212,9 +244,9 @@ export default function Header() {
             style={{
               background: 'var(--color-primary)',
               boxShadow: '-10px 0 30px rgba(0,0,0,0.4)',
-              width: '280px', // Фиксированная ширина
+              width: getMenuWidth(),
+              maxWidth: '85%', // Не более 85% от ширины экрана
               overflowY: 'auto',
-              WebkitOverflowScrolling: 'touch', // Для плавного скролла на iOS
             }}
           >
             <div className="p-4 h-full">
@@ -312,10 +344,16 @@ export default function Header() {
 
       {/* Глобальные стили для предотвращения горизонтального скролла */}
       <style jsx global>{`
-        /* Предотвращаем горизонтальный скролл на всем сайте */
-        html, body {
-          max-width: 100%;
+        /* Предотвращаем горизонтальный скролл */
+        html {
           overflow-x: hidden;
+          width: 100%;
+        }
+        
+        body {
+          overflow-x: hidden;
+          width: 100%;
+          position: relative;
         }
         
         /* Анимации для меню */
@@ -353,9 +391,9 @@ export default function Header() {
           }
         }
         
-        /* Когда меню открыто, полностью блокируем скролл */
-        body.menu-open {
-          overflow: hidden !important;
+        /* Класс для блокировки скролла без изменения ширины */
+        body.no-scroll {
+          overflow: hidden;
           position: fixed;
           width: 100%;
           height: 100%;
