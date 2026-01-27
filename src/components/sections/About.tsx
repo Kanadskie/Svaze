@@ -56,7 +56,7 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "0px" }}
               transition={{ duration: 0.8 }}
-              className="relative max-w-[280px] xs:max-w-xs sm:max-w-sm mx-auto h-[200px] xs:h-[250px] sm:h-[300px] md:h-[350px] mb-6 sm:mb-8"
+              className="relative max-w-[280px] xs:max-w-xs sm:max-w-sm mx-auto h-[250px] sm:h-[300px] md:h-[350px] mb-6 sm:mb-8"
             >
               {/* Декоративные уголки */}
               <div className="absolute -left-1 -top-1 xs:-left-2 xs:-top-2 w-6 h-6 xs:w-8 xs:h-8 sm:w-10 sm:h-10 border-t-2 border-l-2" 
@@ -108,7 +108,7 @@ export default function About() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true, margin: "50px" }}
                   transition={{ duration: 1, delay: 0.5 }}
-                  className="relative w-full h-[250px] md:h-[300px] lg:h-[350px] xl:h-[350 px]"
+                  className="relative w-full h-[250px] md:h-[300px] lg:h-[600px]"
                 >
                   {/* Декоративные уголки */}
                   <div className="absolute -left-2 -top-2 w-8 h-8 md:w-10 md:h-10 border-t-2 border-l-2" 

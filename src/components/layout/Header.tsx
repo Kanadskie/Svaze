@@ -30,14 +30,16 @@ export default function Header() {
       // Открытие меню
       setIsMenuOpen(true);
       setIsAnimating(true);
-      document.body.style.overflow = 'hidden'; // Блокируем скролл при открытом меню
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden'; // Также блокируем на html
     } else {
       // Закрытие меню
       setIsAnimating(false);
       setTimeout(() => {
         setIsMenuOpen(false);
-        document.body.style.overflow = 'auto'; // Восстанавливаем скролл
-      }, 400); // Время должно совпадать с duration анимации
+        document.body.style.overflow = 'auto';
+        document.documentElement.style.overflow = 'auto';
+      }, 400);
     }
   };
 
@@ -63,7 +65,7 @@ export default function Header() {
           });
         }
       }
-    }, 450); // Ждем завершения анимации закрытия меню
+    }, 450);
   };
 
   // Функция для клика по логотипу
@@ -84,7 +86,7 @@ export default function Header() {
 
   return (
     <>
-      {/* Основной хедер - фиксированный и простой */}
+      {/* Основной хедер */}
       <header 
         className={`fixed top-0 left-0 right-0 z-50 h-20 transition-all duration-300 ${
           scrolled 
@@ -123,18 +125,16 @@ export default function Header() {
                 onClick={() => handleNavClick(item.href)}
                 className="px-3 py-2 text-base font-medium transition-colors duration-300 relative group"
                 style={{
-                  color: '#d9dbd2' // Dust Grey
+                  color: '#d9dbd2'
                 }}
               >
                 <span>{item.name}</span>
-                {/* Подчеркивание при наведении */}
                 <span 
                   className="absolute bottom-0 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300"
                   style={{
                     backgroundColor: 'var(--color-warm-accent)'
                   }}
                 ></span>
-                {/* Эффект свечения при наведении */}
                 <span 
                   className="absolute inset-0 rounded opacity-0 group-hover:opacity-10 transition-opacity duration-300"
                   style={{
@@ -163,7 +163,7 @@ export default function Header() {
             </button>
           </div>
 
-          {/* Кнопка мобильного меню - ОРИГИНАЛЬНЫЙ ВИД */}
+          {/* Кнопка мобильного меню */}
           <button
             onClick={toggleMenu}
             className="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg relative group"
@@ -193,36 +193,37 @@ export default function Header() {
 
       {/* Мобильное меню */}
       {(isMenuOpen || isAnimating) && (
-        <div className="lg:hidden fixed inset-0 z-40 overflow-hidden">
-          {/* Затемнение фона с плавной анимацией */}
+        <>
+          {/* Overlay с затемнением */}
           <div 
-            className={`absolute inset-0 transition-all duration-500 ease-out ${
+            className={`lg:hidden fixed inset-0 z-40 transition-all duration-500 ease-out ${
               isAnimating ? 'bg-black/70' : 'bg-black/0'
             }`}
             onClick={toggleMenu}
           />
           
-          {/* Панель меню с выразительной анимацией */}
+          {/* Панель меню */}
           <div 
-            className={`absolute top-20 right-0 bottom-0 transition-all duration-500 ease-out ${
+            className={`lg:hidden fixed top-20 right-0 bottom-0 z-50 transition-all duration-500 ease-out ${
               isAnimating 
-                ? 'translate-x-0 opacity-100' 
-                : 'translate-x-full opacity-0'
+                ? 'translate-x-0' 
+                : 'translate-x-full'
             }`}
             style={{
               background: 'var(--color-primary)',
               boxShadow: '-10px 0 30px rgba(0,0,0,0.4)',
-              width: 'calc(100vw - 40px)', // Адаптивная ширина с отступом
-              maxWidth: '280px', // Максимальная ширина
+              width: '280px', // Фиксированная ширина
+              overflowY: 'auto',
+              WebkitOverflowScrolling: 'touch', // Для плавного скролла на iOS
             }}
           >
-            <div className="p-4 sm:p-6 h-full overflow-y-auto">
+            <div className="p-4 h-full">
               <div className="flex flex-col space-y-4">
                 {navItems.map((item, index) => (
                   <button
                     key={item.name}
                     onClick={() => handleNavClick(item.href)}
-                    className="py-3 text-left text-lg font-medium transition-all duration-300 relative group"
+                    className="py-3 text-left text-lg font-medium transition-all duration-300 relative group w-full"
                     style={{
                       color: '#d9dbd2',
                       animation: isAnimating 
@@ -231,14 +232,12 @@ export default function Header() {
                     }}
                   >
                     <span>{item.name}</span>
-                    {/* Подчеркивание при наведении */}
                     <span 
                       className="absolute bottom-2 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300"
                       style={{
                         backgroundColor: 'var(--color-warm-accent)'
                       }}
                     ></span>
-                    {/* Иконка стрелки */}
                     <span 
                       className="absolute right-0 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-1"
                       style={{
@@ -305,14 +304,21 @@ export default function Header() {
               </div>
             </div>
           </div>
-        </div>
+        </>
       )}
 
       {/* Отступ для фиксированного хедера */}
       <div className="h-20" />
 
-      {/* Стили для анимаций */}
-      <style jsx>{`
+      {/* Глобальные стили для предотвращения горизонтального скролла */}
+      <style jsx global>{`
+        /* Предотвращаем горизонтальный скролл на всем сайте */
+        html, body {
+          max-width: 100%;
+          overflow-x: hidden;
+        }
+        
+        /* Анимации для меню */
         @keyframes slideInRight {
           from {
             opacity: 0;
@@ -345,6 +351,14 @@ export default function Header() {
             opacity: 1;
             transform: scale(1);
           }
+        }
+        
+        /* Когда меню открыто, полностью блокируем скролл */
+        body.menu-open {
+          overflow: hidden !important;
+          position: fixed;
+          width: 100%;
+          height: 100%;
         }
       `}</style>
     </>
