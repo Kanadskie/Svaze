@@ -77,7 +77,12 @@ export default function About() {
                   <img
                     src={aboutPhoto}
                     alt="Сюзанна Ким"
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }}
+                    style={{ 
+                      width: '100%', 
+                      maxHeight: '60vh', 
+                      objectFit: 'cover', 
+                      objectPosition: 'center 30%' // Центр по горизонтали, 30% от верха
+                    }}
                   />
                 </div>
               </div>

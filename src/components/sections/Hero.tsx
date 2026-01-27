@@ -238,7 +238,7 @@ export default function Hero() {
                       <img
                         src={portrait}
                         alt="Сюзанна Ким"
-                        style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }}
+                        style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }}
                       />
                     </div>
                   </div>
