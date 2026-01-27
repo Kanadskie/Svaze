@@ -193,7 +193,7 @@ export default function Header() {
 
       {/* Мобильное меню */}
       {(isMenuOpen || isAnimating) && (
-        <div className="lg:hidden fixed inset-0 z-40">
+        <div className="lg:hidden fixed inset-0 z-40 overflow-hidden">
           {/* Затемнение фона с плавной анимацией */}
           <div 
             className={`absolute inset-0 transition-all duration-500 ease-out ${
@@ -204,7 +204,7 @@ export default function Header() {
           
           {/* Панель меню с выразительной анимацией */}
           <div 
-            className={`absolute top-20 right-0 bottom-0 w-64 p-6 transition-all duration-500 ease-out ${
+            className={`absolute top-20 right-0 bottom-0 transition-all duration-500 ease-out ${
               isAnimating 
                 ? 'translate-x-0 opacity-100' 
                 : 'translate-x-full opacity-0'
@@ -212,92 +212,96 @@ export default function Header() {
             style={{
               background: 'var(--color-primary)',
               boxShadow: '-10px 0 30px rgba(0,0,0,0.4)',
+              width: 'calc(100vw - 40px)', // Адаптивная ширина с отступом
+              maxWidth: '280px', // Максимальная ширина
             }}
           >
-            <div className="flex flex-col space-y-4">
-              {navItems.map((item, index) => (
-                <button
-                  key={item.name}
-                  onClick={() => handleNavClick(item.href)}
-                  className="py-3 text-left text-lg font-medium transition-all duration-300 relative group"
-                  style={{
-                    color: '#d9dbd2',
-                    animation: isAnimating 
-                      ? `slideInRight 0.4s ease-out ${index * 0.08 + 0.2}s both`
-                      : 'none',
-                  }}
-                >
-                  <span>{item.name}</span>
-                  {/* Подчеркивание при наведении */}
-                  <span 
-                    className="absolute bottom-2 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300"
+            <div className="p-4 sm:p-6 h-full overflow-y-auto">
+              <div className="flex flex-col space-y-4">
+                {navItems.map((item, index) => (
+                  <button
+                    key={item.name}
+                    onClick={() => handleNavClick(item.href)}
+                    className="py-3 text-left text-lg font-medium transition-all duration-300 relative group"
                     style={{
-                      backgroundColor: 'var(--color-warm-accent)'
-                    }}
-                  ></span>
-                  {/* Иконка стрелки */}
-                  <span 
-                    className="absolute right-0 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-1"
-                    style={{
-                      color: 'var(--color-faded-copper)'
+                      color: '#d9dbd2',
+                      animation: isAnimating 
+                        ? `slideInRight 0.4s ease-out ${index * 0.08 + 0.2}s both`
+                        : 'none',
                     }}
                   >
-                    →
-                  </span>
-                </button>
-              ))}
-              
-              <div 
-                className="pt-4 mt-4 border-t transition-all duration-300"
-                style={{
-                  borderColor: 'rgba(217, 219, 210, 0.1)',
-                  animation: isAnimating 
-                    ? `fadeIn 0.5s ease-out 0.6s both`
-                    : 'none',
-                }}
-              >
-                <button
-                  onClick={() => handleNavClick('#contact')}
-                  className="w-full py-3 font-semibold rounded-lg relative overflow-hidden group"
+                    <span>{item.name}</span>
+                    {/* Подчеркивание при наведении */}
+                    <span 
+                      className="absolute bottom-2 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300"
+                      style={{
+                        backgroundColor: 'var(--color-warm-accent)'
+                      }}
+                    ></span>
+                    {/* Иконка стрелки */}
+                    <span 
+                      className="absolute right-0 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-1"
+                      style={{
+                        color: 'var(--color-faded-copper)'
+                      }}
+                    >
+                      →
+                    </span>
+                  </button>
+                ))}
+                
+                <div 
+                  className="pt-4 mt-4 border-t transition-all duration-300"
                   style={{
-                    background: 'linear-gradient(135deg, var(--color-accent) 0%, var(--color-green-fern) 100%)',
-                    boxShadow: '0 4px 15px rgba(54, 106, 93, 0.3)',
+                    borderColor: 'rgba(217, 219, 210, 0.1)',
                     animation: isAnimating 
-                      ? `bounceIn 0.5s ease-out 0.7s both`
+                      ? `fadeIn 0.5s ease-out 0.6s both`
                       : 'none',
                   }}
                 >
-                  <span className="relative z-10 text-white">
-                    Начать диалог
-                  </span>
-                  <div 
-                    className="absolute inset-0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
+                  <button
+                    onClick={() => handleNavClick('#contact')}
+                    className="w-full py-3 font-semibold rounded-lg relative overflow-hidden group"
                     style={{
-                      background: 'linear-gradient(to right, var(--color-accent), var(--color-muted-teal))'
+                      background: 'linear-gradient(135deg, var(--color-accent) 0%, var(--color-green-fern) 100%)',
+                      boxShadow: '0 4px 15px rgba(54, 106, 93, 0.3)',
+                      animation: isAnimating 
+                        ? `bounceIn 0.5s ease-out 0.7s both`
+                        : 'none',
                     }}
-                  ></div>
-                </button>
-              </div>
-              <div 
-                className="pt-4 mt-4 border-t transition-all duration-300"
-                style={{
-                  borderColor: 'rgba(217, 219, 210, 0.1)',
-                  animation: isAnimating 
-                    ? `fadeIn 0.5s ease-out 0.8s both`
-                    : 'none',
-                }}
-              >
-                <a
-                  href="/privacy"
-                  className="text-base transition-colors duration-300 block py-2"
+                  >
+                    <span className="relative z-10 text-white">
+                      Начать диалог
+                    </span>
+                    <div 
+                      className="absolute inset-0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
+                      style={{
+                        background: 'linear-gradient(to right, var(--color-accent), var(--color-muted-teal))'
+                      }}
+                    ></div>
+                  </button>
+                </div>
+                <div 
+                  className="pt-4 mt-4 border-t transition-all duration-300"
                   style={{
-                    color: 'rgba(217, 219, 210, 0.7)',
+                    borderColor: 'rgba(217, 219, 210, 0.1)',
+                    animation: isAnimating 
+                      ? `fadeIn 0.5s ease-out 0.8s both`
+                      : 'none',
                   }}
-                  onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-warm-accent)'}
-                  onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(217, 219, 210, 0.7)'}
                 >
-                  Политика конфиденциальности
-                </a>
+                  <a
+                    href="/privacy"
+                    className="text-base transition-colors duration-300 block py-2"
+                    style={{
+                      color: 'rgba(217, 219, 210, 0.7)',
+                    }}
+                    onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-warm-accent)'}
+                    onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(217, 219, 210, 0.7)'}
+                  >
+                    Политика конфиденциальности
+                  </a>
+                </div>
               </div>
             </div>
           </div>

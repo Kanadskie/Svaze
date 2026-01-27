@@ -69,7 +69,7 @@ export default function About() {
                 className="absolute inset-0 overflow-hidden"
                 style={{
                   clipPath: 'polygon(0% 10%, 10% 0%, 100% 0%, 100% 90%, 90% 100%, 0% 100%)',
-                  borderRadius: '8px sm:rounded-lg md:rounded-xl',
+                  borderRadius: '12px',
                   boxShadow: '0 10px 20px var(--shadow-light)'
                 }}
               >
@@ -142,7 +142,7 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "0px" }}
               transition={{ duration: 0.6 }}
-              className="space-y-3 sm:space-y-4 md:space-y-5 lg:col-span-4"
+              className="p-2 space-y-3 sm:space-y-4 md:space-y-5 lg:col-span-4"
             >
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
