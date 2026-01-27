@@ -196,7 +196,7 @@ export default function WorkProcess() {
                         duration: 0.5,
                         delay: stageIndex * 0.2 + 0.1
                       }}
-                      className="relative z-10 flex-shrink-0"
+                      className="hidden md:block relative z-10 flex-shrink-0"
                     >
                       <div 
                         className="w-24 h-24 rounded-full flex items-center justify-center border-4"
@@ -372,7 +372,7 @@ export default function WorkProcess() {
                           whileInView={{ opacity: 1, y: 0 }}
                           viewport={{ once: true }}
                           transition={{ delay: stageIndex * 0.2 + 0.9 }}
-                          className="hidden md:block mb-6 shadow-sm rounded-lg overflow-hidden"
+                          className="mb-6 shadow-sm rounded-lg overflow-hidden"
                           style={{
                             background: 'linear-gradient(135deg, var(--color-var(--color-surface)) 0%, var(--color-surface-light) 100%)',
                             border: '1px solid var(--color-border)'
@@ -706,7 +706,7 @@ export default function WorkProcess() {
                   contactSection.scrollIntoView({ behavior: 'smooth' });
                 }
               }}
-              className="px-8 py-4 text-lg rounded-lg font-medium transition-all duration-300 hover:shadow-xl"
+              className="px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:shadow-xl"
               style={{ 
                 background: 'var(--color-accent)',
                 color: 'surface',

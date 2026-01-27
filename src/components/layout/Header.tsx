@@ -7,6 +7,7 @@ import logo from '../../../public/logo.svg';
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   const navItems = [
     { name: 'Обо мне', href: '#about' },
@@ -23,31 +24,55 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Функция для открытия/закрытия меню с анимацией
+  const toggleMenu = () => {
+    if (!isMenuOpen) {
+      // Открытие меню
+      setIsMenuOpen(true);
+      setIsAnimating(true);
+      document.body.style.overflow = 'hidden'; // Блокируем скролл при открытом меню
+    } else {
+      // Закрытие меню
+      setIsAnimating(false);
+      setTimeout(() => {
+        setIsMenuOpen(false);
+        document.body.style.overflow = 'auto'; // Восстанавливаем скролл
+      }, 400); // Время должно совпадать с duration анимации
+    }
+  };
+
   // Функция для плавного скролла
   const handleNavClick = (href: string) => {
-    setIsMenuOpen(false);
-    
-    if (href.startsWith('#')) {
-      const elementId = href.replace('#', '');
-      const element = document.getElementById(elementId);
-      
-      if (element) {
-        const headerHeight = 80;
-        const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
-        
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-      }
+    if (isMenuOpen) {
+      toggleMenu();
     }
+    
+    setTimeout(() => {
+      if (href.startsWith('#')) {
+        const elementId = href.replace('#', '');
+        const element = document.getElementById(elementId);
+        
+        if (element) {
+          const headerHeight = 80;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }
+    }, 450); // Ждем завершения анимации закрытия меню
   };
 
   // Функция для клика по логотипу
   const handleLogoClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    setIsMenuOpen(false);
+    
+    if (isMenuOpen) {
+      toggleMenu();
+    }
     
     if (window.scrollY > 0) {
       window.scrollTo({
@@ -60,7 +85,7 @@ export default function Header() {
   return (
     <>
       {/* Основной хедер - фиксированный и простой */}
-    <header 
+      <header 
         className={`fixed top-0 left-0 right-0 z-50 h-20 transition-all duration-300 ${
           scrolled 
             ? 'bg-primary-95 backdrop-blur-md shadow-lg' 
@@ -87,15 +112,6 @@ export default function Header() {
               >
                 Svaze.<span style={{ color: 'var(--color-warm-accent)' }}>pro</span>
               </span>
-              {/* <img className='w-24' src={logo} alt="" /> */}
-              {/* <span 
-                className="text-xs font-medium hidden sm:block"
-                style={{
-                  color: 'var(--color-faded-copper)'
-                }}
-              >
-                Тренер по коммуникациям
-              </span> */}
             </div>
           </a>
 
@@ -147,9 +163,9 @@ export default function Header() {
             </button>
           </div>
 
-          {/* Кнопка мобильного меню */}
+          {/* Кнопка мобильного меню - ОРИГИНАЛЬНЫЙ ВИД */}
           <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            onClick={toggleMenu}
             className="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg relative group"
             aria-label={isMenuOpen ? "Закрыть меню" : "Открыть меню"}
             style={{
@@ -158,14 +174,14 @@ export default function Header() {
           >
             {isMenuOpen ? (
               <XMarkIcon 
-                className="w-6 h-6"
+                className="w-6 h-6 transition-transform duration-300"
                 style={{
                   color: 'var(--color-surface)'
                 }}
               />
             ) : (
               <Bars3Icon 
-                className="w-6 h-6"
+                className="w-6 h-6 transition-transform duration-300"
                 style={{
                   color: 'var(--color-surface)'
                 }}
@@ -176,33 +192,39 @@ export default function Header() {
       </header>
 
       {/* Мобильное меню */}
-      {isMenuOpen && (
+      {(isMenuOpen || isAnimating) && (
         <div className="lg:hidden fixed inset-0 z-40">
-          {/* Затемнение фона */}
+          {/* Затемнение фона с плавной анимацией */}
           <div 
-            className="absolute inset-0 bg-black/60"
-            onClick={() => setIsMenuOpen(false)}
-            style={{
-              backdropFilter: 'blur(4px)'
-            }}
+            className={`absolute inset-0 transition-all duration-500 ease-out ${
+              isAnimating ? 'bg-black/70' : 'bg-black/0'
+            }`}
+            onClick={toggleMenu}
           />
           
-          {/* Панель меню */}
+          {/* Панель меню с выразительной анимацией */}
           <div 
-            className="absolute top-20 right-0 bottom-0 w-64 p-6"
+            className={`absolute top-20 right-0 bottom-0 w-64 p-6 transition-all duration-500 ease-out ${
+              isAnimating 
+                ? 'translate-x-0 opacity-100' 
+                : 'translate-x-full opacity-0'
+            }`}
             style={{
               background: 'var(--color-primary)',
-              boxShadow: '-5px 0 20px rgba(0,0,0,0.3)'
+              boxShadow: '-10px 0 30px rgba(0,0,0,0.4)',
             }}
           >
             <div className="flex flex-col space-y-4">
-              {navItems.map((item) => (
+              {navItems.map((item, index) => (
                 <button
                   key={item.name}
                   onClick={() => handleNavClick(item.href)}
-                  className="py-3 text-left text-lg font-medium transition-colors duration-300 relative group"
+                  className="py-3 text-left text-lg font-medium transition-all duration-300 relative group"
                   style={{
-                    color: '#d9dbd2' // Dust Grey
+                    color: '#d9dbd2',
+                    animation: isAnimating 
+                      ? `slideInRight 0.4s ease-out ${index * 0.08 + 0.2}s both`
+                      : 'none',
                   }}
                 >
                   <span>{item.name}</span>
@@ -215,7 +237,7 @@ export default function Header() {
                   ></span>
                   {/* Иконка стрелки */}
                   <span 
-                    className="absolute right-0 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    className="absolute right-0 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-1"
                     style={{
                       color: 'var(--color-faded-copper)'
                     }}
@@ -225,9 +247,13 @@ export default function Header() {
                 </button>
               ))}
               
-              <div className="pt-4 mt-4 border-t"
+              <div 
+                className="pt-4 mt-4 border-t transition-all duration-300"
                 style={{
-                  borderColor: 'rgba(217, 219, 210, 0.1)' // Dust Grey с прозрачностью
+                  borderColor: 'rgba(217, 219, 210, 0.1)',
+                  animation: isAnimating 
+                    ? `fadeIn 0.5s ease-out 0.6s both`
+                    : 'none',
                 }}
               >
                 <button
@@ -235,7 +261,10 @@ export default function Header() {
                   className="w-full py-3 font-semibold rounded-lg relative overflow-hidden group"
                   style={{
                     background: 'linear-gradient(135deg, var(--color-accent) 0%, var(--color-green-fern) 100%)',
-                    boxShadow: '0 4px 15px rgba(54, 106, 93, 0.3)'
+                    boxShadow: '0 4px 15px rgba(54, 106, 93, 0.3)',
+                    animation: isAnimating 
+                      ? `bounceIn 0.5s ease-out 0.7s both`
+                      : 'none',
                   }}
                 >
                   <span className="relative z-10 text-white">
@@ -250,16 +279,19 @@ export default function Header() {
                 </button>
               </div>
               <div 
-                className="pt-4 mt-4 border-t"
+                className="pt-4 mt-4 border-t transition-all duration-300"
                 style={{
-                  borderColor: 'rgba(217, 219, 210, 0.1)' // Dust Grey с прозрачностью
+                  borderColor: 'rgba(217, 219, 210, 0.1)',
+                  animation: isAnimating 
+                    ? `fadeIn 0.5s ease-out 0.8s both`
+                    : 'none',
                 }}
               >
                 <a
                   href="/privacy"
                   className="text-base transition-colors duration-300 block py-2"
                   style={{
-                    color: 'rgba(217, 219, 210, 0.7)', // Dust Grey с прозрачностью
+                    color: 'rgba(217, 219, 210, 0.7)',
                   }}
                   onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-warm-accent)'}
                   onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(217, 219, 210, 0.7)'}
@@ -274,6 +306,43 @@ export default function Header() {
 
       {/* Отступ для фиксированного хедера */}
       <div className="h-20" />
+
+      {/* Стили для анимаций */}
+      <style jsx>{`
+        @keyframes slideInRight {
+          from {
+            opacity: 0;
+            transform: translateX(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+        
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+        
+        @keyframes bounceIn {
+          0% {
+            opacity: 0;
+            transform: scale(0.9);
+          }
+          70% {
+            transform: scale(1.02);
+          }
+          100% {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+      `}</style>
     </>
   );
 }
