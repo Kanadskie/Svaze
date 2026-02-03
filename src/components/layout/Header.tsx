@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import logo from '../../../public/logo.svg';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -118,7 +117,6 @@ export default function Header() {
 
   return (
     <>
-      {/* Основной хедер */}
       <header 
         className={`fixed top-0 left-0 right-0 z-50 h-20 transition-all duration-300 ${
           scrolled 
@@ -131,7 +129,6 @@ export default function Header() {
       >
         <nav className="container-custom h-full flex items-center justify-between">
           
-          {/* Логотип */}
           <a
             href="/"
             className="flex items-center gap-3 no-underline"
@@ -149,7 +146,6 @@ export default function Header() {
             </div>
           </a>
 
-          {/* Десктопная навигация */}
           <div className="hidden lg:flex items-center space-x-6">
             {navItems.map((item) => (
               <button
@@ -195,7 +191,6 @@ export default function Header() {
             </button>
           </div>
 
-          {/* Кнопка мобильного меню */}
           <button
             onClick={toggleMenu}
             className="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg relative group"
@@ -223,10 +218,8 @@ export default function Header() {
         </nav>
       </header>
 
-      {/* Мобильное меню */}
       {(isMenuOpen || isAnimating) && (
         <>
-          {/* Overlay с затемнением */}
           <div 
             className={`lg:hidden fixed inset-0 z-40 transition-all duration-500 ease-out ${
               isAnimating ? 'bg-black/70' : 'bg-black/0'
@@ -234,7 +227,6 @@ export default function Header() {
             onClick={toggleMenu}
           />
           
-          {/* Панель меню с адаптивной шириной */}
           <div 
             className={`lg:hidden fixed top-20 right-0 bottom-0 z-50 transition-all duration-500 ease-out ${
               isAnimating 
@@ -339,12 +331,9 @@ export default function Header() {
         </>
       )}
 
-      {/* Отступ для фиксированного хедера */}
       <div className="h-20" />
 
-      {/* Глобальные стили для предотвращения горизонтального скролла */}
-      <style jsx global>{`
-        /* Предотвращаем горизонтальный скролл */
+      <style>{`
         html {
           overflow-x: hidden;
           width: 100%;
@@ -356,7 +345,6 @@ export default function Header() {
           position: relative;
         }
         
-        /* Анимации для меню */
         @keyframes slideInRight {
           from {
             opacity: 0;
@@ -391,7 +379,6 @@ export default function Header() {
           }
         }
         
-        /* Класс для блокировки скролла без изменения ширины */
         body.no-scroll {
           overflow: hidden;
           position: fixed;

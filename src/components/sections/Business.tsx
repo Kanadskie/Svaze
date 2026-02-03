@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Building2, Users2, Crown, CheckCircle, Handshake, BriefcaseBusiness, Landmark } from 'lucide-react'
+import { Users2, CheckCircle, Handshake, BriefcaseBusiness, Landmark } from 'lucide-react'
 import businessPhoto from '../../assets/images/p2.jpg'
 
 const businessSections = [

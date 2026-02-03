@@ -233,7 +233,6 @@ export default function Videos() {
             </motion.h2>
           </motion.div>
 
-          {/* Видео блоки */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -241,7 +240,7 @@ export default function Videos() {
             viewport={{ once: true, margin: "-50px" }}
             className="grid grid-cols-1 md:grid-cols-2 gap-8"
           >
-            {videos.map((video, index) => {
+            {videos.map((video) => {
               const isActive = activeVideoId === video.id
               const isPlaying = playingStates[video.id] || false
               const isMuted = mutedStates[video.id] ?? false

@@ -1,13 +1,11 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Mail, Linkedin, Youtube, ContactRound, Send, ExternalLink, Check } from 'lucide-react';
 
 export default function Contacts() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-50px' });
   const [agreedToPrivacy, setAgreedToPrivacy] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
   

@@ -1,4 +1,3 @@
-import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import RootPage from '@/app/page'
 import PrivacyPage from '@/app/privacy/page'

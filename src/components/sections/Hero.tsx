@@ -1,10 +1,10 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import portrait from '../../assets/images/p3.jpg';
 
-// ТОЛЬКО ДЛЯ H1 - анимация букв
 const titleContainerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -40,6 +40,8 @@ const nameLetters = {
 };
 
 export default function Hero() {
+  const [portraitLoaded, setPortraitLoaded] = useState(false);
+
   return (
     <section 
       id="hero" 
@@ -47,17 +49,13 @@ export default function Hero() {
     >
       <div className="container-custom relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-12 lg:gap-16 items-end">
-          
-          {/* Левая колонка - текст */}
           <div className="text-center lg:text-left order-2 lg:order-1">
-            {/* Обертка для h1 с letterVariants */}
             <motion.div
               variants={titleContainerVariants}
               initial="hidden"
-              animate="visible"
+              animate={portraitLoaded ? 'visible' : 'hidden'}
             >
               <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-5 md:mb-6 lg:mb-7 leading-tight">
-                {/* Первая строка - СЮЗАННА */}
                 <span className="block tracking-tight">
                   {nameLetters["СЮЗАННА"].map((letter, index) => (
                     <motion.span
@@ -74,12 +72,11 @@ export default function Hero() {
                   ))}
                 </span>
                 
-                {/* Вторая строка - КИМ с задержкой */}
                 <motion.span 
                   className="block tracking-tight"
                   variants={titleContainerVariants}
                   initial="hidden"
-                  animate="visible"
+                  animate={portraitLoaded ? 'visible' : 'hidden'}
                   custom={1}
                 >
                   {nameLetters["КИМ"].map((letter, index) => (
@@ -97,14 +94,13 @@ export default function Hero() {
               </h1>
             </motion.div>
 
-            {/* Остальная оригинальная анимация */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              animate={portraitLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl text-white/90 mb-6 sm:mb-7 md:mb-8 lg:mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed font-light"
               style={{
-                color: 'var(--color-surface)' // Dust Grey
+                color: 'var(--color-surface)'
               }}
             >
               Помогаю людям и командам слышать друг друга, даже в{' '}
@@ -119,91 +115,54 @@ export default function Hero() {
               </span>
             </motion.p>
 
-<motion.div
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.6, delay: 0.4 }}
-  className="hidden md:flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-5 justify-center lg:justify-start items-stretch"
->
-  {/* Первая кнопка (без рамки) */}
-  <motion.button
-    whileHover={{ 
-      scale: 1.05, 
-      y: -2,
-      backgroundColor: 'var(--color-green-fern)'
-    }}
-    whileTap={{ scale: 0.98 }}
-    onClick={() => {
-      const element = document.getElementById('contact');
-      if (element) {
-        const headerHeight = window.innerWidth >= 1024 ? 80 : 72;
-        const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-      }
-    }}
-    className="group relative overflow-hidden min-w-[200px] lg:min-w-[220px] sm:w-auto px-6 py-3 sm:px-7 sm:py-3.5 md:px-7 md:py-3.5 lg:px-8 lg:py-4 xl:px-10 xl:py-5 rounded-lg h-[56px] md:h-[60px] lg:h-[64px] xl:h-[68px]"
-    style={{
-      backgroundColor: 'var(--color-accent)',
-      boxShadow: '0 4px 15px rgba(54, 106, 93, 0.3)'
-    }}
-  >
-    <span className="relative z-10 flex items-center justify-center gap-2 sm:gap-2 md:gap-3 lg:gap-4 text-sm sm:text-base md:text-base lg:text-lg font-medium text-white whitespace-nowrap">
-      Начать диалог
-      <ArrowRightIcon className="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 group-hover:translate-x-2 transition-transform duration-300" />
-    </span>
-    <div 
-      className="absolute inset-0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
-      style={{
-        background: 'linear-gradient(to right, var(--color-accent), var(--color-muted-teal))'
-      }}
-    ></div>
-  </motion.button>
-
-  {/* Вторая кнопка (с рамкой) */}
-  {/* <motion.button
-    whileHover={{ 
-      scale: 1.05, 
-      y: -2,
-      borderColor: 'var(--color-faded-copper)'
-    }}
-    whileTap={{ scale: 0.98 }}
-    onClick={() => {
-      const element = document.getElementById('business');
-      if (element) {
-        const headerHeight = window.innerWidth >= 1024 ? 80 : 72;
-        const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-      }
-    }}
-    className="group border box-border sm:w-auto min-w-[200px] lg:min-w-[220px] px-6 py-3 sm:px-7 sm:py-3.5 md:px-7 md:py-3.5 lg:px-8 lg:py-4 xl:px-10 xl:py-5 rounded-lg h-[56px] md:h-[60px] lg:h-[64px] xl:h-[68px]"
-    style={{
-      borderColor: 'var(--color-surface)',
-      boxShadow: '0 4px 15px var(--color-warm-accent-20)'
-    }}
-  >
-    <span className="flex items-center justify-center gap-2 sm:gap-2 md:gap-3 lg:gap-4 text-sm sm:text-base md:text-base lg:text-lg font-medium whitespace-nowrap"
-      style={{
-        color: 'var(--color-surface)'
-      }}
-    >
-      Посмотреть услуги
-    </span>
-  </motion.button> */}
-</motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={portraitLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="hidden md:flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-5 justify-center lg:justify-start items-stretch"
+            >
+              <motion.button
+                whileHover={{ 
+                  scale: 1.05, 
+                  y: -2,
+                  backgroundColor: 'var(--color-green-fern)'
+                }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => {
+                  const element = document.getElementById('contact');
+                  if (element) {
+                    const headerHeight = window.innerWidth >= 1024 ? 80 : 72;
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+                    window.scrollTo({
+                      top: offsetPosition,
+                      behavior: 'smooth'
+                    });
+                  }
+                }}
+                className="group relative overflow-hidden min-w-[200px] lg:min-w-[220px] sm:w-auto px-6 py-3 sm:px-7 sm:py-3.5 md:px-7 md:py-3.5 lg:px-8 lg:py-4 xl:px-10 xl:py-5 rounded-lg h-[56px] md:h-[60px] lg:h-[64px] xl:h-[68px]"
+                style={{
+                  backgroundColor: 'var(--color-accent)',
+                  boxShadow: '0 4px 15px rgba(54, 106, 93, 0.3)'
+                }}
+              >
+                <span className="relative z-10 flex items-center justify-center gap-2 sm:gap-2 md:gap-3 lg:gap-4 text-sm sm:text-base md:text-base lg:text-lg font-medium text-white whitespace-nowrap">
+                  Начать диалог
+                  <ArrowRightIcon className="w-4 h-4 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 group-hover:translate-x-2 transition-transform duration-300" />
+                </span>
+                <div 
+                  className="absolute inset-0 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
+                  style={{
+                    background: 'linear-gradient(to right, var(--color-accent), var(--color-muted-teal))'
+                  }}
+                ></div>
+              </motion.button>
+            </motion.div>
           </div>
 
-          {/* Фото с оригинальной анимацией - БЕЗ НАЛОЖЕНИЙ */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={portraitLoaded ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.7, delay: 0.3 }}
             className="relative flex justify-center lg:justify-end order-1 lg:order-2 mb-0"
           >
@@ -238,6 +197,7 @@ export default function Hero() {
                       <img
                         src={portrait}
                         alt="Сюзанна Ким"
+                        onLoad={() => setPortraitLoaded(true)}
                         style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }}
                       />
                     </div>
@@ -273,6 +233,7 @@ export default function Hero() {
                       <img
                         src={portrait}
                         alt="Сюзанна Ким"
+                        onLoad={() => setPortraitLoaded(true)}
                         style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }}
                       />
                     </div>

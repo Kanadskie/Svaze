@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ChevronDown, CircleArrowRight, CheckCircle, BookmarkCheck, Target, Users, Zap, Lightbulb, BarChart3, GraduationCap, Footprints, CircleQuestionMark, MessageCircleQuestionMark, Pin } from 'lucide-react'
+import { ChevronDown, CircleArrowRight, CheckCircle, BookmarkCheck, Target, BarChart3, GraduationCap, Footprints, CircleQuestionMark, Pin } from 'lucide-react'
 import { useState } from 'react'
 
 const workStages = [
